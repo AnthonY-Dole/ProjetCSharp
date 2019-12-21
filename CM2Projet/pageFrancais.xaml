@@ -6,10 +6,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
+    Background="#FF34495E" Foreground="White">    <Grid AutomationProperties.HelpText="" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
+        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
+        <TextBlock  Text="Exercice de Francais" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
+        <TextBlock Text="NameJoueur,trouve le synonyme du mot: " Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
+        <TextBlock Text="Issou" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="40"/>
     </Grid>
+
 </Page>
