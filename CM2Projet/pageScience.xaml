@@ -7,8 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="#FF34495E" Foreground="White">
-
     <Grid>
-        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
+        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
+        <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
     </Grid>
 </Page>
