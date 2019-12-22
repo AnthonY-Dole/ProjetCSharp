@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using RestSharp;
+using RestSharp.Authenticators;
+using System.Diagnostics;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,16 +28,55 @@ namespace CM2Projet
         public pageFrancais()
         {
             this.InitializeComponent();
+           
+
         }
+        /*
+        public pageFrancais apiGET(string mot, string categorie)
+        {
+
+            var restClient = new RestClient("https://api.dicolink.com");
+            var request = new RestRequest("/{v1}/{mot}/{categorie}/_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", Method.GET);
+            request.AddUrlSegment("v1", "v1");
+            request.AddUrlSegment("mot", mot);
+            request.AddUrlSegment("categorie", categorie);
+         
+
+
+            var response = restClient.Execute<pageFrancais>(request);
+
+            var data = response.Data;
+
+            //Debug.WriteLine("My Value: " + Convert.ToString(data));
+
+            return response.Data;
+        }
+
+        private void aleaWord()
+        {
+            var restClient = new RestClient("https://api.dicolink.com");
+            var request = new RestRequest("/v1/mots/motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false&api_key=_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", Method.GET);
+            var response = restClient.Execute<pageFrancais>(request);
+
+            var data = response.Data;
+
+            //Debug.WriteLine("My Value: " + Convert.ToString(data));
+            data.ToString();
+            return 0;
+
+        }
+        */
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             BackButton.IsEnabled = this.Frame.CanGoBack;
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
+
         }
 
         private bool On_BackRequested()
@@ -46,6 +88,14 @@ namespace CM2Projet
             }
             return false;
         }
+
+        private void textBoxReponseSynonyme_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String synonymeJoueur = textBoxReponseSynonyme.Text;
+
+        }
+
+
 
     }
 }
