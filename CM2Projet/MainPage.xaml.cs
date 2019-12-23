@@ -131,7 +131,7 @@ namespace CM2Projet
 
         private void textBoxNom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
         {
-            if (J == null && textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            if ( textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 J = new Joueur(
                 textBoxNom.Text,
@@ -141,7 +141,7 @@ namespace CM2Projet
 
         private void textBoxPrenom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
         {
-            if (J == null && textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            if ( textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 J = new Joueur(
                 textBoxNom.Text,
