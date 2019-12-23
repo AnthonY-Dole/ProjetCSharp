@@ -24,9 +24,10 @@
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Francais" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
         <TextBlock Text="NameJoueur,trouve le synonyme du mot: " Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
-        <TextBlock Text="Issou" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="40"/>
-        <TextBlock Text="Reponse" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="303,1,0,0"/>
-        <TextBox x:Name="textBoxReponseSynonyme" TextChanged="textBoxReponseSynonyme_TextChanged" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40" Grid.ColumnSpan="2" Width="478"   />
+        <TextBlock  Text="{Binding Valeur}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="40" Margin="221,0,0,0" TextWrapping="Wrap"/>
+        <TextBlock Text="Reponse :" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="239,180,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxReponseSynonyme" TextChanged="textBoxReponseSynonyme_TextChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="40,180,0,0" Grid.RowSpan="2"   />
+        <Button  x:Name="valider" Click="valider_Click" Grid.Column="2" Margin="160,180,0,0" Grid.Row="1" VerticalAlignment="Top" Height="66" Width="128" Grid.RowSpan="2" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False"/>
     </Grid>
 
 </Page>

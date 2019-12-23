@@ -24,6 +24,9 @@ namespace CM2Projet
     {
         Joueur J;
         Frame rootFrame = Window.Current.Content as Frame;
+        public string leJoueur { get; set; }
+        private MainPage pseudoJoueur;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,6 +35,15 @@ namespace CM2Projet
         public void init()
         {
             
+        }
+
+        private void btnjoueurvalid_Click(object sender, RoutedEventArgs e)
+        {
+            pseudoJoueur = new MainPage
+            {
+                leJoueur = "Bonjour " + textBoxPrenom.Text
+            };
+            DataContext = pseudoJoueur;
         }
 
         private void btnScience_Click(object sender, RoutedEventArgs e)
@@ -64,29 +76,56 @@ namespace CM2Projet
             Frame.Navigate(typeof(pageScores));
         }
 
-        private void textBoxNom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
+        private void textBoxNom_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ( textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            if (textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 btnScience.IsEnabled = true;
                 btnFrancais.IsEnabled = true;
                 btnMath.IsEnabled = true;
                 btnGeographie.IsEnabled = true;
-                btnScore.IsEnabled = true;
+                //btnScore.IsEnabled = true;
+                btnjoueurvalid.IsEnabled = true;
+            }
+            else
+            {
+                btnScience.IsEnabled = false;
+                btnFrancais.IsEnabled = false;
+                btnMath.IsEnabled = false;
+                btnGeographie.IsEnabled = false;
+                //btnScore.IsEnabled = false;
+                btnjoueurvalid.IsEnabled = false;
             }
         }
 
-        private void textBoxPrenom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
+        private void textBoxPrenom_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (textBoxNom.Text != "" &&  textBoxPrenom.Text != "")
+            if (textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 btnScience.IsEnabled = true;
                 btnFrancais.IsEnabled = true;
                 btnMath.IsEnabled = true;
                 btnGeographie.IsEnabled = true;
-                btnScore.IsEnabled = true;
+                //  btnScore.IsEnabled = true;
+                btnjoueurvalid.IsEnabled = true;
+            }
+            else
+            {
+                btnScience.IsEnabled = false;
+                btnFrancais.IsEnabled = false;
+                btnMath.IsEnabled = false;
+                btnGeographie.IsEnabled = false;
+                //btnScore.IsEnabled = false;
+                btnjoueurvalid.IsEnabled = false;
             }
         }
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
+
+
     
 }

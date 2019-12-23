@@ -25,6 +25,8 @@ namespace CM2Projet
         public pageScores()
         {
             this.InitializeComponent();
+         
+            AfficherDialogErreur();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -45,6 +47,23 @@ namespace CM2Projet
                 return true;
             }
             return false;
+        }
+        private async void AfficherDialogErreur()
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Erreur",
+                Content = "Aucun jeux n'a été jouer",
+                PrimaryButtonText = "retour",
+                DefaultButton = ContentDialogButton.Primary
+
+
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+
+            }
         }
     }
 }
