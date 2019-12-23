@@ -30,11 +30,12 @@ namespace CM2Projet
         public MainPage()
         {
             this.InitializeComponent();
+           
         }
 
         public void init()
         {
-            
+           
         }
 
         private void btnjoueurvalid_Click(object sender, RoutedEventArgs e)
@@ -44,6 +45,10 @@ namespace CM2Projet
                 leJoueur = "Bonjour " + textBoxPrenom.Text
             };
             DataContext = pseudoJoueur;
+          /*  Joueur currentJoueur = (Joueur);
+            Application.Current.Resources["monJoueur"] = currentJoueur; 
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(pageFrancais));*/
         }
 
         private void btnScience_Click(object sender, RoutedEventArgs e)
