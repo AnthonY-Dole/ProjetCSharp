@@ -52,6 +52,12 @@ namespace CM2Projet
           
             _client = new RestClient(BaseUrl);
 
+            
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             prenomContext.DataContext = J.Nom;
 
         }
@@ -194,6 +200,7 @@ namespace CM2Projet
             DataContext = motSynonyme;
             
         }
-      
+
+
     }
 }
