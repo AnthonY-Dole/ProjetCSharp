@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using CM2Projet.Metier;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,7 +38,7 @@ namespace CM2Projet
     public sealed partial class pageScores : Page
     {
         public List<Person> Persons { get; set; }
-
+        Joueur J = null;
         public pageScores()
         {
             this.InitializeComponent();
@@ -66,6 +67,7 @@ namespace CM2Projet
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            J = (Joueur)e.Parameter;
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CM2Projet.Metier;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace CM2Projet
     /// </summary>
     public sealed partial class pageGeographie : Page
     {
+        Joueur J = null;
         public pageGeographie()
         {
             this.InitializeComponent();
@@ -29,6 +31,7 @@ namespace CM2Projet
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            J = (Joueur)e.Parameter;
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 

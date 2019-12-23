@@ -25,9 +25,9 @@
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-416,-398,-417,-399"/>
 
         <TextBlock Text="Nom : " Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="258,1,0,0"/>
-        <TextBox x:Name="textBoxNom" TextChanged="textBoxNom_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300" Margin="0,1,0,0" Grid.Row="1"/>
+        <TextBox x:Name="textBoxNom" TextChanged="textBoxNom_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300" Margin="0,1,0,0" Grid.Row="1" LosingFocus="textBoxNom_LosingFocus"/>
         <TextBlock Text="Prénom : " Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="10,1,0,0" Grid.Row="1"  />
-        <TextBox x:Name="textBoxPrenom" TextChanged="textBoxPrenom_TextChanged" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300"  Grid.ColumnSpan="2" Margin="172,1,0,0"  />
+        <TextBox x:Name="textBoxPrenom" TextChanged="textBoxPrenom_TextChanged" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300"  Grid.ColumnSpan="2" Margin="172,1,0,0" LosingFocus="textBoxPrenom_LosingFocus"  />
         <Button x:Name="btnjoueurvalid" Click="btnjoueurvalid_Click"  IsEnabled="false" Content="VALIDER" FontSize="30" Grid.Row="1" Grid.Column="1"  Width="168" Height="63" Grid.ColumnSpan="2" Margin="0,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FocusVisualPrimaryBrush="#FF2980B9" Background="#FF2980B9" Foreground="White" FontWeight="Bold" />
         <TextBlock  Text="{Binding leJoueur}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40" TextWrapping="Wrap"/>
         <TextBlock Text="A quel jeux veux-tu jouer?" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center" FontSize="40" Margin="10,0,365,0"  Grid.ColumnSpan="3" SelectionChanged="TextBlock_SelectionChanged"/>

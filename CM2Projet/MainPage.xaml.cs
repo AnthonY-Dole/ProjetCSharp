@@ -54,31 +54,31 @@ namespace CM2Projet
         private void btnScience_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageScience));
+            Frame.Navigate(typeof(pageScience),J);
         }
 
         private void btnFrancais_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageFrancais));
+            Frame.Navigate(typeof(pageFrancais),J);
         }
 
         private void btnMath_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageMath));
+            Frame.Navigate(typeof(pageMath),J);
         }
 
         private void btnGeographie_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageGeographie));
+            Frame.Navigate(typeof(pageGeographie),J);
         }
 
         private void btnScore_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageScores));
+            Frame.Navigate(typeof(pageScores),J);
         }
 
         private void textBoxNom_TextChanged(object sender, TextChangedEventArgs e)
@@ -127,6 +127,26 @@ namespace CM2Projet
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void textBoxNom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
+        {
+            if (J == null && textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            {
+                J = new Joueur(
+                textBoxNom.Text,
+                textBoxPrenom.Text);
+            }
+        }
+
+        private void textBoxPrenom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
+        {
+            if (J == null && textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            {
+                J = new Joueur(
+                textBoxNom.Text,
+                textBoxPrenom.Text);
+            }
         }
     }
 

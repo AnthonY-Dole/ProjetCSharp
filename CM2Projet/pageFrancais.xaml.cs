@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using RestSharp;
 using RestSharp.Authenticators;
 using System.Diagnostics;
+using CM2Projet.Metier;
 
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,6 +27,7 @@ namespace CM2Projet
     /// </summary>
     public sealed partial class pageFrancais : Page
     {
+        Joueur J = null;
         public class Mots
         {
             public string Valeur { get; set; }
@@ -88,6 +90,7 @@ namespace CM2Projet
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            J = (Joueur)e.Parameter;
             BackButton.IsEnabled = this.Frame.CanGoBack;
 
         }
