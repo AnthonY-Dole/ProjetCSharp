@@ -31,14 +31,17 @@ namespace CM2Projet
         public class Mots
         {
             public string Valeur { get; set; }
-     
+            public string joueurName { get; set; }
+
 
         }
-       
 
+        Joueur Jou = new Joueur
         private Mots motSynonyme;
+        private Mots data;
 
-      
+
+
         const string BaseUrl = "https://api.dicolink.com";
 
         readonly IRestClient _client;
@@ -49,11 +52,20 @@ namespace CM2Projet
         {
             this.InitializeComponent();
 
-          
+            data = new Mots
+            {
+                joueurName = J.
+            };
+            DataContext = data;
             _client = new RestClient(BaseUrl);
 
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            J = (Joueur)e.Parameter;
+            BackButton.IsEnabled = this.Frame.CanGoBack;
 
+        }
         public T Execute<T>(RestRequest request) where T : new()
         {
 
@@ -88,12 +100,7 @@ namespace CM2Projet
         }
    
        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            J = (Joueur)e.Parameter;
-            BackButton.IsEnabled = this.Frame.CanGoBack;
-
-        }
+       
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
