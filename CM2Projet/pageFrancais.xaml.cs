@@ -35,7 +35,7 @@ namespace CM2Projet
 
         }
        
-
+         
         private Mots motSynonyme;
 
       
@@ -52,6 +52,15 @@ namespace CM2Projet
           
             _client = new RestClient(BaseUrl);
 
+            prenomContext.DataContext = J.Nom;
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            J = (Joueur)e.Parameter;
+         
+            BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 
         public T Execute<T>(RestRequest request) where T : new()
@@ -88,12 +97,7 @@ namespace CM2Projet
         }
    
        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            J = (Joueur)e.Parameter;
-            BackButton.IsEnabled = this.Frame.CanGoBack;
-
-        }
+       
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
