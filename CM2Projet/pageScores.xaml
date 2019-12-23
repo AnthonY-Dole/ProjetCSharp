@@ -3,13 +3,42 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CM2Projet"
+
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
      Background="#FF34495E" Foreground="White">
 
+    <Page.Resources>
+        <CollectionViewSource x:Name="score" />
+    </Page.Resources>
     <Grid>
-        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
 
+        <controls:DataGrid x:Name="Scoreboard"
+                  ItemsSource="{x:Bind Persons}"
+                  AutoGenerateColumns="False" Margin="129,73,128,73" FontSize="30" FontWeight="Bold" Foreground="#FF2C3E50">
+            <controls:DataGrid.HorizontalGridLinesBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </controls:DataGrid.HorizontalGridLinesBrush>
+            <controls:DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBDC3C7"/>
+                    <GradientStop Color="#FFBDC3C7" Offset="1"/>
+                </LinearGradientBrush>
+            </controls:DataGrid.Background>
+
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Joueur " Binding="{Binding Nom}" Foreground="Black"/>
+                <controls:DataGridTextColumn Header="ScoreTotal" Binding="{Binding TotalScore}"/>
+                <controls:DataGridTextColumn Header="Score Francais" Binding="{Binding ScoreFrancais}"/>
+                <controls:DataGridTextColumn Header="ScoreMath" Binding="{Binding ScoreMath}"/>
+            </controls:DataGrid.Columns>
+
+        </controls:DataGrid>
     </Grid>
 </Page>
