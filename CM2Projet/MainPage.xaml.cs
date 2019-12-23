@@ -22,7 +22,7 @@ namespace CM2Projet
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        Joueur J;
+        Joueur J = null;
         Frame rootFrame = Window.Current.Content as Frame;
         public string leJoueur { get; set; }
         private MainPage pseudoJoueur;
