@@ -16,7 +16,6 @@ namespace CM2Projet
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
         public DicoApi Get(string categorie, string unmot)
         {
-
             var restClient = new RestClient("https://api.dicolink.com/v1/mot");
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
             request.AddParameter("limite", "5", ParameterType.QueryString);
@@ -29,7 +28,7 @@ namespace CM2Projet
             {
                 Console.WriteLine(item.mot);
                 Debug.WriteLine(item.mot);
-               listemot = item.mot;
+                ANTHO.L.Add(item.mot);
                
             }
             return reponse2.Data[1];
