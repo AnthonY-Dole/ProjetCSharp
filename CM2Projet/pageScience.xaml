@@ -44,6 +44,7 @@
             <TextBlock x:Name="sourceRepPoumon" Text="Poumon" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
             <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
             <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
 
 
         </StackPanel>
