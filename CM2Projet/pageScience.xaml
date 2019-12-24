@@ -31,14 +31,19 @@
             <StackPanel Orientation="Vertical" Background="AliceBlue" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="True"
                         DragOver="StackPanel_DragOver" Drop="StackPanel_Drop">
 
-                
                 <TextBox x:Name="rep1" Margin="10" Height="159" Width="151"/>
 
             </StackPanel>
             <Image x:Name="srep1" Source="img/SC.svg" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40" CanDrag="True"/>
-            <Border Background="Gray">
-                <TextBlock x:Name="srep2" Text="bonjour" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40" CanDrag="True"/>
-            </Border>
+
+            <TextBlock x:Name="sourceRepPharynx" Text="Pharynx" HorizontalAlignment="Center" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepLarynx" Text="Larynx" HorizontalAlignment="Center" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Princpale" HorizontalAlignment="Center" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepTrachee" Text="bonjour" HorizontalAlignment="Center" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRep1" Text="bonjour" HorizontalAlignment="Center" VerticalAlignment="Center" CanDrag="True"/>
+            
+           
+         
         </StackPanel>
 
     </Grid>

@@ -14,6 +14,12 @@ namespace CM2Projet
         public string mot { get; set; }
         public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
+
+        
+        public DicoApi()
+        {
+
+        }
         public DicoApi Get(string categorie, string unmot)
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mot");

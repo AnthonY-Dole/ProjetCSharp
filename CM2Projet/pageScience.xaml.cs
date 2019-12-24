@@ -62,7 +62,8 @@ namespace CM2Projet
         private void StackPanel_Drop(object sender, DragEventArgs e)
         {
            // rep1.DataContext = srep1.Source;
-            rep1.DataContext = srep2.DataContext;
+            rep1.Text = sourceRepBroncheP.Text;
         }
+
     }
 }

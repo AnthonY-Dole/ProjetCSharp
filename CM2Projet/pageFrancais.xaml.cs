@@ -16,6 +16,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System.Diagnostics;
 using CM2Projet.Metier;
+using System.ComponentModel;
 
 
 
@@ -148,13 +149,20 @@ namespace CM2Projet
 
             }
         }
-        
+
         private void motsATrouver()
         {
-            string trouve = apidico.Get("synonymes", "aller").ToString();
-            motAlea.DataContext = trouve.ToString();
-            Debug.WriteLine(trouve);
+            apidico.Get("synonymes", "aller").ToString();
+            BindingList<string> L = new BindingList<string>();
+            foreach (string l in ANTHO.L)
+            {
+                L.Add(l);
+            }
+            motAlea.DataContext = L[0];
+            Debug.WriteLine(motAlea.DataContext);
+
             
+
         }
 
 
