@@ -18,6 +18,7 @@ using System.Diagnostics;
 using CM2Projet.Metier;
 
 
+
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CM2Projet
@@ -151,8 +152,9 @@ namespace CM2Projet
         private void motsATrouver()
         {
             string trouve = apidico.Get("synonymes", "aller").ToString();
-            motAlea.DataContext = trouve; 
-
+            motAlea.DataContext = trouve.ToString();
+            Debug.WriteLine(trouve);
+            
         }
 
 

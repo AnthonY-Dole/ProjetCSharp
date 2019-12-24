@@ -12,6 +12,7 @@ namespace CM2Projet
     class DicoApi
     {
         public string mot { get; set; }
+        public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
         public DicoApi Get(string categorie, string unmot)
         {
@@ -22,15 +23,37 @@ namespace CM2Projet
             request.AddParameter("api_key", _apiKey);
     
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
-
+          
 
             foreach (DicoApi item in reponse2.Data)
             {
                 Console.WriteLine(item.mot);
+                Debug.WriteLine(item.mot);
+               listemot = item.mot;
                
             }
             return reponse2.Data[1];
+           // return listemot;
         }
+       /* public DicoApi GetAleaWord(string categorie, string unmot)
+        {
+            var restClient = new RestClient("https://api.dicolink.com/v1/mots");
+            var request = new RestRequest("motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false", Method.GET);
 
+            request.AddParameter("api_key", _apiKey);
+
+            var reponse = restClient.Execute<List<DicoApi>>(request);
+
+
+            foreach (DicoApi item in reponse.Data)
+            {
+                Console.WriteLine(item.mot);
+                Debug.WriteLine(item.mot);
+                listemot = item.mot;
+
+            }
+
+            return listemot;
+        }*/
     }
 }
