@@ -49,5 +49,20 @@ namespace CM2Projet
             }
             return false;
         }
+
+        private void StackPanel_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = Windows.ApplicationModel.DataTransfer.DataPackageOperation.Copy;
+            e.DragUIOverride.Caption = "Déposer";
+            e.DragUIOverride.IsCaptionVisible = true;
+            e.DragUIOverride.IsContentVisible = true;
+            e.DragUIOverride.IsGlyphVisible = true;
+        }
+
+        private void StackPanel_Drop(object sender, DragEventArgs e)
+        {
+           // rep1.DataContext = srep1.Source;
+            rep1.DataContext = srep2.DataContext;
+        }
     }
 }

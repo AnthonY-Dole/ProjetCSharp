@@ -23,8 +23,23 @@
         </Grid.RowDefinitions>
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
-        <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,30,0,0"/>
+        <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
 
-        <Image Source="img/ExoSC.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,60"/>
+        <Image Source="img/ExoSC.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,100"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Background="AliceBlue" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop">
+
+                
+                <TextBox x:Name="rep1" Margin="10" Height="159" Width="151"/>
+
+            </StackPanel>
+            <Image x:Name="srep1" Source="img/SC.svg" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40" CanDrag="True"/>
+            <Border Background="Gray">
+                <TextBlock x:Name="srep2" Text="bonjour" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40" CanDrag="True"/>
+            </Border>
+        </StackPanel>
+
     </Grid>
 </Page>
