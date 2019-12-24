@@ -64,7 +64,12 @@ namespace CM2Projet
             }
         };
         }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+     
+         
 
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             J = (Joueur)e.Parameter;

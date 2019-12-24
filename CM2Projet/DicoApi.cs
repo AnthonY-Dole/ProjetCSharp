@@ -11,52 +11,26 @@ namespace CM2Projet
 {
     class DicoApi
     {
-      
-        const string BaseUrl = "https://api.dicolink.com";
-
-        readonly IRestClient _client;
-
-        string _version = "v1";
-        string _mot = "mot";
-
-        public DicoApi()
+        public string mot { get; set; }
+        string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
+        public DicoApi Get(string categorie, string unmot)
         {
-            _client = new RestClient(BaseUrl);
-           
-        }
 
-        public T Execute<T>(RestRequest request) where T : new()
-        {
-           
-            request.AddParameter("version", _version, ParameterType.UrlSegment);
-            request.AddParameter("mot", _mot, ParameterType.UrlSegment);
+            var restClient = new RestClient("https://api.dicolink.com/v1/mot");
+            var request = new RestRequest(unmot + "/" + categorie, Method.GET);
+            request.AddParameter("limite", "5", ParameterType.QueryString);
+            request.AddParameter("api_key", _apiKey);
+    
+            var reponse2 = restClient.Execute<List<DicoApi>>(request);
 
-            var response = _client.Execute<T>(request);
 
-            if (response.ErrorException != null)
+            foreach (DicoApi item in reponse2.Data)
             {
-                const string message = "Erreur de requete veuillez ressayer.";
-                var dicoExeption = new Exception(message, response.ErrorException);
-                throw dicoExeption;
+                Console.WriteLine(item.mot);
+               
             }
-            return response.Data;
+            return reponse2.Data[1];
         }
-        public DicoApi GetSynonyme(string unMot)
-        {
-            var categorie = "synonymes";
-            var request = new RestRequest("/{mot}/{categorie}{other}{key}");
-            request.AddUrlSegment("mot", unMot);
-            request.AddUrlSegment("categorie", categorie);
-            request.AddParameter("other", "?limite=5&api_key=", ParameterType.UrlSegment);
-            request.AddParameter("key", "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", ParameterType.UrlSegment);
-            return Execute<DicoApi>(request);
-        }
-        public DicoApi GetMotHasard()
-        {
-            var request = new RestRequest("/motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false&api_key=");
-            request.AddParameter("key", "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", ParameterType.UrlSegment);
-            return Execute<DicoApi>(request);
-        }
- 
+
     }
 }

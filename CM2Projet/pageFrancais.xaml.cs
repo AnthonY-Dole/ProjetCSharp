@@ -28,17 +28,8 @@ namespace CM2Projet
     public sealed partial class pageFrancais : Page
     {
         Joueur J = null;
-        public class Mots
-        {
-            public string Valeur { get; set; }
-     
+        DicoApi apidico = new DicoApi();
 
-        }
-       
-         
-        private Mots motSynonyme;
-
-      
         const string BaseUrl = "https://api.dicolink.com";
 
         readonly IRestClient _client;
@@ -58,7 +49,8 @@ namespace CM2Projet
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            prenomContext.DataContext = J.Nom;
+            prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
+            motsATrouver();
 
         }
 
@@ -69,42 +61,7 @@ namespace CM2Projet
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 
-        public T Execute<T>(RestRequest request) where T : new()
-        {
-
-            request.AddParameter("version", _version, ParameterType.UrlSegment);
-            request.AddParameter("mot", _mot, ParameterType.UrlSegment);
-
-            var response = _client.Execute<T>(request);
-
-            if (response.ErrorException != null)
-            {
-                const string message = "Erreur de requete veuillez ressayer.";
-                var dicoExeption = new Exception(message, response.ErrorException);
-                throw dicoExeption;
-            }
-            return response.Data;
-        }
-        public pageFrancais GetSynonyme(string unMot)
-        {
-            var categorie = "synonymes";
-            var request = new RestRequest("/{mot}/{categorie}{other}{key}");
-            request.AddUrlSegment("mot", unMot);
-            request.AddUrlSegment("categorie", categorie);
-            request.AddParameter("other", "?limite=5&api_key=", ParameterType.UrlSegment);
-            request.AddParameter("key", "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", ParameterType.UrlSegment);
-            return Execute<pageFrancais>(request);
-        }
-        public pageFrancais GetMotHasard()
-        {
-            var request = new RestRequest("/motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false&api_key=");
-            request.AddParameter("key", "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3", ParameterType.UrlSegment);
-            return Execute<pageFrancais>(request);
-        }
-   
        
-       
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
@@ -193,12 +150,9 @@ namespace CM2Projet
         
         private void motsATrouver()
         {
-            motSynonyme = new Mots
-            {
-                Valeur = GetMotHasard().ToString()
-            };
-            DataContext = motSynonyme;
-            
+            string trouve = apidico.Get("synonymes", "aller").ToString();
+            motAlea.DataContext = trouve; 
+
         }
 
 
