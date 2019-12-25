@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="DicoApi.cs" />
+    <Compile Include="ANTHO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +155,7 @@
     <Content Include="img\FR.svg" />
     <Content Include="img\GEO.svg" />
     <Content Include="img\MATH.svg" />
+    <Content Include="img\ExoSC.svg" />
     <Content Include="img\SC.svg" />
     <Content Include="img\TABLEAUX.svg" />
     <Content Include="Properties\Default.rd.xml" />

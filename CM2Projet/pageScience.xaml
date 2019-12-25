@@ -24,5 +24,30 @@
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
+
+        <Image Source="img/ExoSC.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,100"/>
+
+        <StackPanel Grid.RowSpan="5" Grid.ColumnSpan="4" >
+            <StackPanel Orientation="Vertical"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center" AllowDrop="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop">
+                <TextBox x:Name="rep1" />
+
+            </StackPanel>
+            <TextBlock  Text="Placer : " FontSize="40" Margin="130,200,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
+
+
+            <TextBlock x:Name="sourceRepPharynx" Text="Pharynx"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepLarynx" Text="Larynx" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Princpale"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepTrachee" Text="Trachée" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepDiaphragme" Text="Diaphragme" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepPoumon" Text="Poumon" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+            <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
+
+
+        </StackPanel>
+
     </Grid>
 </Page>
