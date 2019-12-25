@@ -31,21 +31,13 @@ namespace CM2Projet
     {
         Joueur J = null;
         DicoApi apidico = new DicoApi();
+     
 
-        const string BaseUrl = "https://api.dicolink.com";
-
-        readonly IRestClient _client;
-
-        string _version = "v1";
-        string _mot = "mot";
+        
         public pageFrancais()
         {
             this.InitializeComponent();
 
-          
-            _client = new RestClient(BaseUrl);
-
-            
 
         }
 
@@ -81,17 +73,24 @@ namespace CM2Projet
         }
         private void valider_Click(object sender, RoutedEventArgs e)
         {
+            motCompare();
             if (valider.IsEnabled == false)
             {
                 AfficherDialogRessayer();
-                TextBlock motSynonyme = new TextBlock();
-                motSynonyme.Text = "ssvsvd";
+
             }
             else
             {
-                AfficherDialogBravo();
-                TextBlock motSynonyme = new TextBlock();
-                motSynonyme.Text = "ssvsvd";
+                if (textBoxReponseSynonyme.Text == ANTHO.MotAlea[0])
+                {
+                    AfficherDialogBravo();
+                    motCompare();
+                }
+                else
+                {
+                    AfficherDialogRessayer();
+                }
+
             }
         }
        
@@ -152,19 +151,50 @@ namespace CM2Projet
 
         private void motsATrouver()
         {
-            apidico.Get("synonymes", "aller").ToString();
-            BindingList<string> L = new BindingList<string>();
-            foreach (string l in ANTHO.L)
+            apidico.GetAleaWord().ToString();
+            BindingList<string> MotAlea = new BindingList<string>();
+            foreach (string l in ANTHO.MotAlea)
             {
-                L.Add(l);
+                MotAlea.Add(l);
             }
-            motAlea.DataContext = L[0];
+            motAlea.DataContext = MotAlea[0];
             Debug.WriteLine(motAlea.DataContext);
 
             
 
         }
+        private void motCompare()
+        {
 
+            apidico.Get("synonymes", ANTHO.MotAlea[0].ToString());
+            BindingList<string> ListeMot = new BindingList<string>();
+            foreach (string l in ANTHO.ListeMot)
+            {
+                ListeMot.Add(l);
+            }
+           /* bool result = ListeMot.All(s => ANTHO.MotAlea.Contains(s)) && ANTHO.MotAlea.All(s => ListeMot.Contains(s));
+            Debug.WriteLine(result);
+            if (result == true)
+            {
+
+            }*/
+           List<string> chaines = new List<string>(); 
+            chaines.Add(textBoxReponseSynonyme.Text);
+
+            //bool result = ListeMot.All(s => ANTHO.MotAlea.Contains(s)) && ANTHO.MotAlea.All(s => ListeMot.Contains(s));
+            bool result = ListeMot.All(s => chaines.Contains(s)) && chaines.All(s => ListeMot.Contains(s));
+
+            //Debug.WriteLine(result);
+            if (result ==true)
+            {
+                Debug.WriteLine("YES///////////////////////////////////////////////////");
+            }
+            else
+            {
+                Debug.WriteLine("NON§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
+                Debug.WriteLine(chaines[0]);
+            }
+        }
 
     }
 }

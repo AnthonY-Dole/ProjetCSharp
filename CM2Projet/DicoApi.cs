@@ -34,16 +34,16 @@ namespace CM2Projet
             {
                 Console.WriteLine(item.mot);
                 Debug.WriteLine(item.mot);
-                ANTHO.L.Add(item.mot);
+                ANTHO.ListeMot.Add(item.mot);
                
             }
-            return reponse2.Data[1];
+            return reponse2.Data[0];
            // return listemot;
         }
-       /* public DicoApi GetAleaWord(string categorie, string unmot)
+        public DicoApi GetAleaWord()
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mots");
-            var request = new RestRequest("motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false", Method.GET);
+            var request = new RestRequest("motsauhasard?avecdef=false&minlong=5&maxlong=-1&verbeconjugue=true&limite=1", Method.GET);
 
             request.AddParameter("api_key", _apiKey);
 
@@ -55,10 +55,10 @@ namespace CM2Projet
                 Console.WriteLine(item.mot);
                 Debug.WriteLine(item.mot);
                 listemot = item.mot;
-
+                ANTHO.MotAlea.Add(item.mot);
             }
 
-            return listemot;
-        }*/
+            return reponse.Data[0];
+        }
     }
 }
