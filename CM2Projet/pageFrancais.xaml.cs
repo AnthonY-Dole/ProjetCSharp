@@ -50,7 +50,7 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
-            motsATrouver();
+           
 
         }
 
@@ -79,6 +79,7 @@ namespace CM2Projet
         }
         private void valider_Click(object sender, RoutedEventArgs e)
         {
+            motsATrouver();
             if (valider.IsEnabled == false)
             {
                 AfficherDialogRessayer();
@@ -96,7 +97,7 @@ namespace CM2Projet
                 else
                 {
                     AfficherDialogRessayer();
-                    motsATrouver();
+                   
                 }
 
             }
@@ -166,7 +167,11 @@ namespace CM2Projet
             {
                 MotAlea.Add(l);
             }
-            motAlea.DataContext = MotAlea[0];
+            for (int i = 0; i < MotAlea.Count; i++)
+            {
+                motAlea.DataContext = MotAlea[i];
+            }
+            
             // Debug.WriteLine(motAlea.DataContext);
            
 
