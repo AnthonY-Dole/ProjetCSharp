@@ -50,7 +50,7 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
-           
+            motsATrouver();
 
         }
 
