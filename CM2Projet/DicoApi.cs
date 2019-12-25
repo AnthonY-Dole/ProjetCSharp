@@ -37,7 +37,7 @@ namespace CM2Projet
                 ANTHO.ListeMot.Add(items.mot);
 
             }
-            return reponse2.Data[1];
+            return reponse2.Data[0];
             // return listemot;
         }
         public DicoApi GetAleaWord()
