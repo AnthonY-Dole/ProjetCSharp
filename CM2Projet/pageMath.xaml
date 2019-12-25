@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#FF34495E" Foreground="White" Loaded="Page_Loaded">
+    Background="#FF34495E" Foreground="White">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -24,26 +24,5 @@
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Mathématiques" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
-
-        <TextBlock  x:Name="prenomContext" Text="{Binding}" Grid.RowSpan="3" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-        <TextBlock  x:Name="nomTextBlock" Text="Nom: " Grid.RowSpan="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-        <TextBlock  x:Name="coteTextBlock" Text="Côtés: " Grid.Row="1"  Grid.RowSpan="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-
-        <TextBox x:Name="nomTextBox" TextChanged="MultipleTextBox_TextChanged" Grid.RowSpan="4" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="220"/>
-        <TextBox x:Name="coteTextBox" TextChanged="MultipleTextBox_TextChanged" Grid.Row="1"  Grid.RowSpan="4" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="220"/>
-
-        <Button  x:Name="valider" Click="valider_Click" Grid.ColumnSpan="4" Grid.Row="3" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False"/>
-
-
-        <StackPanel x:Name="LayoutRootForFigure" Grid.RowSpan="5" Grid.ColumnSpan="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Polygon  
-                Points="0,0 0,1 1,1"  
-                Fill="Blue"  
-                Width="100"  
-                Height="100"  
-                Stretch="Fill"  
-                Stroke="Black"  
-                StrokeThickness="2" />
-        </StackPanel>
     </Grid>
 </Page>
