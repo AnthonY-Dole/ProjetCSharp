@@ -17,7 +17,7 @@
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
 
         <controls:DataGrid x:Name="Scoreboard"
-                  ItemsSource="{x:Bind Persons}"
+                  ItemsSource="{x:Bind LesJoueur}"
                   AutoGenerateColumns="False" Margin="129,73,128,73" FontSize="30" FontWeight="Bold" Foreground="#FF2C3E50">
             <controls:DataGrid.HorizontalGridLinesBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -33,10 +33,15 @@
             </controls:DataGrid.Background>
 
             <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="Joueur " Binding="{Binding Nom}" Foreground="Black"/>
-                <controls:DataGridTextColumn Header="ScoreTotal" Binding="{Binding TotalScore}"/>
-                <controls:DataGridTextColumn Header="Score Francais" Binding="{Binding ScoreFrancais}"/>
-                <controls:DataGridTextColumn Header="ScoreMath" Binding="{Binding ScoreMath}"/>
+                <controls:DataGridTextColumn Header="Nom " Binding="{Binding Nom}" Foreground="Black"/>
+                <controls:DataGridTextColumn Header="Joueur " Binding="{Binding Prenom}" Foreground="Black"/>
+                <controls:DataGridTextColumn Header="ScoreTotal" Binding="{Binding ScoreTOT}"/>
+                <controls:DataGridTextColumn Header="Score Francais" Binding="{Binding ScoreFR}"/>
+                <controls:DataGridTextColumn Header="Score Math" Binding="{Binding ScoreMATH}"/>
+                <controls:DataGridTextColumn Header="Score Geo" Binding="{Binding ScoreGEO}"/>
+                <controls:DataGridTextColumn Header="Score Science" Binding="{Binding ScoreSC}"/>
+
+
             </controls:DataGrid.Columns>
 
         </controls:DataGrid>

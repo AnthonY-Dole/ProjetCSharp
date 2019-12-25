@@ -23,46 +23,32 @@ namespace CM2Projet
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
 
-  
 
-    public class Person
-    {
-      
-        public string Nom { get; set; }
-        public string TotalScore { get; set; }
-        public string ScoreFrancais { get; set; }
-        public string ScoreMath { get; set; }
-        public string ScoreGeographie { get; set; }
-        public string ScoreScience { get; set; }
-    }
+
+   
     public sealed partial class pageScores : Page
     {
-        public List<Person> Persons { get; set; }
         Joueur J = null;
+        public List<Joueur> LesJoueur { get; set; }
         public pageScores()
         {
             this.InitializeComponent();
 
-            AfficherDialogErreur();
-
-            Persons = new List<Person>
-        {
-            new Person
+            LesJoueur = new List<Joueur>
+             {
+               new Joueur("michel","eud")
+               {
+                  Nom="cqcqc" ,Prenom="eud", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+               },
+                 new Joueur("erfef","efef")
+               {
+                   Nom="EUD" ,Prenom="AROUF", ScoreFR =322585,ScoreMATH =6827820,ScoreGEO=127220,ScoreSC=7222220,ScoreTOT =454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+               },
+            };
+          /*  if (LesJoueur.Contains() =null)
             {
-               Nom = "Jean Eud", TotalScore = "12457",
-                ScoreFrancais = "54" ,ScoreMath ="125",ScoreGeographie="314",ScoreScience="456"
-            },
-            new Person
-            {
-                 Nom = "Rene isssou", TotalScore = "2457",
-                ScoreFrancais = "5544" ,ScoreMath ="125425",ScoreGeographie="31214",ScoreScience="497856"
-            },
-            new Person
-            {
-                 Nom = "Faze Arouf", TotalScore = "54457",
-                ScoreFrancais = "4561" ,ScoreMath ="781",ScoreGeographie="0546",ScoreScience="678"
-            }
-        };
+                AfficherDialogErreur();
+            }*/
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
