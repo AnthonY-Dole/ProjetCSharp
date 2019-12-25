@@ -15,7 +15,7 @@ namespace CM2Projet
         public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
 
-        
+
         public DicoApi()
         {
 
@@ -26,24 +26,24 @@ namespace CM2Projet
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
             request.AddParameter("limite", "5", ParameterType.QueryString);
             request.AddParameter("api_key", _apiKey);
-    
-            var reponse2 = restClient.Execute<List<DicoApi>>(request);
-          
 
-            foreach (DicoApi item in reponse2.Data)
+            var reponse2 = restClient.Execute<List<DicoApi>>(request);
+
+
+            foreach (DicoApi items in reponse2.Data)
             {
-                Console.WriteLine(item.mot);
-                Debug.WriteLine(item.mot);
-                ANTHO.L.Add(item.mot);
-               
+                Console.WriteLine(items.mot);
+                Debug.WriteLine(items.mot);
+                ANTHO.ListeMot.Add(items.mot);
+
             }
-            return reponse2.Data[1];
-           // return listemot;
+            return reponse2.Data[0];
+            // return listemot;
         }
-       /* public DicoApi GetAleaWord(string categorie, string unmot)
+        public DicoApi GetAleaWord()
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mots");
-            var request = new RestRequest("motauhasard?avecdef=true&minlong=5&maxlong=-1&verbeconjugue=false", Method.GET);
+            var request = new RestRequest("motsauhasard?avecdef=false&minlong=5&maxlong=-1&verbeconjugue=true&limite=1", Method.GET);
 
             request.AddParameter("api_key", _apiKey);
 
@@ -55,10 +55,10 @@ namespace CM2Projet
                 Console.WriteLine(item.mot);
                 Debug.WriteLine(item.mot);
                 listemot = item.mot;
-
+                ANTHO.MotAlea.Add(item.mot);
             }
 
-            return listemot;
-        }*/
+            return reponse.Data[0];
+        }
     }
 }
