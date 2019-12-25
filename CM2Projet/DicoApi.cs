@@ -43,7 +43,7 @@ namespace CM2Projet
         public DicoApi GetAleaWord()
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mots");
-            var request = new RestRequest("motsauhasard?avecdef=false&minlong=5&maxlong=-1&verbeconjugue=true&limite=1", Method.GET);
+            var request = new RestRequest("motsauhasard?avecdef=false&minlong=5&maxlong=5&verbeconjugue=true&limite=1", Method.GET);
 
             request.AddParameter("api_key", _apiKey);
 

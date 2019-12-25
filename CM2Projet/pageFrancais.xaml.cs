@@ -86,14 +86,17 @@ namespace CM2Projet
             }
             else
             {
-                if (textBoxReponseSynonyme.Text == ANTHO.MotAlea[0])
+                bool test = true;
+              if (test == motCompare(textBoxReponseSynonyme.Text))
                 {
+                   
                     AfficherDialogBravo();
-                    motCompare();
+                    J.ScoreFR = J.ScoreFR +5;
                 }
                 else
                 {
                     AfficherDialogRessayer();
+                    motsATrouver();
                 }
 
             }
@@ -142,7 +145,7 @@ namespace CM2Projet
             {
                 Title = "Exercice Synonyme",
                 Content = "AH,tu a eu faux",
-                PrimaryButtonText = "RETENTER?",
+                PrimaryButtonText = "SUIVANT",
                 DefaultButton = ContentDialogButton.Primary
 
 
@@ -165,11 +168,11 @@ namespace CM2Projet
             }
             motAlea.DataContext = MotAlea[0];
             // Debug.WriteLine(motAlea.DataContext);
-
+           
 
 
         }
-        private void motCompare()
+        private  bool motCompare(string motuser)
         {
 
             apidico.Get("synonymes", ANTHO.MotAlea[0].ToString());
@@ -177,24 +180,33 @@ namespace CM2Projet
             foreach (string l in ANTHO.ListeMot)
             {
                 ListeMot.Add(l);
+                Debug.WriteLine(ListeMot[0]);
             }
-           /* bool result = ListeMot.All(s => ANTHO.MotAlea.Contains(s)) && ANTHO.MotAlea.All(s => ListeMot.Contains(s));
-            Debug.WriteLine(result);
-            if (result == true)
+            bool result =false;
+            //List<string> chaines = new List<string>(); 
+            //chaines.Add(motuser);
+            // bool result = ListeMot.All(s => chaines.Contains(s)) && chaines.All(s => ListeMot.Contains(s));
+            foreach (string s in ListeMot)
             {
-
-            }*/
-            List<string> chaines = new List<string>(); 
-             chaines.Add(textBoxReponseSynonyme.Text);
-
-            //bool result = ListeMot.All(s => ANTHO.MotAlea.Contains(s)) && ANTHO.MotAlea.All(s => ListeMot.Contains(s));
-            bool result = ListeMot.All(s => chaines.Contains(s)) && chaines.All(s => ListeMot.Contains(s));
-
-            Debug.WriteLine(result);
-            if (result ==true)
-            {
-
+               
+                if (s == motuser)
+                {
+                 result = true;
+                    Debug.WriteLine(result);
+                }
+                else
+                {
+                    Debug.WriteLine("false");
+                   
+                }
+                Debug.WriteLine(ListeMot[0]);
             }
+            return result;
+            /* Debug.WriteLine(result);
+             if (result ==true)
+             {
+
+             }*/
         }
 
     }
