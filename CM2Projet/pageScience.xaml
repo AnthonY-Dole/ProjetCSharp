@@ -27,14 +27,27 @@
 
         <Image Source="img/ExoSC.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,100"/>
 
-        <StackPanel Grid.RowSpan="5" Grid.ColumnSpan="4" >
-            <StackPanel Orientation="Vertical"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center" AllowDrop="True"
+
+        <TextBox x:Name="rep1" Margin="167,150,96,10" AllowDrop="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" />
+
+
+        <StackPanel Orientation="Vertical"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center" AllowDrop="True"
                         DragOver="StackPanel_DragOver" Drop="StackPanel_Drop">
-                <TextBox x:Name="rep1" />
+            <TextBox x:Name="rep2" />
 
-            </StackPanel>
-            <TextBlock  Text="Placer : " FontSize="40" Margin="130,200,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center" AllowDrop="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop">
+            <TextBox x:Name="rep3" />
 
+        </StackPanel>
+
+
+
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3">
+            <TextBlock  Text="Placer : " FontSize="40" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
 
             <TextBlock x:Name="sourceRepPharynx" Text="Pharynx"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
             <TextBlock x:Name="sourceRepLarynx" Text="Larynx" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
@@ -45,8 +58,6 @@
             <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
             <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
             <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" CanDrag="True"/>
-
-
         </StackPanel>
 
     </Grid>
