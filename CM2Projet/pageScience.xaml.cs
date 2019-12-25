@@ -24,6 +24,7 @@ namespace CM2Projet
     public sealed partial class pageScience : Page
     {
         Joueur J = null;
+        TextBox txBx;
         public pageScience()
         {
             this.InitializeComponent();
@@ -61,8 +62,15 @@ namespace CM2Projet
 
         private void StackPanel_Drop(object sender, DragEventArgs e)
         {
-            rep1.Text = sourceRepBroncheP.Text;
+            txBx = sender as TextBox;
+
         }
 
+        private void sourceRep_DropCompleted(UIElement sender, DropCompletedEventArgs args)
+        {
+            TextBlock txBlck = sender as TextBlock;
+            txBx.Text = txBlck.Text;
+            txBlck.Visibility = Visibility.Collapsed;
+        }
     }
 }
