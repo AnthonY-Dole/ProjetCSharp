@@ -27,50 +27,77 @@ namespace CM2Projet
     public sealed partial class pageMath : Page
     {
         Joueur J = null;
+        Rectangle mySquare = new Rectangle();
+        Rectangle myRectangle = new Rectangle();
+        Ellipse myCircle = new Ellipse();
+        Ellipse myEllipse = new Ellipse();
+        List<Shape> shapes = new List<Shape>();
+        
+
 
         public pageMath()
         {
             this.InitializeComponent();
             initQuestions();
+            listShape();
+            LayoutRootForFigure.Children.Add(randomFigure());
         }
 
-        private void initQuestions()
+        public void initQuestions()
         {
             // First Question is a Square.
-            Rectangle mySquare = new Rectangle();
             mySquare.Width = 200;
             mySquare.Height = 200;
+            mySquare.Name = "Carré";
+            int sideSquare = 4;
             Color SquareColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush SquareBrush = new SolidColorBrush();
             SquareBrush.Color = SquareColor;
             mySquare.Fill = SquareBrush;
             // Second Question is a Rectangle.
-            Rectangle myRectangle = new Rectangle();
-            myRectangle.Width = 200;
+            myRectangle.Width = 400;
             myRectangle.Height = 200;
+            myRectangle.Name = "Rectangle";
+            int sideRectangle = 4;
             Color RectangleColor = Color.FromArgb(255, 255, 100, 20);
             SolidColorBrush RectangleBrush = new SolidColorBrush();
             RectangleBrush.Color = RectangleColor;
             myRectangle.Fill = RectangleBrush;
             // Third Question is a Circle.
-            Ellipse myCircle = new Ellipse();
             myCircle.Width = 200;
             myCircle.Height = 200;
+            myCircle.Name = "Cercle";
+            int sideCircle = 0;
             Color CircleColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush CircleBrush = new SolidColorBrush();
             CircleBrush.Color = CircleColor;
             myCircle.Fill = CircleBrush;
             // Fourth Question is a Ellipse.
-            Ellipse myEllipse = new Ellipse();
-            myEllipse.Width = 200;
+            myEllipse.Width = 400;
             myEllipse.Height = 200;
+            myEllipse.Name = "Ellipse";
+            int sideEllipse = 0;
             Color EllipseColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush EllipseBrush = new SolidColorBrush();
             EllipseBrush.Color = EllipseColor;
             myEllipse.Fill = EllipseBrush;
-            // Fifth Question is a Triangle.
+        }
 
+        // Creates a list of shapes.
+        private void listShape()
+        {
+            shapes.Add(myCircle);
+            shapes.Add(myRectangle);
+            shapes.Add(mySquare);
+            shapes.Add(myEllipse);
+        }
 
+        // Picks a random shape from the list and returns it.
+        private Shape randomFigure()
+        {
+            Random rng = new Random();
+            int r = rng.Next(4);
+            return shapes[r];
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
