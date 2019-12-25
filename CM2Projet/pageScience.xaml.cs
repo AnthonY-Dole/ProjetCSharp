@@ -25,6 +25,8 @@ namespace CM2Projet
     {
         Joueur J = null;
         TextBox txBx;
+        string txBxText;
+        TextBlock txBlck;
         public pageScience()
         {
             this.InitializeComponent();
@@ -63,14 +65,47 @@ namespace CM2Projet
         private void StackPanel_Drop(object sender, DragEventArgs e)
         {
             txBx = sender as TextBox;
-
+            txBxText = txBx.Text;
         }
 
         private void sourceRep_DropCompleted(UIElement sender, DropCompletedEventArgs args)
         {
-            TextBlock txBlck = sender as TextBlock;
+            txBlck = sender as TextBlock;
             txBx.Text = txBlck.Text;
             txBlck.Visibility = Visibility.Collapsed;
+        }
+
+        private void rep_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txBxText != txBlck.Text )
+            {
+                foreach (TextBlock tb in FindVisualChildren<TextBlock>(this))
+                {
+                    if(tb.Text == txBxText)
+                    {
+                        tb.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+        }
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
         }
     }
 }
