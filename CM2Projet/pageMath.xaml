@@ -36,14 +36,6 @@
 
 
         <StackPanel x:Name="LayoutRootForFigure" Grid.RowSpan="5" Grid.ColumnSpan="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Polygon  
-                Points="0,0 0,1 1,1"  
-                Fill="Blue"  
-                Width="100"  
-                Height="100"  
-                Stretch="Fill"  
-                Stroke="Black"  
-                StrokeThickness="2" />
         </StackPanel>
     </Grid>
 </Page>
