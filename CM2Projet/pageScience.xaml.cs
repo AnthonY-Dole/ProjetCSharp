@@ -123,7 +123,7 @@ namespace CM2Projet
 
             rep1.Text = string.Empty;
             rep2.Text = string.Empty;
-            rep3.Text = string.Empty;
+            repDiaphragme.Text = string.Empty;
             rep4.Text = string.Empty;
             rep5.Text = string.Empty;
             rep6.Text = string.Empty;
