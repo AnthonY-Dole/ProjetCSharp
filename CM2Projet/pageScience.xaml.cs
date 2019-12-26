@@ -212,7 +212,6 @@ namespace CM2Projet
                     msgCorrection = "Bien joué vous avez eu tout juste !";
                 }
 
-
                 if(score == 80)
                 {
                     score = 100;
@@ -225,8 +224,6 @@ namespace CM2Projet
                 await msgAlerte.ShowAsync();
             }
 
-            
-            
             J.ScoreSC = score;
         }
     }
