@@ -48,7 +48,6 @@ namespace CM2Projet
             mySquare.Width = 200;
             mySquare.Height = 200;
             mySquare.Name = "carré";
-            int sideSquare = 4;
             Color SquareColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush SquareBrush = new SolidColorBrush();
             SquareBrush.Color = SquareColor;
@@ -57,7 +56,6 @@ namespace CM2Projet
             myRectangle.Width = 400;
             myRectangle.Height = 200;
             myRectangle.Name = "rectangle";
-            int sideRectangle = 4;
             Color RectangleColor = Color.FromArgb(255, 255, 100, 20);
             SolidColorBrush RectangleBrush = new SolidColorBrush();
             RectangleBrush.Color = RectangleColor;
@@ -66,7 +64,6 @@ namespace CM2Projet
             myCircle.Width = 200;
             myCircle.Height = 200;
             myCircle.Name = "cercle";
-            int sideCircle = 0;
             Color CircleColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush CircleBrush = new SolidColorBrush();
             CircleBrush.Color = CircleColor;
@@ -75,7 +72,6 @@ namespace CM2Projet
             myEllipse.Width = 400;
             myEllipse.Height = 200;
             myEllipse.Name = "ellipse";
-            int sideEllipse = 0;
             Color EllipseColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush EllipseBrush = new SolidColorBrush();
             EllipseBrush.Color = EllipseColor;
@@ -135,7 +131,7 @@ namespace CM2Projet
                 switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
                 {
                     case "carré" :
-                        if (nomTextBox.Text == "Carré" || nomTextBox.Text == "Carre" || nomTextBox.Text == "carré" || nomTextBox.Text == "carre")
+                        if ((nomTextBox.Text == "Carré" || nomTextBox.Text == "Carre" || nomTextBox.Text == "carré" || nomTextBox.Text == "carre") && (coteTextBox.Text == "4"))
                         {
                             AfficherDialogBravo();
                         }
@@ -145,7 +141,7 @@ namespace CM2Projet
                         }
                         break;
                     case "rectangle":
-                        if (nomTextBox.Text == "Rectangle" || nomTextBox.Text == "rectangle")
+                        if ((nomTextBox.Text == "Rectangle" || nomTextBox.Text == "rectangle") && (coteTextBox.Text == "4"))
                         {
                             AfficherDialogBravo();
                         }
@@ -155,7 +151,7 @@ namespace CM2Projet
                         }
                         break;
                     case "cercle":
-                        if (nomTextBox.Text == "Cercle" || nomTextBox.Text == "cercle")
+                        if ((nomTextBox.Text == "Cercle" || nomTextBox.Text == "cercle") && (coteTextBox.Text == "infini" || coteTextBox.Text == "0" || coteTextBox.Text == "Infini"))
                         {
                             AfficherDialogBravo();
                         }
@@ -165,7 +161,7 @@ namespace CM2Projet
                         }
                         break;
                     case "ellipse":
-                        if (nomTextBox.Text == "Ellipse" || nomTextBox.Text == "ellipse")
+                        if ((nomTextBox.Text == "Ellipse" || nomTextBox.Text == "ellipse") && (coteTextBox.Text == "infini" || coteTextBox.Text == "0" || coteTextBox.Text == "Infini"))
                         {
                             AfficherDialogBravo();
                         }
