@@ -27,8 +27,10 @@ namespace CM2Projet
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
+    /// 
     public sealed partial class pageFrancais : Page
     {
+
         Joueur J = null;
         DicoApi apidico = new DicoApi();
         public pageFrancais()
@@ -81,7 +83,7 @@ namespace CM2Projet
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR + 7;
                     ScoreSynonyme.DataContext ="+ 7 points";
-                    ScoreJoueur.DataContext = J.ScoreFR+"points";
+                    ScoreJoueur.DataContext = J.ScoreFR+" points";
 
                 }
                 else
@@ -89,7 +91,7 @@ namespace CM2Projet
                     AfficherDialogRessayer();
                     J.ScoreFR = J.ScoreFR - 4;
                     ScoreSynonyme.DataContext = "- 4 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + "points";
+                    ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 motAlea.DataContext = apidico.MotsAleatoire();
              
@@ -158,8 +160,7 @@ namespace CM2Projet
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR + 7;
                     ScoreAntonyme.DataContext = "+ 7 points";
-                    //ScoreAntonyme.Foreground = new SolidColorBrush(Re);
-                    ScoreJoueur.DataContext = J.ScoreFR + "points";
+                    ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 else
                 {
@@ -167,7 +168,7 @@ namespace CM2Projet
                     AfficherDialogRessayer();
                     J.ScoreFR = J.ScoreFR - 4;
                     ScoreAntonyme.DataContext = "- 4 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + "points";
+                    ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 motAlea2.DataContext = apidico.MotsAleatoire();
                 

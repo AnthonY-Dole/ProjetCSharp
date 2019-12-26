@@ -24,7 +24,7 @@ namespace CM2Projet
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mot");
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
-            request.AddParameter("limite", "5", ParameterType.QueryString);
+            request.AddParameter("limite", "", ParameterType.QueryString);
             request.AddParameter("api_key", _apiKey);
 
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
@@ -58,11 +58,12 @@ namespace CM2Projet
             foreach (string l in ANTHO.ListeMot)
             {
                 MotFind.Add(l);
+              
                 int i = 0;
                 Debug.WriteLine(MotFind[i]);
                 i++;
             }
-          
+            ANTHO.ListeMot.Clear();
             bool result = false;
             foreach (string s in MotFind)
             {
