@@ -49,7 +49,7 @@ namespace CM2Projet
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
            test = apidico.MotsAleatoire();
-            motAlea3.DataContext = ANTHO.MotDico.ToString();
+            motAlea3.DataContext = ANTHO.MotDico;
 
         }
 
@@ -275,7 +275,7 @@ namespace CM2Projet
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 test = apidico.MotsAleatoire();
-                motAlea3.DataContext = ANTHO.MotDico.ToString();
+                motAlea3.DataContext = ANTHO.MotDico;
 
             }
         }

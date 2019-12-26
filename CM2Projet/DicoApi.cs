@@ -74,7 +74,7 @@ namespace CM2Projet
         public bool motCompare(string categorie,string motuser,string motAlea)
         {
 
-            Get(10000,categorie,motAlea );
+            Get(1000,categorie,motAlea );
             List<string> MotFind = new List<string>();
             foreach (string l in ANTHO.ListeMot)
             {
