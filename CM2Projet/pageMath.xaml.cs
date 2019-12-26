@@ -39,7 +39,7 @@ namespace CM2Projet
             this.InitializeComponent();
             initQuestions();
             listShape();
-            randomShape();
+            LayoutRootForFigure.Children.Add(randomShape());
         }
 
         public void initQuestions()
@@ -47,7 +47,7 @@ namespace CM2Projet
             // First Question is a Square.
             mySquare.Width = 200;
             mySquare.Height = 200;
-            mySquare.Name = "Carré";
+            mySquare.Name = "carré";
             int sideSquare = 4;
             Color SquareColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush SquareBrush = new SolidColorBrush();
@@ -56,7 +56,7 @@ namespace CM2Projet
             // Second Question is a Rectangle.
             myRectangle.Width = 400;
             myRectangle.Height = 200;
-            myRectangle.Name = "Rectangle";
+            myRectangle.Name = "rectangle";
             int sideRectangle = 4;
             Color RectangleColor = Color.FromArgb(255, 255, 100, 20);
             SolidColorBrush RectangleBrush = new SolidColorBrush();
@@ -65,7 +65,7 @@ namespace CM2Projet
             // Third Question is a Circle.
             myCircle.Width = 200;
             myCircle.Height = 200;
-            myCircle.Name = "Cercle";
+            myCircle.Name = "cercle";
             int sideCircle = 0;
             Color CircleColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush CircleBrush = new SolidColorBrush();
@@ -74,7 +74,7 @@ namespace CM2Projet
             // Fourth Question is a Ellipse.
             myEllipse.Width = 400;
             myEllipse.Height = 200;
-            myEllipse.Name = "Ellipse";
+            myEllipse.Name = "ellipse";
             int sideEllipse = 0;
             Color EllipseColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush EllipseBrush = new SolidColorBrush();
@@ -91,11 +91,11 @@ namespace CM2Projet
             shapes.Add(myEllipse);
         }
 
-        private void randomShape()
+        private Shape randomShape()
         {
             Random rng = new Random();
             int valeur = rng.Next(0, shapes.Count);
-            LayoutRootForFigure.Children.Add(shapes[valeur]);
+            return shapes[valeur];
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -128,9 +128,55 @@ namespace CM2Projet
         {
             if (valider.IsEnabled == false)
             {
+                AfficherDialogRessayer();
             }
             else
             {
+                switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
+                {
+                    case "carré" :
+                        if (nomTextBox.Text == "Carré" || nomTextBox.Text == "Carre" || nomTextBox.Text == "carré" || nomTextBox.Text == "carre")
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "rectangle":
+                        if (nomTextBox.Text == "Rectangle" || nomTextBox.Text == "rectangle")
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "cercle":
+                        if (nomTextBox.Text == "Cercle" || nomTextBox.Text == "cercle")
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "ellipse":
+                        if (nomTextBox.Text == "Ellipse" || nomTextBox.Text == "ellipse")
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                }
+                LayoutRootForFigure.Children.Clear();
+                LayoutRootForFigure.Children.Add(randomShape());
             }
         }
 
