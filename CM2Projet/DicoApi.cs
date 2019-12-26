@@ -50,10 +50,10 @@ namespace CM2Projet
 
             return MotAleatoire;
         }
-        public bool motCompare(string motuser,string motAlea)
+        public bool motCompare(string categorie,string motuser,string motAlea)
         {
 
-            Get("synonymes",motAlea );
+            Get(categorie,motAlea );
             List<string> MotFind = new List<string>();
             foreach (string l in ANTHO.ListeMot)
             {

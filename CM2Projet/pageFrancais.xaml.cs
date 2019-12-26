@@ -40,6 +40,8 @@ namespace CM2Projet
         {
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
             motAlea.DataContext = apidico.MotsAleatoire();
+           Context.DataContext = "Trouve maintenant l'Antonyme du mot :";
+            motAlea2.DataContext = apidico.MotsAleatoire();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -72,8 +74,8 @@ namespace CM2Projet
             else
             {
                 
-            // motCompare(textBoxReponseSynonyme.Text);
-               if(apidico.motCompare(textBoxReponseSynonyme.Text,motAfficher) ==true)
+           
+               if(apidico.motCompare("synonymes",textBoxReponseSynonyme.Text,motAfficher) ==true)
                 {
  
                     AfficherDialogBravo();
@@ -84,7 +86,7 @@ namespace CM2Projet
                     AfficherDialogRessayer();
                 }
                 motAlea.DataContext = apidico.MotsAleatoire();
-                //string test = motAlea.DataContext.ToString();
+             
             }
         }
        
@@ -133,6 +135,45 @@ namespace CM2Projet
             }
         }
 
+        private void validerAntonyme_Click(object sender, RoutedEventArgs e)
+        {
+            string motAfficher2 = motAlea2.DataContext.ToString();
+            if (validerAntonyme.IsEnabled == false)
+            {
+                AfficherDialogRessayer();
+            }
+            else
+            {
+
+               
+                if (apidico.motCompare("antonymes",textBoxReponseAntonyme.Text, motAfficher2) == true)
+                {
+
+                    AfficherDialogBravo();
+                    J.ScoreFR = J.ScoreFR + 5;
+                }
+                else
+                {
+                    AfficherDialogRessayer();
+                }
+                motAlea2.DataContext = apidico.MotsAleatoire();
+                
+            }
+        }
+
+        private void textBoxReponseAntonyme_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String antonymeJoueur = textBoxReponseAntonyme.Text;
+
+            if (antonymeJoueur != "")
+            {
+                validerAntonyme.IsEnabled = true;
+            }
+            else
+            {
+                validerAntonyme.IsEnabled = false;
+            }
+        }
     }
 
 

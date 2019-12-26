@@ -22,13 +22,20 @@
         </Grid.RowDefinitions>
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
-        <TextBlock  Text="Exercice de Francais" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
-        <TextBlock  x:Name ="prenomContext" Text="{Binding}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
-        <TextBlock  x:Name ="motAlea" Text="{Binding}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="40" Margin="221,0,0,0" TextWrapping="Wrap"/>
-        <TextBlock Text="Reponse :" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="239,180,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxReponseSynonyme" TextChanged="textBoxReponseSynonyme_TextChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="40,180,0,0" Grid.RowSpan="2"   />
-        <Button  x:Name="valider" Click="valider_Click" Grid.Column="2" Margin="160,180,0,0" Grid.Row="1" VerticalAlignment="Top" Height="66" Width="128" Grid.RowSpan="2" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False"/>
-   
+        <TextBlock  Text="Exercice de Francais" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,-4,0,0"/>
+
+        <TextBlock  x:Name ="prenomContext" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,114,0,0" Grid.ColumnSpan="3" Width="auto"/>
+        <TextBlock  x:Name ="motAlea" Text="{Binding}" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="264,114,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="350"/>
+        <TextBlock Text="Reponse :" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,192,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBoxReponseSynonyme" TextChanged="textBoxReponseSynonyme_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="34,192,0,0" Grid.RowSpan="2"   />
+        <Button  x:Name="valider" Click="valider_Click" Grid.Column="2" Margin="157,192,0,0" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False" Grid.RowSpan="2"/>
+
+        <TextBlock  x:Name ="Context" Text="{Binding}" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,77,0,0" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5" Width="auto"/>
+        <TextBlock  x:Name ="motAlea2" Text="{Binding}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="264,77,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="350" />
+        <TextBlock Text="Reponse :" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,142,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxReponseAntonyme" TextChanged="textBoxReponseAntonyme_TextChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="29,152,0,0" Grid.RowSpan="2"   />
+        <Button  x:Name="validerAntonyme" Click="validerAntonyme_Click"  Grid.Column="2" Margin="157,152,0,0" Grid.Row="1" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False" Grid.RowSpan="2"/>
+
     </Grid>
 
 </Page>
