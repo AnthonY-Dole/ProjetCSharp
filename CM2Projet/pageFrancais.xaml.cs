@@ -31,41 +31,26 @@ namespace CM2Projet
     {
         Joueur J = null;
         DicoApi apidico = new DicoApi();
-
-        const string BaseUrl = "https://api.dicolink.com";
-
-      
-
-        
         public pageFrancais()
         {
             this.InitializeComponent();
-
-          
-
-            
-
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
-            motsATrouver();
-
+            motAlea.DataContext = apidico.MotsAleatoire();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             J = (Joueur)e.Parameter;
-         
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 
-       
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-
         }
 
         private bool On_BackRequested()
@@ -79,27 +64,27 @@ namespace CM2Projet
         }
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            motsATrouver();
+            string motAfficher = motAlea.DataContext.ToString();
             if (valider.IsEnabled == false)
             {
                 AfficherDialogRessayer();
-
             }
             else
             {
-                bool test = true;
-              if (test == motCompare(textBoxReponseSynonyme.Text))
+                
+            // motCompare(textBoxReponseSynonyme.Text);
+               if(apidico.motCompare(textBoxReponseSynonyme.Text,motAfficher) ==true)
                 {
-                   
+ 
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR +5;
                 }
                 else
                 {
                     AfficherDialogRessayer();
-                   
                 }
-
+                motAlea.DataContext = apidico.MotsAleatoire();
+                //string test = motAlea.DataContext.ToString();
             }
         }
        
@@ -110,18 +95,12 @@ namespace CM2Projet
 
             if (synonymeJoueur !="")
             {
-               
-
                 valider.IsEnabled = true;
-               
             }
             else{
-               
                 valider.IsEnabled = false;
             }
         }
-
-        
 
             private async void AfficherDialogBravo()
             {
@@ -131,8 +110,6 @@ namespace CM2Projet
                     Content = "Bravo,Bonne réponse",
                     PrimaryButtonText = "CONTINUER",
                     DefaultButton = ContentDialogButton.Primary
-
-
                 };
                 ContentDialogResult result = await dialog.ShowAsync();
                 if (result == ContentDialogResult.Primary)
@@ -148,70 +125,12 @@ namespace CM2Projet
                 Content = "AH,tu a eu faux",
                 PrimaryButtonText = "SUIVANT",
                 DefaultButton = ContentDialogButton.Primary
-
-
             };
             ContentDialogResult result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
 
             }
-        }
-
-        private void motsATrouver()
-        {
-
-            apidico.GetAleaWord().ToString();
-            BindingList<string> MotAlea = new BindingList<string>();
-            foreach (string l in ANTHO.MotAlea)
-            {
-                MotAlea.Add(l);
-            }
-            for (int i = 0; i < MotAlea.Count; i++)
-            {
-                motAlea.DataContext = MotAlea[i];
-            }
-            
-            // Debug.WriteLine(motAlea.DataContext);
-           
-
-
-        }
-        private  bool motCompare(string motuser)
-        {
-
-            apidico.Get("synonymes", ANTHO.MotAlea[0].ToString());
-            BindingList<string> ListeMot = new BindingList<string>();
-            foreach (string l in ANTHO.ListeMot)
-            {
-                ListeMot.Add(l);
-                Debug.WriteLine(ListeMot[0]);
-            }
-            bool result =false;
-            //List<string> chaines = new List<string>(); 
-            //chaines.Add(motuser);
-            // bool result = ListeMot.All(s => chaines.Contains(s)) && chaines.All(s => ListeMot.Contains(s));
-            foreach (string s in ListeMot)
-            {
-               
-                if (s == motuser)
-                {
-                 result = true;
-                    Debug.WriteLine(result);
-                }
-                else
-                {
-                    Debug.WriteLine("false");
-                   
-                }
-                Debug.WriteLine(ListeMot[0]);
-            }
-            return result;
-            /* Debug.WriteLine(result);
-             if (result ==true)
-             {
-
-             }*/
         }
 
     }
