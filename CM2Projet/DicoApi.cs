@@ -12,6 +12,7 @@ namespace CM2Projet
     class DicoApi
     {
         public string mot { get; set; }
+        public string definition { get; set; }
         public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
 
@@ -20,20 +21,32 @@ namespace CM2Projet
         {
 
         }
-        public DicoApi Get(string categorie, string unmot)
+        public DicoApi Get(int limite,string categorie, string unmot)
         {
             var restClient = new RestClient("https://api.dicolink.com/v1/mot");
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
-            request.AddParameter("limite", "", ParameterType.QueryString);
+            request.AddParameter("limite", limite, ParameterType.QueryString);
             request.AddParameter("api_key", _apiKey);
 
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
-
-            foreach (DicoApi items in reponse2.Data)
+           
+            if (categorie == "definitions")
             {
-                Debug.WriteLine(items.mot,"----2----");
-                ANTHO.ListeMot.Add(items.mot);
+                foreach (DicoApi items in reponse2.Data)
+                {
+                    Debug.WriteLine(items.definition, "--DICO--");
+                    ANTHO.ListeMot.Add(items.definition);
 
+                }
+            }
+            else
+            {
+                foreach (DicoApi items in reponse2.Data)
+                {
+                    Debug.WriteLine(items.mot, "----2----");
+                    ANTHO.ListeMot.Add(items.mot);
+
+                }
             }
             return reponse2.Data[0];
            
@@ -53,7 +66,7 @@ namespace CM2Projet
         public bool motCompare(string categorie,string motuser,string motAlea)
         {
 
-            Get(categorie,motAlea );
+            Get(10000,categorie,motAlea );
             List<string> MotFind = new List<string>();
             foreach (string l in ANTHO.ListeMot)
             {
