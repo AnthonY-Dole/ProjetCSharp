@@ -37,7 +37,7 @@ namespace CM2Projet
         {
             this.InitializeComponent();
         }
-
+        string test;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -48,7 +48,9 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-            motAlea3.DataContext = apidico.Get(1,"definitions", apidico.MotsAleatoire().ToString());
+           test = apidico.MotsAleatoire();
+            motAlea3.DataContext = ANTHO.MotDico.ToString();
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -230,6 +232,7 @@ namespace CM2Projet
         //Definitions
         private void textBoxReponseDefinitions_TextChanged(object sender, TextChangedEventArgs e)
         {
+           
             String definitionsJoueur = textBoxReponseDefinitions.Text;
 
             if (definitionsJoueur != "")
@@ -244,7 +247,9 @@ namespace CM2Projet
 
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
-            string MotdefinitionsAfficher = motAlea3.DataContext.ToString();
+
+            string MotdefinitionsAfficher = test;
+            //motAlea3.DataContext.ToString();
             if (validerDefinitions.IsEnabled == false)
             {
                 AfficherDialogRessayer();
@@ -252,7 +257,7 @@ namespace CM2Projet
             else
             {
 
-
+                
                 if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, MotdefinitionsAfficher) == true)
                 {
 
@@ -269,7 +274,8 @@ namespace CM2Projet
                     ScoreAntonyme.DataContext = "- 4 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
-                motAlea3.DataContext = apidico.MotsAleatoire();
+                test = apidico.MotsAleatoire();
+                motAlea3.DataContext = ANTHO.MotDico.ToString();
 
             }
         }

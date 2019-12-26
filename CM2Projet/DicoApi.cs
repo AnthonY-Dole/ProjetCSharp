@@ -29,14 +29,18 @@ namespace CM2Projet
             request.AddParameter("api_key", _apiKey);
 
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
-           
+
+
             if (categorie == "definitions")
             {
+
                 foreach (DicoApi items in reponse2.Data)
                 {
-                    Debug.WriteLine(items.definition, "--DICO--");
-                    ANTHO.ListeMot.Add(items.definition);
-
+                    Debug.WriteLine(items.mot, "----2----");
+                    ANTHO.ListeMot.Add(items.mot);
+                    ANTHO.MotDico.Add(items.definition);
+                    Debug.WriteLine(items.definition, "----ladef----");
+                    break;
                 }
             }
             else
@@ -45,9 +49,12 @@ namespace CM2Projet
                 {
                     Debug.WriteLine(items.mot, "----2----");
                     ANTHO.ListeMot.Add(items.mot);
-
+                    ANTHO.MotDico.Add(items.definition);
+                    Debug.WriteLine(items.definition, "----ladef----");
+                    break;
                 }
             }
+           
             return reponse2.Data[0];
            
         }
@@ -60,9 +67,10 @@ namespace CM2Projet
             string MotAleatoire = MotsFind[valeur];
             Debug.WriteLine(MotsFind[valeur]);
                 Debug.WriteLine("-----------------------");
-
+          
             return MotAleatoire;
         }
+    
         public bool motCompare(string categorie,string motuser,string motAlea)
         {
 
