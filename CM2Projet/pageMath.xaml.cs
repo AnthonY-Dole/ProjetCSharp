@@ -1,6 +1,7 @@
 ﻿using CM2Projet.Metier;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -32,15 +33,13 @@ namespace CM2Projet
         Ellipse myCircle = new Ellipse();
         Ellipse myEllipse = new Ellipse();
         List<Shape> shapes = new List<Shape>();
-        
-
 
         public pageMath()
         {
             this.InitializeComponent();
             initQuestions();
             listShape();
-            LayoutRootForFigure.Children.Add(randomFigure());
+            randomShape();
         }
 
         public void initQuestions()
@@ -86,18 +85,17 @@ namespace CM2Projet
         // Creates a list of shapes.
         private void listShape()
         {
-            shapes.Add(myCircle);
-            shapes.Add(myRectangle);
             shapes.Add(mySquare);
+            shapes.Add(myRectangle);
+            shapes.Add(myCircle);
             shapes.Add(myEllipse);
         }
 
-        // Picks a random shape from the list and returns it.
-        private Shape randomFigure()
+        private void randomShape()
         {
             Random rng = new Random();
-            int r = rng.Next(4);
-            return shapes[r];
+            int valeur = rng.Next(0, shapes.Count);
+            LayoutRootForFigure.Children.Add(shapes[valeur]);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
