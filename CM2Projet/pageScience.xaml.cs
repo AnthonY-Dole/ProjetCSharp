@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -130,6 +131,15 @@ namespace CM2Projet
             repPoumon.Text = string.Empty;
             repBronchiole.Text = string.Empty;
 
+            repAlveole.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repBroncheP.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repFosses.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repTrachee.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repPharynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repLarynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repPoumon.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repBronchiole.Background = new SolidColorBrush(Windows.UI.Colors.White);
+
             sourceRepAlevole.Visibility = Visibility.Visible;
             sourceRepBroncheP.Visibility = Visibility.Visible;
             sourceRepBronchiole.Visibility = Visibility.Visible;
@@ -141,19 +151,28 @@ namespace CM2Projet
 
         }
 
-        private void btnValider_Click(object sender, RoutedEventArgs e)
+        private async void btnValider_ClickAsync(object sender, RoutedEventArgs e)
         {
-            bool r = true;
+            List<TextBox> LesRepFausses = new List<TextBox>();
+            int cptRepFausse = 0;
+            bool bNull = true;
+            bool bFalseRep = false;
             int score = 0;
+            string msgCorrection = string.Empty;
+            var msgAlerte = new MessageDialog("Veuillez placer tous les mots.");
+            var msgFin = new MessageDialog(""); 
+            
             foreach (TextBox tb in FindVisualChildren<TextBox>(this))
             {
                 if (tb.Text == "" || tb.Text == null)
                 {
-                    r = false;
+                    bNull = false;
+                     
+                    
                 }
             }
 
-            if (r)
+            if (bNull)
             {
                 foreach (TextBox tb in FindVisualChildren<TextBox>(this))
                 {
@@ -163,16 +182,52 @@ namespace CM2Projet
                     }
                     else
                     {
+                        bFalseRep = true;
+                        cptRepFausse += 1;
+                        LesRepFausses.Add(tb);
+                    }
+                }
+
+                if (bFalseRep)
+                {
+                    msgCorrection = "Vous avez fait " + cptRepFausse + " faute(s), regardez maintenant la correction.";
+
+                    foreach (TextBox tb in FindVisualChildren<TextBox>(this))
+                    {
+                        if (LesRepFausses.Contains(tb))
+                        {
+                            tb.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                            tb.Text = tb.PlaceholderText;
+                        }
+                        else
+                        {
+                            tb.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                        }
+
 
                     }
                 }
+                else
+                {
+                    msgCorrection = "Bien joué vous avez eu tout juste !";
+                }
+
+
                 if(score == 80)
                 {
                     score = 100;
                 }
-               
-
+                msgFin = new MessageDialog("Votre score est de " + score + ". " + msgCorrection);
+                await msgFin.ShowAsync();
             }
+            else
+            {
+                await msgAlerte.ShowAsync();
+            }
+
+            
+            
+            J.ScoreSC = score;
         }
     }
 }

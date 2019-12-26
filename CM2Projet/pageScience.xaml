@@ -65,7 +65,7 @@
                 <TextBlock x:Name="sourceRepLarynx" Text="Larynx" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
             </StackPanel>
             <StackPanel>
-                <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Princpale"  Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+                <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Principale"  Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock x:Name="sourceRepTrachee" Text="Trachée" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
@@ -79,7 +79,7 @@
                 <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
             </StackPanel>
             <StackPanel>
-                <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+                <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulmonaires" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
@@ -88,7 +88,7 @@
 
         <Button x:Name="btnClear" Content="CLEAR" FontSize="20" Click="btnClear_Click" Grid.Row="4" Width="120" Height="40" Margin="247,20,0,0" VerticalAlignment="Top" Grid.Column="1" />
 
-        <Button x:Name="btnValider" Content="VALIDER" FontSize="20" Click="btnValider_Click" Grid.Row="4" Width="120" Height="40" Margin="120,20,0,0" VerticalAlignment="Top" Grid.Column="2" />
+        <Button x:Name="btnValider" Content="VALIDER" FontSize="20" Click="btnValider_ClickAsync" Grid.Row="4" Width="120" Height="40" Margin="120,20,0,0" VerticalAlignment="Top" Grid.Column="2" />
 
 
     </Grid>
