@@ -45,6 +45,8 @@ namespace CM2Projet
                 leJoueur = "Bonjour " + textBoxPrenom.Text
             };
             DataContext = pseudoJoueur;
+            J.Nom = textBoxPrenom.Text;
+            J.Prenom = textBoxNom.Text;
           /*  Joueur currentJoueur = (Joueur);
             Application.Current.Resources["monJoueur"] = currentJoueur; 
             Frame rootFrame = Window.Current.Content as Frame;

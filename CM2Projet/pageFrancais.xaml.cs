@@ -17,6 +17,7 @@ using RestSharp.Authenticators;
 using System.Diagnostics;
 using CM2Projet.Metier;
 using System.ComponentModel;
+using Windows.UI.Popups;
 
 
 
@@ -48,8 +49,12 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-           test = apidico.MotsAleatoire();
-            motAlea3.DataContext = ANTHO.MotDico;
+
+            test = apidico.MotsAleatoire();
+            apidico.motCompare("definitions", textBoxReponseAntonyme.Text, test);
+          //  motAlea3.DataContext = ANTHO.MotDico[0];
+            ANTHO.MotDico.Clear();
+            test = apidico.MotsAleatoire();
 
         }
 
@@ -62,6 +67,7 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
+           
         }
 
         private bool On_BackRequested()
@@ -74,11 +80,11 @@ namespace CM2Projet
             return false;
         }
         int compteur = 0;
-        private void valider_Click(object sender, RoutedEventArgs e)
+        private  async void  valider_Click(object sender, RoutedEventArgs e)
         {
-
+            
             compteur++;
-          
+            var msgAlerte = new MessageDialog("Le jeux Synonyme et finis vous avez jouer" + compteur.ToString() + " fois");
             if (compteur <= 10)
             {
                 string motAfficher = motAlea.DataContext.ToString();
@@ -95,12 +101,14 @@ namespace CM2Projet
 
                         AfficherDialogBravo();
                         J.ScoreFR = J.ScoreFR + 7;
-                        ScoreSynonyme.DataContext = "+ 7 points";
+                        ScoreSynonyme.DataContext = "+ 14 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
+                        ScoreSynonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
 
                     }
                     else
                     {
+                        ScoreSynonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                         AfficherDialogRessayer();
                         J.ScoreFR = J.ScoreFR - 4;
                         ScoreSynonyme.DataContext = "- 4 points";
@@ -112,8 +120,10 @@ namespace CM2Projet
             }
             else
             {
-                AfficherDialogFinJeux();
+
                 valider.IsEnabled = false;
+                await  msgAlerte.ShowAsync();
+                
             }
         }
        
@@ -195,13 +205,14 @@ namespace CM2Projet
 
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR + 7;
-                    ScoreAntonyme.DataContext = "+ 7 points";
+                    ScoreAntonyme.DataContext = "+ 14 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
-                }
+                        ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                    }
                 else
                 {
-                    
-                    AfficherDialogRessayer();
+                        ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                        AfficherDialogRessayer();
                     J.ScoreFR = J.ScoreFR - 4;
                     ScoreAntonyme.DataContext = "- 4 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
@@ -211,7 +222,7 @@ namespace CM2Projet
             }
             else
             {
-                AfficherDialogFinJeux();
+                var msgAlerte = new MessageDialog("Le jeux Synonyme et finis vous avez jouer" + compteur.ToString());
                 validerAntonyme.IsEnabled = false;
             }
         }
@@ -256,26 +267,29 @@ namespace CM2Projet
             }
             else
             {
-
-                
+              
                 if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, MotdefinitionsAfficher) == true)
                 {
 
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR + 7;
-                    ScoreAntonyme.DataContext = "+ 7 points";
+                    ScoreDictionnaire.DataContext = "+ 30 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
+                    ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
                 }
                 else
                 {
-
+                    ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                     AfficherDialogRessayer();
                     J.ScoreFR = J.ScoreFR - 4;
-                    ScoreAntonyme.DataContext = "- 4 points";
+                    ScoreDictionnaire.DataContext = "- 7 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
+                   
                 }
+             
+                motAlea3.DataContext = ANTHO.MotDico[0];
+                ANTHO.MotDico.Clear();
                 test = apidico.MotsAleatoire();
-                motAlea3.DataContext = ANTHO.MotDico;
 
             }
         }
