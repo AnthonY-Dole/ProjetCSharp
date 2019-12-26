@@ -196,12 +196,12 @@ namespace CM2Projet
                     {
                         if (LesRepFausses.Contains(tb))
                         {
-                            tb.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                            tb.Background = new SolidColorBrush(Windows.UI.Colors.DarkRed);
                             tb.Text = tb.PlaceholderText;
                         }
                         else
                         {
-                            tb.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            tb.Background = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
                         }
 
 
