@@ -121,15 +121,14 @@ namespace CM2Projet
             txBxText = string.Empty;
             txBlck = new TextBlock();
 
-            rep1.Text = string.Empty;
-            rep2.Text = string.Empty;
-            repDiaphragme.Text = string.Empty;
-            rep4.Text = string.Empty;
-            rep5.Text = string.Empty;
-            rep6.Text = string.Empty;
-            rep7.Text = string.Empty;
-            rep8.Text = string.Empty;
-            rep9.Text = string.Empty;
+            repAlveole.Text = string.Empty;
+            repBroncheP.Text = string.Empty;
+            repFosses.Text = string.Empty;
+            repTrachee.Text = string.Empty;
+            repPharynx.Text = string.Empty;
+            repLarynx.Text = string.Empty;
+            repPoumon.Text = string.Empty;
+            repBronchiole.Text = string.Empty;
 
             sourceRepAlevole.Visibility = Visibility.Visible;
             sourceRepBroncheP.Visibility = Visibility.Visible;

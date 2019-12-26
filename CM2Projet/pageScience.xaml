@@ -26,43 +26,37 @@
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
 
-        <Image Source="img/ExoSC.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,100"/>
+        <Image Source="img/svgScience.svg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,0,0,100"/>
 
 
-        <TextBox x:Name="rep1" Margin="186,100,40,68" AllowDrop="True"
-                        DragOver="StackPanel_DragOver" IsReadOnly="True" Drop="StackPanel_Drop"  Grid.Column="1" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repBroncheP" Margin="292,10,414,158" AllowDrop="True"
+                        DragOver="StackPanel_DragOver" IsReadOnly="True" Drop="StackPanel_Drop"  Grid.Column="1" Grid.Row="3" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="rep2" Margin="10,160,253,0" AllowDrop="True"  IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repLarynx" Margin="451,94,397,94" AllowDrop="True"  IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="2" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="repDiaphragme" Margin="224,0,39,160" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="4" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repAlveole" Margin="434,160,414,0" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112" Grid.Row="3" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="rep4" Margin="329,30,309,130" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112" Grid.Row="3" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="repPharynx" Margin="434,44,414,136" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="rep5" Margin="253,180,10,180" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.RowSpan="2"/>
+        <TextBox x:Name="repTrachee" Margin="434,107,414,53" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="rep6" Margin="0,60,263,100" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repBronchiole" Margin="434,80,414,80" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="3" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="rep7" Margin="167,40,96,120" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repPoumon" Margin="320,0,48,160" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="2" Grid.Row="4" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
 
-        <TextBox x:Name="rep8" Margin="10,60,253,100" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="2" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
+        <TextBox x:Name="repFosses" Margin="434,180,414,196" AllowDrop="True" IsReadOnly="True"
+                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="rep9" Margin="167,10,96,150" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="3" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
-
-        <TextBox x:Name="repFosses" Margin="253,100,10,60" AllowDrop="True" IsReadOnly="True"
-                        DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
-
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3">
-            <StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3">
+            
                 <TextBlock  Text="Placer : " FontSize="40" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
-            </StackPanel>
+            
 
             <StackPanel>
                 <TextBlock x:Name="sourceRepPharynx" Text="Pharynx" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
