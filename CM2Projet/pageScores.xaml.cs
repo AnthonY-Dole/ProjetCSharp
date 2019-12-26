@@ -38,7 +38,7 @@ namespace CM2Projet
              {
                new Joueur("michel","eud")
                {
-                  Nom="cqcqc" ,Prenom="eud", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+                  Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
                },
                  new Joueur("erfef","efef")
                {
