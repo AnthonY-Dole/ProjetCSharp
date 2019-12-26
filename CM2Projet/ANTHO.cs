@@ -10,5 +10,6 @@ namespace CM2Projet
     {
         public static List<string> ListeMot = new List<string>();
         public static List<string> MotAlea = new List<string>();
+        public static List<string> MotDico = new List<string>();
     }
 }
