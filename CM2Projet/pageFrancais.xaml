@@ -29,13 +29,16 @@
         <TextBlock Text="Reponse :" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,192,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <TextBox x:Name="textBoxReponseSynonyme" TextChanged="textBoxReponseSynonyme_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="34,192,0,0" Grid.RowSpan="2"   />
         <Button  x:Name="valider" Click="valider_Click" Grid.Column="2" Margin="157,192,0,0" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False" Grid.RowSpan="2"/>
+        <TextBlock  x:Name ="ScoreSynonyme" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="63,199,0,0" Width="auto" Grid.Column="3" Grid.RowSpan="2" Foreground="#FFE74C3C" FontWeight="Bold"/>
 
         <TextBlock  x:Name ="Context" Text="{Binding}" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,77,0,0" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5" Width="auto"/>
         <TextBlock  x:Name ="motAlea2" Text="{Binding}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="264,77,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="350" />
         <TextBlock Text="Reponse :" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="217,142,0,0" Grid.ColumnSpan="2"/>
         <TextBox x:Name="textBoxReponseAntonyme" TextChanged="textBoxReponseAntonyme_TextChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Grid.ColumnSpan="2" Width="478" Margin="29,152,0,0" Grid.RowSpan="2"   />
         <Button  x:Name="validerAntonyme" Click="validerAntonyme_Click"  Grid.Column="2" Margin="157,152,0,0" Grid.Row="1" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="VALIDER" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  IsEnabled="False" Grid.RowSpan="2"/>
+        <TextBlock  x:Name ="ScoreAntonyme" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="63,163,0,0" Width="auto" Grid.Column="3" Grid.RowSpan="2" Foreground="#FFE74C3C" Grid.Row="1" FontWeight="Bold"/>
 
+        <TextBlock  x:Name ="ScoreJoueur" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="337,138,0,0" Width="165" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#FF1ABC9C" FontWeight="Bold"/>
     </Grid>
 
 </Page>
