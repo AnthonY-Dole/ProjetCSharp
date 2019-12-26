@@ -60,18 +60,42 @@
                         DragOver="StackPanel_DragOver" Drop="StackPanel_Drop" Width="112"  Grid.Column="1" Grid.Row="1" AutomationProperties.SizeOfSet="3" TextChanged="rep_TextChanged"/>
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3">
-            <TextBlock  Text="Placer : " FontSize="40" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
+            <StackPanel>
+                <TextBlock  Text="Placer : " FontSize="40" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center"  CanDrag="True"/>
+            </StackPanel>
 
-            <TextBlock x:Name="sourceRepPharynx" Text="Pharynx" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepLarynx" Text="Larynx" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Princpale"  Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepTrachee" Text="Trachée" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepDiaphragme" Text="Diaphragme" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepPoumon" Text="Poumon" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
-            <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepPharynx" Text="Pharynx" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepLarynx" Text="Larynx" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepBroncheP" Text="Bronche Princpale"  Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepTrachee" Text="Trachée" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepDiaphragme" Text="Diaphragme" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <Border>
+                    <TextBlock x:Name="sourceRepPoumon" Text="Poumon" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepBronchiole" Text="Bronchiole" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepAlevole" Text="Alveoles Pulomnaires" Visibility="Visible"  FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="sourceRepFossesN" Text="Fosses Nasales" Visibility="Visible" FontSize="30" Margin="130,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Center" DropCompleted="sourceRep_DropCompleted" CanDrag="True"/>
+            </StackPanel>
         </StackPanel>
+
+        <Button x:Name="btnClear" Content="CLEAR" Click="btnClear_Click" Grid.Row="4" HorizontalAlignment="Center" Width="50" Height="35" />
 
     </Grid>
 </Page>

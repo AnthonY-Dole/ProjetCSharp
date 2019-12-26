@@ -27,6 +27,7 @@ namespace CM2Projet
         TextBox txBx;
         string txBxText;
         TextBlock txBlck;
+        bool b = false;
         public pageScience()
         {
             this.InitializeComponent();
@@ -66,13 +67,19 @@ namespace CM2Projet
         {
             txBx = sender as TextBox;
             txBxText = txBx.Text;
+            b = true;
         }
 
         private void sourceRep_DropCompleted(UIElement sender, DropCompletedEventArgs args)
         {
-            txBlck = sender as TextBlock;
-            txBx.Text = txBlck.Text;
-            txBlck.Visibility = Visibility.Collapsed;
+            if(b == true)
+            {
+                txBlck = sender as TextBlock;
+                txBx.Text = txBlck.Text;
+                txBlck.Visibility = Visibility.Collapsed;
+            }
+            b = false;
+
         }
 
         private void rep_TextChanged(object sender, TextChangedEventArgs e)
@@ -106,6 +113,34 @@ namespace CM2Projet
                     }
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txBx = new TextBox();
+            txBxText = string.Empty;
+            txBlck = new TextBlock();
+
+            rep1.Text = string.Empty;
+            rep2.Text = string.Empty;
+            rep3.Text = string.Empty;
+            rep4.Text = string.Empty;
+            rep5.Text = string.Empty;
+            rep6.Text = string.Empty;
+            rep7.Text = string.Empty;
+            rep8.Text = string.Empty;
+            rep9.Text = string.Empty;
+
+            sourceRepAlevole.Visibility = Visibility.Visible;
+            sourceRepBroncheP.Visibility = Visibility.Visible;
+            sourceRepBronchiole.Visibility = Visibility.Visible;
+            sourceRepDiaphragme.Visibility = Visibility.Visible;
+            sourceRepFossesN.Visibility = Visibility.Visible;
+            sourceRepLarynx.Visibility = Visibility.Visible;
+            sourceRepPharynx.Visibility = Visibility.Visible;
+            sourceRepPoumon.Visibility = Visibility.Visible;
+            sourceRepTrachee.Visibility = Visibility.Visible;
+
         }
     }
 }
