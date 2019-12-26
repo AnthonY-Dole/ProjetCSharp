@@ -29,36 +29,57 @@ namespace CM2Projet
 
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
 
-
             foreach (DicoApi items in reponse2.Data)
             {
-                Console.WriteLine(items.mot);
-                Debug.WriteLine(items.mot);
+                Debug.WriteLine(items.mot,"----2----");
                 ANTHO.ListeMot.Add(items.mot);
 
             }
             return reponse2.Data[0];
-            // return listemot;
+           
         }
-        public DicoApi GetAleaWord()
+        public string MotsAleatoire()
         {
-            var restClient = new RestClient("https://api.dicolink.com/v1/mots");
-            var request = new RestRequest("motsauhasard?avecdef=false&minlong=5&maxlong=9&verbeconjugue=true&limite=1", Method.GET);
+            List<string> MotsFind = new List<String>() { "acheter", "aider", "aimer", "aller", "apporter", "apprendre", "arrêter", "arriver", "attendre", "boire", "changer", "choisir", "commencer", "comprendre", "continuer", "coucher", "couper", "coûter", "croire", "connaître", "courir", "décider", "décrire", "demander", "dépêcher", "descendre", "devenir", "devoir", "dire", "donner", "dormir", "écouter", "écrire", "effacer", "entendre", "entrer", "envoyer", "essayer", "faire", "fermer", "finir", "gagner", "inquiéter", "inviter", "jouer", "laver", "lever", "lire", "manger", "mettre", "monter", "mourir", "nager", "naître", "neiger", "nettoyer", "obéir", "obtenir", "oublier", "ouvrir", "pardonner", "parler", "partir", "passer", "payer", "penser", "perdre", "pleurer", "porter", "pouvoir", "préférer", "prendre", "préparer", "sepromener", "quitter", "raconter", "réfléchir", "regarder", "remplacer", "remplir", "répéter", "répondre", "reposer", "rester", "retourner", "réussir", "réveiller", "savoir", "sortir", "suivre", "terminer", "tomber", "travailler", "trouver", "utiliser", "vendre", "venir", "visiter", "voir", "vouloir" };
+            Random randomWord = new Random();
+                int valeur = randomWord.Next(0, MotsFind.Count);
+                Debug.WriteLine("-----------------------");
+            string MotAleatoire = MotsFind[valeur];
+            Debug.WriteLine(MotsFind[valeur]);
+                Debug.WriteLine("-----------------------");
 
-            request.AddParameter("api_key", _apiKey);
+            return MotAleatoire;
+        }
+        public bool motCompare(string categorie,string motuser,string motAlea)
+        {
 
-            var reponse = restClient.Execute<List<DicoApi>>(request);
-
-
-            foreach (DicoApi item in reponse.Data)
+            Get(categorie,motAlea );
+            List<string> MotFind = new List<string>();
+            foreach (string l in ANTHO.ListeMot)
             {
-                Console.WriteLine(item.mot);
-                Debug.WriteLine(item.mot);
-                listemot = item.mot;
-                ANTHO.MotAlea.Add(item.mot);
+                MotFind.Add(l);
+                int i = 0;
+                Debug.WriteLine(MotFind[i]);
+                i++;
             }
+          
+            bool result = false;
+            foreach (string s in MotFind)
+            {
 
-            return reponse.Data[0];
+                if (s == motuser)
+                {
+                    result = true;
+                    Debug.WriteLine(result);
+                }
+                else
+                {
+                    Debug.WriteLine(result);
+
+                }
+              
+            }
+            return result;
         }
     }
 }

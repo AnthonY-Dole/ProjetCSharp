@@ -31,41 +31,28 @@ namespace CM2Projet
     {
         Joueur J = null;
         DicoApi apidico = new DicoApi();
-
-        const string BaseUrl = "https://api.dicolink.com";
-
-      
-
-        
         public pageFrancais()
         {
             this.InitializeComponent();
-
-          
-
-            
-
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
-            motsATrouver();
-
+            motAlea.DataContext = apidico.MotsAleatoire();
+           Context.DataContext = "Trouve maintenant l'Antonyme du mot :";
+            motAlea2.DataContext = apidico.MotsAleatoire();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             J = (Joueur)e.Parameter;
-         
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 
-       
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-
         }
 
         private bool On_BackRequested()
@@ -79,27 +66,27 @@ namespace CM2Projet
         }
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            motsATrouver();
+            string motAfficher = motAlea.DataContext.ToString();
             if (valider.IsEnabled == false)
             {
                 AfficherDialogRessayer();
-
             }
             else
             {
-                bool test = true;
-              if (test == motCompare(textBoxReponseSynonyme.Text))
+                
+           
+               if(apidico.motCompare("synonymes",textBoxReponseSynonyme.Text,motAfficher) ==true)
                 {
-                   
+ 
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR +5;
                 }
                 else
                 {
                     AfficherDialogRessayer();
-                   
                 }
-
+                motAlea.DataContext = apidico.MotsAleatoire();
+             
             }
         }
        
@@ -110,18 +97,12 @@ namespace CM2Projet
 
             if (synonymeJoueur !="")
             {
-               
-
                 valider.IsEnabled = true;
-               
             }
             else{
-               
                 valider.IsEnabled = false;
             }
         }
-
-        
 
             private async void AfficherDialogBravo()
             {
@@ -131,8 +112,6 @@ namespace CM2Projet
                     Content = "Bravo,Bonne réponse",
                     PrimaryButtonText = "CONTINUER",
                     DefaultButton = ContentDialogButton.Primary
-
-
                 };
                 ContentDialogResult result = await dialog.ShowAsync();
                 if (result == ContentDialogResult.Primary)
@@ -148,8 +127,6 @@ namespace CM2Projet
                 Content = "AH,tu a eu faux",
                 PrimaryButtonText = "SUIVANT",
                 DefaultButton = ContentDialogButton.Primary
-
-
             };
             ContentDialogResult result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary)
@@ -158,62 +135,45 @@ namespace CM2Projet
             }
         }
 
-        private void motsATrouver()
+        private void validerAntonyme_Click(object sender, RoutedEventArgs e)
         {
-
-            apidico.GetAleaWord().ToString();
-            BindingList<string> MotAlea = new BindingList<string>();
-            foreach (string l in ANTHO.MotAlea)
+            string motAfficher2 = motAlea2.DataContext.ToString();
+            if (validerAntonyme.IsEnabled == false)
             {
-                MotAlea.Add(l);
+                AfficherDialogRessayer();
             }
-            for (int i = 0; i < MotAlea.Count; i++)
+            else
             {
-                motAlea.DataContext = MotAlea[i];
-            }
-            
-            // Debug.WriteLine(motAlea.DataContext);
-           
 
-
-        }
-        private  bool motCompare(string motuser)
-        {
-
-            apidico.Get("synonymes", ANTHO.MotAlea[0].ToString());
-            BindingList<string> ListeMot = new BindingList<string>();
-            foreach (string l in ANTHO.ListeMot)
-            {
-                ListeMot.Add(l);
-                Debug.WriteLine(ListeMot[0]);
-            }
-            bool result =false;
-            //List<string> chaines = new List<string>(); 
-            //chaines.Add(motuser);
-            // bool result = ListeMot.All(s => chaines.Contains(s)) && chaines.All(s => ListeMot.Contains(s));
-            foreach (string s in ListeMot)
-            {
                
-                if (s == motuser)
+                if (apidico.motCompare("antonymes",textBoxReponseAntonyme.Text, motAfficher2) == true)
                 {
-                 result = true;
-                    Debug.WriteLine(result);
+
+                    AfficherDialogBravo();
+                    J.ScoreFR = J.ScoreFR + 5;
                 }
                 else
                 {
-                    Debug.WriteLine("false");
-                   
+                    AfficherDialogRessayer();
                 }
-                Debug.WriteLine(ListeMot[0]);
+                motAlea2.DataContext = apidico.MotsAleatoire();
+                
             }
-            return result;
-            /* Debug.WriteLine(result);
-             if (result ==true)
-             {
-
-             }*/
         }
 
+        private void textBoxReponseAntonyme_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String antonymeJoueur = textBoxReponseAntonyme.Text;
+
+            if (antonymeJoueur != "")
+            {
+                validerAntonyme.IsEnabled = true;
+            }
+            else
+            {
+                validerAntonyme.IsEnabled = false;
+            }
+        }
     }
 
 
