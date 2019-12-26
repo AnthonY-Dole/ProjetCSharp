@@ -79,11 +79,17 @@ namespace CM2Projet
                 {
  
                     AfficherDialogBravo();
-                    J.ScoreFR = J.ScoreFR +5;
+                    J.ScoreFR = J.ScoreFR + 7;
+                    ScoreSynonyme.DataContext ="+ 7 points";
+                    ScoreJoueur.DataContext = J.ScoreFR+"points";
+
                 }
                 else
                 {
                     AfficherDialogRessayer();
+                    J.ScoreFR = J.ScoreFR - 4;
+                    ScoreSynonyme.DataContext = "- 4 points";
+                    ScoreJoueur.DataContext = J.ScoreFR + "points";
                 }
                 motAlea.DataContext = apidico.MotsAleatoire();
              
@@ -150,11 +156,18 @@ namespace CM2Projet
                 {
 
                     AfficherDialogBravo();
-                    J.ScoreFR = J.ScoreFR + 5;
+                    J.ScoreFR = J.ScoreFR + 7;
+                    ScoreAntonyme.DataContext = "+ 7 points";
+                    //ScoreAntonyme.Foreground = new SolidColorBrush(Re);
+                    ScoreJoueur.DataContext = J.ScoreFR + "points";
                 }
                 else
                 {
+                    
                     AfficherDialogRessayer();
+                    J.ScoreFR = J.ScoreFR - 4;
+                    ScoreAntonyme.DataContext = "- 4 points";
+                    ScoreJoueur.DataContext = J.ScoreFR + "points";
                 }
                 motAlea2.DataContext = apidico.MotsAleatoire();
                 
