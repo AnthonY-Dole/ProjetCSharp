@@ -72,7 +72,7 @@ namespace CM2Projet
 
         private void sourceRep_DropCompleted(UIElement sender, DropCompletedEventArgs args)
         {
-            if(b == true)
+            if (b == true)
             {
                 txBlck = sender as TextBlock;
                 txBx.Text = txBlck.Text;
@@ -84,11 +84,11 @@ namespace CM2Projet
 
         private void rep_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txBxText != txBlck.Text )
+            if (txBxText != txBlck.Text)
             {
                 foreach (TextBlock tb in FindVisualChildren<TextBlock>(this))
                 {
-                    if(tb.Text == txBxText)
+                    if (tb.Text == txBxText)
                     {
                         tb.Visibility = Visibility.Visible;
                     }
@@ -133,13 +133,46 @@ namespace CM2Projet
             sourceRepAlevole.Visibility = Visibility.Visible;
             sourceRepBroncheP.Visibility = Visibility.Visible;
             sourceRepBronchiole.Visibility = Visibility.Visible;
-            sourceRepDiaphragme.Visibility = Visibility.Visible;
             sourceRepFossesN.Visibility = Visibility.Visible;
             sourceRepLarynx.Visibility = Visibility.Visible;
             sourceRepPharynx.Visibility = Visibility.Visible;
             sourceRepPoumon.Visibility = Visibility.Visible;
             sourceRepTrachee.Visibility = Visibility.Visible;
 
+        }
+
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            bool r = true;
+            int score = 0;
+            foreach (TextBox tb in FindVisualChildren<TextBox>(this))
+            {
+                if (tb.Text == "" || tb.Text == null)
+                {
+                    r = false;
+                }
+            }
+
+            if (r)
+            {
+                foreach (TextBox tb in FindVisualChildren<TextBox>(this))
+                {
+                    if (tb.Text == tb.PlaceholderText) 
+                    {
+                        score += 10;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if(score == 80)
+                {
+                    score = 100;
+                }
+               
+
+            }
         }
     }
 }
