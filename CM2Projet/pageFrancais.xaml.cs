@@ -40,10 +40,15 @@ namespace CM2Projet
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
             motAlea.DataContext = apidico.MotsAleatoire();
+
            Context.DataContext = "Trouve maintenant l'Antonyme du mot :";
             motAlea2.DataContext = apidico.MotsAleatoire();
+
+            Dico.DataContext = "Trouve le mots de la définitions suivante:";
+            motAlea3.DataContext = apidico.Get(1,"definitions", apidico.MotsAleatoire().ToString());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -66,35 +71,47 @@ namespace CM2Projet
             }
             return false;
         }
+        int compteur = 0;
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            string motAfficher = motAlea.DataContext.ToString();
-            if (valider.IsEnabled == false)
-            {
-                AfficherDialogRessayer();
-            }
-            else
-            {
-                
-           
-               if(apidico.motCompare("synonymes",textBoxReponseSynonyme.Text,motAfficher) ==true)
-                {
- 
-                    AfficherDialogBravo();
-                    J.ScoreFR = J.ScoreFR + 7;
-                    ScoreSynonyme.DataContext ="+ 7 points";
-                    ScoreJoueur.DataContext = J.ScoreFR+" points";
 
+            compteur++;
+          
+            if (compteur <= 10)
+            {
+                string motAfficher = motAlea.DataContext.ToString();
+                if (valider.IsEnabled == false)
+                {
+                    AfficherDialogRessayer();
                 }
                 else
                 {
-                    AfficherDialogRessayer();
-                    J.ScoreFR = J.ScoreFR - 4;
-                    ScoreSynonyme.DataContext = "- 4 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + " points";
+
+
+                    if (apidico.motCompare("synonymes", textBoxReponseSynonyme.Text, motAfficher) == true)
+                    {
+
+                        AfficherDialogBravo();
+                        J.ScoreFR = J.ScoreFR + 7;
+                        ScoreSynonyme.DataContext = "+ 7 points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+
+                    }
+                    else
+                    {
+                        AfficherDialogRessayer();
+                        J.ScoreFR = J.ScoreFR - 4;
+                        ScoreSynonyme.DataContext = "- 4 points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+                    }
+                    motAlea.DataContext = apidico.MotsAleatoire();
+
                 }
-                motAlea.DataContext = apidico.MotsAleatoire();
-             
+            }
+            else
+            {
+                AfficherDialogFinJeux();
+                valider.IsEnabled = false;
             }
         }
        
@@ -116,7 +133,7 @@ namespace CM2Projet
             {
                 ContentDialog dialog = new ContentDialog
                 {
-                    Title = "Exercice Synonyme",
+                    Title = "Exercice",
                     Content = "Bravo,Bonne réponse",
                     PrimaryButtonText = "CONTINUER",
                     DefaultButton = ContentDialogButton.Primary
@@ -131,9 +148,24 @@ namespace CM2Projet
         {
             ContentDialog dialog = new ContentDialog
             {
-                Title = "Exercice Synonyme",
+                Title = "Exercice ",
                 Content = "AH,tu a eu faux",
                 PrimaryButtonText = "SUIVANT",
+                DefaultButton = ContentDialogButton.Primary
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+
+            }
+        }
+        private async void AfficherDialogFinJeux()
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Exercice ",
+                Content = "Fin du jeux jouer passer au suivant",
+                PrimaryButtonText = "D'accord",
                 DefaultButton = ContentDialogButton.Primary
             };
             ContentDialogResult result = await dialog.ShowAsync();
@@ -145,7 +177,9 @@ namespace CM2Projet
 
         private void validerAntonyme_Click(object sender, RoutedEventArgs e)
         {
-            string motAfficher2 = motAlea2.DataContext.ToString();
+            if (compteur <= 10)
+            {
+                string motAfficher2 = motAlea2.DataContext.ToString();
             if (validerAntonyme.IsEnabled == false)
             {
                 AfficherDialogRessayer();
@@ -171,7 +205,12 @@ namespace CM2Projet
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 motAlea2.DataContext = apidico.MotsAleatoire();
-                
+                }
+            }
+            else
+            {
+                AfficherDialogFinJeux();
+                validerAntonyme.IsEnabled = false;
             }
         }
 
@@ -186,6 +225,52 @@ namespace CM2Projet
             else
             {
                 validerAntonyme.IsEnabled = false;
+            }
+        }
+        //Definitions
+        private void textBoxReponseDefinitions_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String definitionsJoueur = textBoxReponseDefinitions.Text;
+
+            if (definitionsJoueur != "")
+            {
+                validerDefinitions.IsEnabled = true;
+            }
+            else
+            {
+                validerDefinitions.IsEnabled = false;
+            }
+        }
+
+        private void validerDefinitions_Click(object sender, RoutedEventArgs e)
+        {
+            string MotdefinitionsAfficher = motAlea3.DataContext.ToString();
+            if (validerDefinitions.IsEnabled == false)
+            {
+                AfficherDialogRessayer();
+            }
+            else
+            {
+
+
+                if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, MotdefinitionsAfficher) == true)
+                {
+
+                    AfficherDialogBravo();
+                    J.ScoreFR = J.ScoreFR + 7;
+                    ScoreAntonyme.DataContext = "+ 7 points";
+                    ScoreJoueur.DataContext = J.ScoreFR + " points";
+                }
+                else
+                {
+
+                    AfficherDialogRessayer();
+                    J.ScoreFR = J.ScoreFR - 4;
+                    ScoreAntonyme.DataContext = "- 4 points";
+                    ScoreJoueur.DataContext = J.ScoreFR + " points";
+                }
+                motAlea3.DataContext = apidico.MotsAleatoire();
+
             }
         }
     }
