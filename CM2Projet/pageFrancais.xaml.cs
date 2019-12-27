@@ -51,7 +51,7 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-
+            //motAlea3.DataContext = apidico.DicoAleatoire("");
   
             scoreboard.UpdateJoueur(J);
 

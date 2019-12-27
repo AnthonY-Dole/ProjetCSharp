@@ -47,19 +47,7 @@ namespace CM2Projet
                     ScoreTOT = j.ScoreTOT
                 };
             }
-            // ANTHO.lesJoueurs = new List<Joueur>
-            // {
-              
-            //   new Joueur("","")
-            //   {
-            //   Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
-            //   },
-            //     new Joueur("erfef","efef")
-            //   {
-            //       Nom="EUD" ,Prenom="AROUF", ScoreFR =322585,ScoreMATH =6827820,ScoreGEO=127220,ScoreSC=7222220,ScoreTOT =454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
-            //   },
-            //};
-        
+
         }
 
 
@@ -87,11 +75,6 @@ namespace CM2Projet
                         j.ScoreGEO = pJoueur.ScoreGEO;
                     }
 
-                    //J.ScoreFR = J.ScoreFR + parametreJoueur.ScoreFR;
-                    //J.ScoreGEO = parametreJoueur.ScoreGEO;
-                    //J.ScoreMATH = parametreJoueur.ScoreMATH;
-                    //J.ScoreSC = parametreJoueur.ScoreSC;
-                    //J.ScoreTOT = parametreJoueur.getTotal(J.ScoreFR, J.ScoreGEO, J.ScoreMATH, J.ScoreSC);
 
                 }
             }
@@ -99,26 +82,7 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
         }
-        //public int getScoreFr(int Scorefr)
-        //{
-        //    return J.ScoreFR = Scorefr;
 
-        //}
-        //public int getScoreGeo(int ScoreGeo)
-        //{
-        //    return J.ScoreGEO = ScoreGeo;
-
-        //}
-        //public int getScoreMath(int ScoreMath)
-        //{
-        //    return J.ScoreMATH = ScoreMath;
-
-        //}
-        //public int getScoreSc(int ScoreScience)
-        //{
-        //    return J.ScoreSC = ScoreScience;
-
-        //}
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             

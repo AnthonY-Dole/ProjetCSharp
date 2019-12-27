@@ -30,6 +30,7 @@ namespace CM2Projet
         TextBlock txBlck;
         bool b = false;
         int score = 0;
+        pageScores scoreboard = new pageScores();
         public pageScience()
         {
             this.InitializeComponent();
@@ -229,6 +230,7 @@ namespace CM2Projet
             J.ScoreSC = score;
             score = 0;
             btnValider.IsEnabled = false;
+            scoreboard.UpdateJoueur(J);
         }
     }
 }

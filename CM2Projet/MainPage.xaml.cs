@@ -40,7 +40,22 @@ namespace CM2Projet
         }
         public void AddJoueur(Joueur joueur)
         {
-            ANTHO.lesJoueurs.Add(joueur);
+            bool b = false;
+            if(ANTHO.lesJoueurs.Count > 0)
+            {
+                foreach (Joueur j in ANTHO.lesJoueurs)
+                {
+                    if (j.Nom == joueur.Nom && j.Prenom == j.Prenom)
+                    {
+                        b = true;
+                    }
+                }
+            }
+            if (!b)
+            {
+                ANTHO.lesJoueurs.Add(joueur);
+            }
+            
         }
         private void btnjoueurvalid_Click(object sender, RoutedEventArgs e)
         {
