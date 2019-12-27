@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,6 +26,7 @@ namespace CM2Projet
     public sealed partial class pageGeographie : Page
     {
         Joueur J = null;
+        
         public pageGeographie()
         {
             this.InitializeComponent();
@@ -52,17 +54,19 @@ namespace CM2Projet
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
+           // EuropeRandom();
+            onlyCity(EuropeRandom());
+            Drapeaux();
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
         {
-            choice4.Content = "issou";
+            choice4.Content = "zefzef";
         }
 
         private void choice1_Click(object sender, RoutedEventArgs e)
         {
-
+            onlyCity(EuropeRandom());
         }
 
         private void choice2_Click(object sender, RoutedEventArgs e)
@@ -80,11 +84,43 @@ namespace CM2Projet
             Random PaysRandom = new Random();
             int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
             string PaysVilleAleatoire = ListeEurope[lavaleur];
-
-            Debug.WriteLine("----------------",ListeEurope[lavaleur],"-----------------------");
+            Debug.WriteLine("--------------------------------------");
+            Debug.WriteLine(ListeEurope[lavaleur]);
             return PaysVilleAleatoire;
         }
+        public string onlyCity(string random)
+        {
 
-       
+            string[] stringRandom = { random};
+            int compteur = 0;
+            string villePays ="";
+            if (random.Contains("/"))
+            {
+                villePays = random.Substring(0, random.Length - 1);
+            }
+            else
+            {
+                foreach (string chaine in stringRandom)
+                {
+                    compteur = chaine.IndexOf(":");
+                    villePays = chaine.Substring(compteur + 1);
+                }
+            }
+            
+            Debug.WriteLine(villePays);
+            return villePays;
+        }
+
+        
+
+        private void Drapeaux()
+        {
+            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/FR.svg"));
+        }
+
+        private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
+        {
+           Drapeaux();
+        }
     }
 }
