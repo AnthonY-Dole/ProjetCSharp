@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -33,6 +35,8 @@ namespace CM2Projet
         Rectangle myRectangle = new Rectangle();
         Ellipse myCircle = new Ellipse();
         Ellipse myEllipse = new Ellipse();
+        Polygon myTriangle = new Polygon();
+        Polygon myPentagon = new Polygon();
         List<Shape> shapes = new List<Shape>();
 
         public pageMath()
@@ -46,15 +50,15 @@ namespace CM2Projet
 
         public void initQuestions()
         {
-            // First Question is a Square.
+            // Square.
             mySquare.Width = 200;
             mySquare.Height = 200;
-            mySquare.Name = "carré";
+            mySquare.Name = "carre";
             Color SquareColor = Color.FromArgb(255, 255, 0, 0);
             SolidColorBrush SquareBrush = new SolidColorBrush();
             SquareBrush.Color = SquareColor;
             mySquare.Fill = SquareBrush;
-            // Second Question is a Rectangle.
+            // Rectangle.
             myRectangle.Width = 400;
             myRectangle.Height = 200;
             myRectangle.Name = "rectangle";
@@ -62,7 +66,7 @@ namespace CM2Projet
             SolidColorBrush RectangleBrush = new SolidColorBrush();
             RectangleBrush.Color = RectangleColor;
             myRectangle.Fill = RectangleBrush;
-            // Third Question is a Circle.
+            // Circle.
             myCircle.Width = 200;
             myCircle.Height = 200;
             myCircle.Name = "cercle";
@@ -70,7 +74,7 @@ namespace CM2Projet
             SolidColorBrush CircleBrush = new SolidColorBrush();
             CircleBrush.Color = CircleColor;
             myCircle.Fill = CircleBrush;
-            // Fourth Question is a Ellipse.
+            // Ellipse.
             myEllipse.Width = 400;
             myEllipse.Height = 200;
             myEllipse.Name = "ellipse";
@@ -78,6 +82,34 @@ namespace CM2Projet
             SolidColorBrush EllipseBrush = new SolidColorBrush();
             EllipseBrush.Color = EllipseColor;
             myEllipse.Fill = EllipseBrush;
+            // Triangle.
+            Point pointTriangle1 = new Point(0, 0);
+            Point pointTriangle2 = new Point(0, 300);
+            Point pointTriangle3 = new Point(300, 0);
+            PointCollection trianglePoints = new PointCollection();
+            trianglePoints.Add(pointTriangle1);
+            trianglePoints.Add(pointTriangle2);
+            trianglePoints.Add(pointTriangle3);
+            myTriangle.Points = trianglePoints;
+            myTriangle.Fill = EllipseBrush;
+            myTriangle.Name = "triangle";
+            // Pentagone.
+            Point pointPentagone1 = new Point(125, 250);
+            Point pointPentagone2 = new Point(250, 150);
+            Point pointPentagone3 = new Point(200, 0);
+            Point pointPentagone4 = new Point(50, 0);
+            Point pointPentagone5 = new Point(0, 150);
+            PointCollection pentagonePoints = new PointCollection();
+            pentagonePoints.Add(pointPentagone1);
+            pentagonePoints.Add(pointPentagone2);
+            pentagonePoints.Add(pointPentagone3);
+            pentagonePoints.Add(pointPentagone4);
+            pentagonePoints.Add(pointPentagone5);
+            myPentagon.Points = pentagonePoints;
+            myPentagon.Fill = EllipseBrush;
+            myPentagon.Name = "pentagone";
+
+
         }
 
         // Creates a list of shapes.
@@ -87,39 +119,62 @@ namespace CM2Projet
             shapes.Add(myRectangle);
             shapes.Add(myCircle);
             shapes.Add(myEllipse);
+            shapes.Add(myTriangle);
+            shapes.Add(myPentagon);
         }
 
         private Shape randomShape()
         {
             Random rng = new Random();
             int valeur = rng.Next(0, shapes.Count);
-            return shapes[valeur];
+            Shape displayed = shapes[valeur];
+            shapes.Remove(shapes[valeur]);
+            return displayed;
         }
 
         private void animate()
         {
             TranslateTransform translateTransform = new TranslateTransform();
-            translateTransform.X = 0;
+            translateTransform.X = 200;
             translateTransform.Y = 0;
             LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().RenderTransform = translateTransform;
-            Duration duration = new Duration(TimeSpan.FromSeconds(2));
+            Duration duration = new Duration(TimeSpan.FromMilliseconds(500));
             DoubleAnimation doubleAnimationX = new DoubleAnimation();
             DoubleAnimation doubleAnimationY = new DoubleAnimation();
+            DoubleAnimation doubleAnimationFade = new DoubleAnimation();
             doubleAnimationX.Duration = duration;
             doubleAnimationY.Duration = duration;
+            doubleAnimationFade.Duration = duration;
             Storyboard storyboard = new Storyboard();
             storyboard.Duration = duration;
             storyboard.Children.Add(doubleAnimationX);
             storyboard.Children.Add(doubleAnimationY);
-            Storyboard.SetTarget(doubleAnimationX,translateTransform);
-            Storyboard.SetTarget(doubleAnimationY,translateTransform);
+            Storyboard.SetTarget(doubleAnimationX, translateTransform);
+            Storyboard.SetTarget(doubleAnimationY, translateTransform);
             Storyboard.SetTargetProperty(doubleAnimationX, "X");
             Storyboard.SetTargetProperty(doubleAnimationY, "Y");
-            doubleAnimationX.To = 100;
+            doubleAnimationX.To = 0;
             doubleAnimationY.To = 0;
             LayoutRootForFigure.Resources.Add("storyboard", storyboard);
             storyboard.Begin();
             LayoutRootForFigure.Resources.Clear();
+        }
+
+        static string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -158,8 +213,8 @@ namespace CM2Projet
             {
                 switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
                 {
-                    case "carré" :
-                        if ((nomTextBox.Text == "Carré" || nomTextBox.Text == "Carre" || nomTextBox.Text == "carré" || nomTextBox.Text == "carre") && (coteTextBox.Text == "4"))
+                    case "carre":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
                         {
                             AfficherDialogBravo();
                         }
@@ -169,7 +224,7 @@ namespace CM2Projet
                         }
                         break;
                     case "rectangle":
-                        if ((nomTextBox.Text == "Rectangle" || nomTextBox.Text == "rectangle") && (coteTextBox.Text == "4"))
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
                         {
                             AfficherDialogBravo();
                         }
@@ -179,7 +234,7 @@ namespace CM2Projet
                         }
                         break;
                     case "cercle":
-                        if ((nomTextBox.Text == "Cercle" || nomTextBox.Text == "cercle") && (coteTextBox.Text == "infini" || coteTextBox.Text == "0" || coteTextBox.Text == "Infini"))
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
                         {
                             AfficherDialogBravo();
                         }
@@ -189,7 +244,7 @@ namespace CM2Projet
                         }
                         break;
                     case "ellipse":
-                        if ((nomTextBox.Text == "Ellipse" || nomTextBox.Text == "ellipse") && (coteTextBox.Text == "infini" || coteTextBox.Text == "0" || coteTextBox.Text == "Infini"))
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
                         {
                             AfficherDialogBravo();
                         }
@@ -198,6 +253,27 @@ namespace CM2Projet
                             AfficherDialogRessayer();
                         }
                         break;
+                    case "triangle":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "pentagone":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
+                        {
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            AfficherDialogRessayer();
+                        }
+                        break;
+
                 }
                 LayoutRootForFigure.Children.Clear();
                 LayoutRootForFigure.Children.Add(randomShape());

@@ -49,8 +49,8 @@ namespace CM2Projet
                 {
                     Debug.WriteLine(items.mot, "----2----");
                     ANTHO.ListeMot.Add(items.mot);
-                  
-                 
+                    ANTHO.MotDico.Add(items.definition);
+
                 }
             }
            
@@ -69,7 +69,12 @@ namespace CM2Projet
           
             return MotAleatoire;
         }
-    
+        public bool DicoAleatoire(string joueurRep)
+        {
+          bool  DicoResultleatoire= motCompare("definitions",joueurRep, MotsAleatoire());
+            return DicoResultleatoire;
+        }
+
         public bool motCompare(string categorie,string motuser,string motAlea)
         {
 
@@ -84,7 +89,6 @@ namespace CM2Projet
                 i++;
             }
             ANTHO.ListeMot.Clear();
-          
             bool result = false;
             foreach (string s in MotFind)
             {
