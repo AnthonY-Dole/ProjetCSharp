@@ -10,6 +10,7 @@ using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,7 +38,10 @@ namespace CM2Projet
         Ellipse myEllipse = new Ellipse();
         Polygon myTriangle = new Polygon();
         Polygon myPentagon = new Polygon();
+        Polygon myHexagon = new Polygon();
+        Polygon myHeptagon = new Polygon();
         List<Shape> shapes = new List<Shape>();
+        int compteur = 0;
 
         public pageMath()
         {
@@ -58,7 +62,6 @@ namespace CM2Projet
             SolidColorBrush SquareBrush = new SolidColorBrush();
             SquareBrush.Color = SquareColor;
             mySquare.Fill = SquareBrush;
-            // Rectangle.
             myRectangle.Width = 400;
             myRectangle.Height = 200;
             myRectangle.Name = "rectangle";
@@ -66,7 +69,6 @@ namespace CM2Projet
             SolidColorBrush RectangleBrush = new SolidColorBrush();
             RectangleBrush.Color = RectangleColor;
             myRectangle.Fill = RectangleBrush;
-            // Circle.
             myCircle.Width = 200;
             myCircle.Height = 200;
             myCircle.Name = "cercle";
@@ -74,7 +76,6 @@ namespace CM2Projet
             SolidColorBrush CircleBrush = new SolidColorBrush();
             CircleBrush.Color = CircleColor;
             myCircle.Fill = CircleBrush;
-            // Ellipse.
             myEllipse.Width = 400;
             myEllipse.Height = 200;
             myEllipse.Name = "ellipse";
@@ -82,7 +83,6 @@ namespace CM2Projet
             SolidColorBrush EllipseBrush = new SolidColorBrush();
             EllipseBrush.Color = EllipseColor;
             myEllipse.Fill = EllipseBrush;
-            // Triangle.
             Point pointTriangle1 = new Point(0, 0);
             Point pointTriangle2 = new Point(0, 300);
             Point pointTriangle3 = new Point(300, 0);
@@ -93,26 +93,56 @@ namespace CM2Projet
             myTriangle.Points = trianglePoints;
             myTriangle.Fill = EllipseBrush;
             myTriangle.Name = "triangle";
-            // Pentagone.
-            Point pointPentagone1 = new Point(125, 250);
-            Point pointPentagone2 = new Point(250, 150);
-            Point pointPentagone3 = new Point(200, 0);
-            Point pointPentagone4 = new Point(50, 0);
-            Point pointPentagone5 = new Point(0, 150);
-            PointCollection pentagonePoints = new PointCollection();
-            pentagonePoints.Add(pointPentagone1);
-            pentagonePoints.Add(pointPentagone2);
-            pentagonePoints.Add(pointPentagone3);
-            pentagonePoints.Add(pointPentagone4);
-            pentagonePoints.Add(pointPentagone5);
-            myPentagon.Points = pentagonePoints;
+            Point pointPentagon1 = new Point(125, 250);
+            Point pointPentagon2 = new Point(250, 150);
+            Point pointPentagon3 = new Point(200, 0);
+            Point pointPentagon4 = new Point(50, 0);
+            Point pointPentagon5 = new Point(0, 150);
+            PointCollection pentagonPoints = new PointCollection();
+            pentagonPoints.Add(pointPentagon1);
+            pentagonPoints.Add(pointPentagon2);
+            pentagonPoints.Add(pointPentagon3);
+            pentagonPoints.Add(pointPentagon4);
+            pentagonPoints.Add(pointPentagon5);
+            myPentagon.Points = pentagonPoints;
             myPentagon.Fill = EllipseBrush;
             myPentagon.Name = "pentagone";
-
-
+            Point pointHexagon1 = new Point(75, 300);
+            Point pointHexagon2 = new Point(225, 300);
+            Point pointHexagon3 = new Point(300, 150);
+            Point pointHexagon4 = new Point(225, 0);
+            Point pointHexagon5 = new Point(75, 0);
+            Point pointHexagon6 = new Point(0, 150);
+            PointCollection HexagonPoints = new PointCollection();
+            HexagonPoints.Add(pointHexagon1);
+            HexagonPoints.Add(pointHexagon2);
+            HexagonPoints.Add(pointHexagon3);
+            HexagonPoints.Add(pointHexagon4);
+            HexagonPoints.Add(pointHexagon5);
+            HexagonPoints.Add(pointHexagon6);
+            myHexagon.Points = HexagonPoints;
+            myHexagon.Fill = EllipseBrush;
+            myHexagon.Name = "hexagone";
+            Point pointHeptagon1 = new Point(150, 300);
+            Point pointHeptagon2 = new Point(250, 250);
+            Point pointHeptagon3 = new Point(300, 150);
+            Point pointHeptagon4 = new Point(225, 0);
+            Point pointHeptagon5 = new Point(75, 0);
+            Point pointHeptagon6 = new Point(0, 150);
+            Point pointHeptagon7 = new Point(50, 250);
+            PointCollection HeptagonPoints = new PointCollection();
+            HeptagonPoints.Add(pointHeptagon1);
+            HeptagonPoints.Add(pointHeptagon2);
+            HeptagonPoints.Add(pointHeptagon3);
+            HeptagonPoints.Add(pointHeptagon4);
+            HeptagonPoints.Add(pointHeptagon5);
+            HeptagonPoints.Add(pointHeptagon6);
+            HeptagonPoints.Add(pointHeptagon7);
+            myHeptagon.Points = HeptagonPoints;
+            myHeptagon.Fill = EllipseBrush;
+            myHeptagon.Name = "heptagone";
         }
 
-        // Creates a list of shapes.
         private void listShape()
         {
             shapes.Add(mySquare);
@@ -121,6 +151,8 @@ namespace CM2Projet
             shapes.Add(myEllipse);
             shapes.Add(myTriangle);
             shapes.Add(myPentagon);
+            shapes.Add(myHexagon);
+            shapes.Add(myHeptagon);
         }
 
         private Shape randomShape()
@@ -205,80 +237,111 @@ namespace CM2Projet
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            if (valider.IsEnabled == false)
+            compteur++;
+            if(compteur <=7)
             {
-                AfficherDialogRessayer();
+                if (valider.IsEnabled == false)
+                {
+                    AfficherDialogRessayer();
+                }
+                else
+                {
+                    switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
+                    {
+                        case "carre":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "rectangle":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "cercle":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "ellipse":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "triangle":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "pentagone":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "hexagone":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHexagon.Name && (coteTextBox.Text == "6"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                        case "heptagone":
+                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHeptagon.Name && (coteTextBox.Text == "7"))
+                            {
+                                AfficherDialogBravo();
+                            }
+                            else
+                            {
+                                AfficherDialogRessayer();
+                            }
+                            break;
+                    }
+                    LayoutRootForFigure.Children.Clear();
+                    LayoutRootForFigure.Children.Add(randomShape());
+                    animate();
+                    nomTextBox.Text = String.Empty;
+                    coteTextBox.Text = String.Empty;
+                }
             }
             else
             {
-                switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
-                {
-                    case "carre":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-                    case "rectangle":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-                    case "cercle":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-                    case "ellipse":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-                    case "triangle":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-                    case "pentagone":
-                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
-                        {
-                            AfficherDialogBravo();
-                        }
-                        else
-                        {
-                            AfficherDialogRessayer();
-                        }
-                        break;
-
-                }
-                LayoutRootForFigure.Children.Clear();
-                LayoutRootForFigure.Children.Add(randomShape());
-                animate();
+                finishGame();
+                valider.IsEnabled = false;
             }
+            
         }
 
         private void MultipleTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -323,6 +386,12 @@ namespace CM2Projet
             if (result == ContentDialogResult.Primary)
             {
             }
+        }
+
+        private async void finishGame()
+        {
+            var msgAlerte = new MessageDialog("Le jeux est terminé, vous avez joué 7 fois.");
+            await msgAlerte.ShowAsync();
         }
     }
 }
