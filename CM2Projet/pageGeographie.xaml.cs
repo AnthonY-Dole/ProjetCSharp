@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,7 +27,8 @@ namespace CM2Projet
     public sealed partial class pageGeographie : Page
     {
         Joueur J = null;
-        
+        pageScores scoreboard = new pageScores();
+
         public pageGeographie()
         {
             this.InitializeComponent();
@@ -40,7 +42,9 @@ namespace CM2Projet
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+
             On_BackRequested();
+            scoreboard.UpdateJoueur(J);
         }
 
         private bool On_BackRequested()
@@ -54,14 +58,15 @@ namespace CM2Projet
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-           // EuropeRandom();
+            scoreboard.UpdateJoueur(J);
+            // EuropeRandom();
             onlyCity(EuropeRandom());
            // Drapeaux();
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
         {
-            choice4.Content = "zefzef";
+            winGame();
         }
 
         private void choice1_Click(object sender, RoutedEventArgs e)
@@ -72,12 +77,12 @@ namespace CM2Projet
 
         private void choice2_Click(object sender, RoutedEventArgs e)
         {
-
+            loseGame();
         }
 
         private void choice3_Click(object sender, RoutedEventArgs e)
         {
-
+            loseGame();
         }
         public string EuropeRandom()
         {
@@ -139,6 +144,30 @@ namespace CM2Projet
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
            Drapeaux(EuropeRandom());
+        }
+
+        private bool Reponse()
+        {
+            bool etat = false;
+            if(etat ==true)
+            {
+
+            }
+            else
+            {
+
+            }
+            return etat;
+        }
+        private async void winGame()
+        {
+            var msgAlerte = new MessageDialog("Bravo");
+            await msgAlerte.ShowAsync();
+        }
+        private async void loseGame()
+        {
+            var msgAlerte = new MessageDialog("Ah dommage Arouf gangsta t pas le plus beau des rebeux ok tu va faire quoi ya QUOIIIIIIIIIIIII ta un problème??????????");
+            await msgAlerte.ShowAsync();
         }
     }
 }
