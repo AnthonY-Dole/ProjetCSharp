@@ -38,7 +38,8 @@ namespace CM2Projet
                 foreach (DicoApi items in reponse2.Data)
                 {
                     Debug.WriteLine(items.mot, "----2----");
-                    ANTHO.ListeMot.Add(items.mot);
+                    ANTHO.MotDico.Add(items.definition);
+                    
 
                     break;
                 }
@@ -48,7 +49,7 @@ namespace CM2Projet
                 {
                     if (cpt == 1)
                     {
-                        ANTHO.MotDico.Add(items.definition);
+                        ANTHO.ListeMot.Add(items.mot);
                         break;
                     }
                     
