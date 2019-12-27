@@ -50,9 +50,9 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-           
+
             //apidico.DicoAleatoire(textBoxReponseDefinitions.Text);
-            
+            scoreboard.UpdateJoueur(J);
 
         }
         private async void finishGame()
@@ -70,6 +70,7 @@ namespace CM2Projet
         {
             On_BackRequested();
 
+            
             scoreboard.UpdateJoueur(J);
            
         }

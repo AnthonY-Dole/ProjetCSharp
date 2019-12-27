@@ -48,10 +48,7 @@ namespace CM2Projet
                    Nom="EUD" ,Prenom="AROUF", ScoreFR =322585,ScoreMATH =6827820,ScoreGEO=127220,ScoreSC=7222220,ScoreTOT =454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
                },
             };
-          /*  if (LesJoueur.Contains() =null)
-            {
-                AfficherDialogErreur();
-            }*/
+        
         }
         public void UpdateJoueur(Joueur parametreJoueur)
         {
@@ -71,8 +68,25 @@ namespace CM2Projet
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-     
-         
+        }
+        public int getScoreFr(int Scorefr)
+        {
+            return J.ScoreFR = Scorefr;
+
+        }
+        public int getScoreGeo(int ScoreGeo)
+        {
+            return J.ScoreGEO = ScoreGeo;
+
+        }
+        public int getScoreMath(int ScoreMath)
+        {
+            return J.ScoreMATH = ScoreMath;
+
+        }
+        public int getScoreSc(int ScoreScience)
+        {
+            return J.ScoreSC = ScoreScience;
 
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
