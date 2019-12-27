@@ -43,7 +43,6 @@ namespace CM2Projet
         
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
             motAlea.DataContext = apidico.MotsAleatoire();
 
@@ -51,8 +50,8 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-            //motAlea3.DataContext = apidico.DicoAleatoire("");
-  
+            motAlea3.DataContext = apidico.dico();
+
             scoreboard.UpdateJoueur(J);
 
         }
@@ -265,8 +264,15 @@ namespace CM2Projet
 
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("CLICK SUR LE BOUTON VALIDER");
+            Debug.WriteLine("CLICK SUR LE BOUTON VALIDER"); 
+            int found = 0;
 
+            //foreach (string s in ANTHO.MotDico)
+            //{
+            //    found = s.IndexOf(":");
+            //    motAlea3.DataContext = s.Substring(0, found) + (".");
+
+            //}
             if (validerDefinitions.IsEnabled == false)
             {
                 AfficherDialogRessayer();
@@ -295,14 +301,9 @@ namespace CM2Projet
 
                 }
                 Debug.WriteLine("Affichage  apres click du mot");
-                int found = 0;
-               
-                foreach (string s in ANTHO.MotDico)
-                {
-                    found = s.IndexOf(":");
-                    motAlea3.DataContext = s.Substring(0, found) +(".");
-                  
-                }
+                motAlea3.DataContext = apidico.dico();
+
+
 
             }
           

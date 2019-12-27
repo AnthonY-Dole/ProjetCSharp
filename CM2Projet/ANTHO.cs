@@ -13,5 +13,6 @@ namespace CM2Projet
         public static List<string> MotAlea = new List<string>();
         public static List<string> MotDico = new List<string>();
         public static List<Joueur> lesJoueurs = new List<Joueur>();
+        public string def = string.Empty;
     }
 }
