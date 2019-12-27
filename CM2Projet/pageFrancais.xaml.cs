@@ -38,7 +38,7 @@ namespace CM2Projet
         {
             this.InitializeComponent();
         }
-       
+        
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -49,13 +49,7 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-
-            apidico.motCompare("definitions", textBoxReponseDefinitions.Text, apidico.MotsAleatoire());
-            Debug.WriteLine("Start Compare");
-            motAlea3.DataContext = ANTHO.MotDico[0];
-            Debug.WriteLine("Affichge premiere compa");
-            ANTHO.MotDico.Clear();
-            Debug.WriteLine("Clean tab premiere compa");
+            apidico.DicoAleatoire(textBoxReponseDefinitions.Text);
 
 
         }
@@ -268,7 +262,6 @@ namespace CM2Projet
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("CLICK SUR LE BOUTON VALIDER");
-            //string MotdefinitionsAfficher = apidico.MotsAleatoire();
 
             if (validerDefinitions.IsEnabled == false)
             {
@@ -276,8 +269,8 @@ namespace CM2Projet
             }
             else
             {
-              
-                if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, apidico.MotsAleatoire()) == true)
+           
+                if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
                 {
 
                     AfficherDialogBravo();
@@ -285,6 +278,7 @@ namespace CM2Projet
                     ScoreDictionnaire.DataContext = "+ 30 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                     ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                  
                 }
                 else
                 {
@@ -293,12 +287,22 @@ namespace CM2Projet
                     J.ScoreFR = J.ScoreFR - 4;
                     ScoreDictionnaire.DataContext = "- 7 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
-                   
+              
+
                 }
-                Debug.WriteLine("CAffichage  apres click du mot");
-                motAlea3.DataContext = ANTHO.MotDico[0];
-                ANTHO.MotDico.Clear();
-                // definitionStart = apidico.MotsAleatoire();
+                Debug.WriteLine("Affichage  apres click du mot");
+                int found = 0;
+               
+                foreach (string s in ANTHO.MotDico)
+                {
+                    found = s.IndexOf(":");
+                    motAlea3.DataContext = s.Substring(0, found) +(".");
+                  
+                }
+               
+                 ANTHO.MotDico.Clear();
+                
+
 
             }
         }
