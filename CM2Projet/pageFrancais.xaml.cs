@@ -38,6 +38,7 @@ namespace CM2Projet
         public pageFrancais()
         {
             this.InitializeComponent();
+
         }
         
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -51,7 +52,7 @@ namespace CM2Projet
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
 
-            //apidico.DicoAleatoire(textBoxReponseDefinitions.Text);
+  
             scoreboard.UpdateJoueur(J);
 
         }

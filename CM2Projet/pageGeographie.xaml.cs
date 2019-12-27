@@ -1,6 +1,7 @@
 ﻿using CM2Projet.Metier;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -49,5 +50,41 @@ namespace CM2Projet
             }
             return false;
         }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void choice4_Click(object sender, RoutedEventArgs e)
+        {
+            choice4.Content = "issou";
+        }
+
+        private void choice1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void choice2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void choice3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        public string EuropeRandom()
+        {
+            List<string> ListeEurope = new List<String>() { "France:Paris", "Allemagne:Berlin", "Italie:Rome", "Espagne:Madrid", "Royaume-Unis:Londres", "Irlande:Dublin", "Portugal:Lisbonne", "Belgique:Bruxelles", "Luxembourg:Luxembourg", "Pays-Bas:Amsterdam", "Suisse:Berne", "Danemark:Copenhague", "Norvège:Oslo", "Suède:Stockholm", "Finlande:Helsinki", "Estonie:Tallinn", "Lettonie:Riga", "Lituanie:Vilnius", "Pologne:Varsovie", "RépubliqueTchèque:Prague", "Liechtenstein/", "Autriche:Vienne", "Slovaquie:Bratislava", "Hongrie:Budapest", "Slovénie:Ljubljana", "Andorre/", "Monaco/", "Saint-Marin/", "Turquie:Ankara", "Vatican/", "Croatie:Zagreb", "Bosnie-Herzégovine:Sarajevo", "Malte/", "Roumanie:Bucarest", "Yougoslavie:Belgrade", "Bulgarie:Sofia", "Albanie:Tijana", "Macédoine:Skopje", "Grèce:Athène", "Moldavie:Chisinau", "Ukraine:Kiev", "Biélorussie:Minsk", "Russie:Moscou", "Géorgie:Tbilissi", "Azerbaïdjan:Bakou", "Arménie:Erevan", "Serbie/", "Islande:Reykjavik", "Monténégro" };
+            Random PaysRandom = new Random();
+            int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
+            string PaysVilleAleatoire = ListeEurope[lavaleur];
+
+            Debug.WriteLine("----------------",ListeEurope[lavaleur],"-----------------------");
+            return PaysVilleAleatoire;
+        }
+
+       
     }
 }
