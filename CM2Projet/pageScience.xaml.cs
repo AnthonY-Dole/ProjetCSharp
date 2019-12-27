@@ -29,6 +29,7 @@ namespace CM2Projet
         string txBxText;
         TextBlock txBlck;
         bool b = false;
+        int score = 0;
         public pageScience()
         {
             this.InitializeComponent();
@@ -149,6 +150,8 @@ namespace CM2Projet
             sourceRepPoumon.Visibility = Visibility.Visible;
             sourceRepTrachee.Visibility = Visibility.Visible;
 
+            score = 0;
+            
         }
 
         private async void btnValider_ClickAsync(object sender, RoutedEventArgs e)
@@ -157,7 +160,6 @@ namespace CM2Projet
             int cptRepFausse = 0;
             bool bNull = true;
             bool bFalseRep = false;
-            int score = 0;
             string msgCorrection = string.Empty;
             var msgAlerte = new MessageDialog("Veuillez placer tous les mots.");
             var msgFin = new MessageDialog(""); 
