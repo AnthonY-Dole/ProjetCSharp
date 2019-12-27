@@ -56,7 +56,7 @@ namespace CM2Projet
         {
            // EuropeRandom();
             onlyCity(EuropeRandom());
-            Drapeaux();
+           // Drapeaux();
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
@@ -67,6 +67,7 @@ namespace CM2Projet
         private void choice1_Click(object sender, RoutedEventArgs e)
         {
             onlyCity(EuropeRandom());
+            onlyCountry(EuropeRandom());
         }
 
         private void choice2_Click(object sender, RoutedEventArgs e)
@@ -111,16 +112,33 @@ namespace CM2Projet
             return villePays;
         }
 
-        
-
-        private void Drapeaux()
+        public string onlyCountry(string random)
         {
-            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/FR.svg"));
+
+            string[] stringRandom = { random };
+            int compteur = 0;
+            string Pays = "";
+         
+                foreach (string chaine in stringRandom)
+                {
+                    compteur = chaine.IndexOf(":");
+                    Pays = chaine.Substring(0,compteur);
+                //FAIRE AVEC / SINON CRASH 
+                }
+
+            Debug.WriteLine(Pays);
+            return Pays;
+        }
+
+
+        private void Drapeaux(string drapeaux)
+        {
+            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/"+drapeaux+".png"));
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-           Drapeaux();
+           Drapeaux(EuropeRandom());
         }
     }
 }
