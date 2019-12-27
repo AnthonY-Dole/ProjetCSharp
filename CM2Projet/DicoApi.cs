@@ -84,7 +84,7 @@ namespace CM2Projet
                 i++;
             }
             ANTHO.ListeMot.Clear();
-           // ANTHO.MotDico.Clear();
+          
             bool result = false;
             foreach (string s in MotFind)
             {
@@ -102,6 +102,7 @@ namespace CM2Projet
               
             }
             MotFind.Clear();
+          
             return result;
         }
 

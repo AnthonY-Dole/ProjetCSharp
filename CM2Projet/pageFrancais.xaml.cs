@@ -38,7 +38,7 @@ namespace CM2Projet
         {
             this.InitializeComponent();
         }
-        string test;
+       
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -50,14 +50,20 @@ namespace CM2Projet
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
 
-            test = apidico.MotsAleatoire();
-            apidico.motCompare("definitions", textBoxReponseAntonyme.Text, test);
-          //  motAlea3.DataContext = ANTHO.MotDico[0];
+            apidico.motCompare("definitions", textBoxReponseDefinitions.Text, apidico.MotsAleatoire());
+            Debug.WriteLine("Start Compare");
+            motAlea3.DataContext = ANTHO.MotDico[0];
+            Debug.WriteLine("Affichge premiere compa");
             ANTHO.MotDico.Clear();
-            test = apidico.MotsAleatoire();
+            Debug.WriteLine("Clean tab premiere compa");
+
 
         }
-
+        private async void finishGame()
+        {
+            var msgAlerte = new MessageDialog("Le jeux  et finis vous avez jouer 10 fois");
+            await msgAlerte.ShowAsync();
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             J = (Joueur)e.Parameter;
@@ -80,11 +86,12 @@ namespace CM2Projet
             return false;
         }
         int compteur = 0;
-        private  async void  valider_Click(object sender, RoutedEventArgs e)
+        int compteurAnto = 0;
+        private void  valider_Click(object sender, RoutedEventArgs e)
         {
             
             compteur++;
-            var msgAlerte = new MessageDialog("Le jeux Synonyme et finis vous avez jouer" + compteur.ToString() + " fois");
+           
             if (compteur <= 10)
             {
                 string motAfficher = motAlea.DataContext.ToString();
@@ -120,10 +127,10 @@ namespace CM2Projet
             }
             else
             {
-
+                finishGame();
                 valider.IsEnabled = false;
-                await  msgAlerte.ShowAsync();
-                
+              
+
             }
         }
        
@@ -189,7 +196,8 @@ namespace CM2Projet
 
         private void validerAntonyme_Click(object sender, RoutedEventArgs e)
         {
-            if (compteur <= 10)
+            compteurAnto++;
+            if (compteurAnto <= 10)
             {
                 string motAfficher2 = motAlea2.DataContext.ToString();
             if (validerAntonyme.IsEnabled == false)
@@ -222,8 +230,9 @@ namespace CM2Projet
             }
             else
             {
-                var msgAlerte = new MessageDialog("Le jeux Synonyme et finis vous avez jouer" + compteur.ToString());
                 validerAntonyme.IsEnabled = false;
+                finishGame();
+
             }
         }
 
@@ -258,9 +267,9 @@ namespace CM2Projet
 
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("CLICK SUR LE BOUTON VALIDER");
+            //string MotdefinitionsAfficher = apidico.MotsAleatoire();
 
-            string MotdefinitionsAfficher = test;
-            //motAlea3.DataContext.ToString();
             if (validerDefinitions.IsEnabled == false)
             {
                 AfficherDialogRessayer();
@@ -268,7 +277,7 @@ namespace CM2Projet
             else
             {
               
-                if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, MotdefinitionsAfficher) == true)
+                if (apidico.motCompare("definitions", textBoxReponseDefinitions.Text, apidico.MotsAleatoire()) == true)
                 {
 
                     AfficherDialogBravo();
@@ -286,10 +295,10 @@ namespace CM2Projet
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                    
                 }
-             
+                Debug.WriteLine("CAffichage  apres click du mot");
                 motAlea3.DataContext = ANTHO.MotDico[0];
                 ANTHO.MotDico.Clear();
-                test = apidico.MotsAleatoire();
+                // definitionStart = apidico.MotsAleatoire();
 
             }
         }
