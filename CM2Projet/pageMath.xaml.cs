@@ -32,6 +32,7 @@ namespace CM2Projet
     public sealed partial class pageMath : Page
     {
         Joueur J = null;
+        pageScores scoreboard = new pageScores();
         Rectangle mySquare = new Rectangle();
         Rectangle myRectangle = new Rectangle();
         Ellipse myCircle = new Ellipse();
@@ -212,6 +213,7 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             prenomContext.DataContext = J.Prenom + ", voici une figure géométrique:";
+            scoreboard.UpdateJoueur(J);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -223,6 +225,7 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
+            scoreboard.UpdateJoueur(J);
         }
 
         private bool On_BackRequested()
@@ -252,80 +255,96 @@ namespace CM2Projet
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "rectangle":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "cercle":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "ellipse":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "triangle":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "pentagone":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "hexagone":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHexagon.Name && (coteTextBox.Text == "6"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                         case "heptagone":
                             if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHeptagon.Name && (coteTextBox.Text == "7"))
                             {
                                 AfficherDialogBravo();
+                                J.ScoreMATH = J.ScoreMATH + 7;
                             }
                             else
                             {
                                 AfficherDialogRessayer();
+                                J.ScoreMATH = J.ScoreMATH + 4;
                             }
                             break;
                     }
@@ -363,8 +382,8 @@ namespace CM2Projet
             ContentDialog dialog = new ContentDialog
             {
                 Title = "Exercice Figures",
-                Content = "Bravo,Bonne réponse",
-                PrimaryButtonText = "CONTINUER",
+                Content = "Bravo, bonne réponse.",
+                PrimaryButtonText = "Question suivante",
                 DefaultButton = ContentDialogButton.Primary
             };
             ContentDialogResult result = await dialog.ShowAsync();
@@ -378,8 +397,8 @@ namespace CM2Projet
             ContentDialog dialog = new ContentDialog
             {
                 Title = "Exercice Figures",
-                Content = "AH,tu a eu faux",
-                PrimaryButtonText = "RETENTER?",
+                Content = "Faux!",
+                PrimaryButtonText = "Question suivante",
                 DefaultButton = ContentDialogButton.Primary
             };
             ContentDialogResult result = await dialog.ShowAsync();
