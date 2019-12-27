@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 
@@ -40,6 +41,7 @@ namespace CM2Projet
             initQuestions();
             listShape();
             LayoutRootForFigure.Children.Add(randomShape());
+            animate();
         }
 
         public void initQuestions()
@@ -92,6 +94,32 @@ namespace CM2Projet
             Random rng = new Random();
             int valeur = rng.Next(0, shapes.Count);
             return shapes[valeur];
+        }
+
+        private void animate()
+        {
+            TranslateTransform translateTransform = new TranslateTransform();
+            translateTransform.X = 0;
+            translateTransform.Y = 0;
+            LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().RenderTransform = translateTransform;
+            Duration duration = new Duration(TimeSpan.FromSeconds(2));
+            DoubleAnimation doubleAnimationX = new DoubleAnimation();
+            DoubleAnimation doubleAnimationY = new DoubleAnimation();
+            doubleAnimationX.Duration = duration;
+            doubleAnimationY.Duration = duration;
+            Storyboard storyboard = new Storyboard();
+            storyboard.Duration = duration;
+            storyboard.Children.Add(doubleAnimationX);
+            storyboard.Children.Add(doubleAnimationY);
+            Storyboard.SetTarget(doubleAnimationX,translateTransform);
+            Storyboard.SetTarget(doubleAnimationY,translateTransform);
+            Storyboard.SetTargetProperty(doubleAnimationX, "X");
+            Storyboard.SetTargetProperty(doubleAnimationY, "Y");
+            doubleAnimationX.To = 100;
+            doubleAnimationY.To = 0;
+            LayoutRootForFigure.Resources.Add("storyboard", storyboard);
+            storyboard.Begin();
+            LayoutRootForFigure.Resources.Clear();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -173,6 +201,7 @@ namespace CM2Projet
                 }
                 LayoutRootForFigure.Children.Clear();
                 LayoutRootForFigure.Children.Add(randomShape());
+                animate();
             }
         }
 
