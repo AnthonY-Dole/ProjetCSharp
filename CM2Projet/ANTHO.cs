@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CM2Projet.Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace CM2Projet
         public static List<string> ListeMot = new List<string>();
         public static List<string> MotAlea = new List<string>();
         public static List<string> MotDico = new List<string>();
+        public static List<Joueur> lesJoueurs = new List<Joueur>();
     }
 }

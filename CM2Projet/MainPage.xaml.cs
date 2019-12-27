@@ -22,6 +22,7 @@ namespace CM2Projet
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        
         Joueur J = null;
         Frame rootFrame = Window.Current.Content as Frame;
         public string leJoueur { get; set; }
@@ -37,7 +38,10 @@ namespace CM2Projet
         {
            
         }
-
+        public void AddJoueur(Joueur joueur)
+        {
+            ANTHO.lesJoueurs.Add(joueur);
+        }
         private void btnjoueurvalid_Click(object sender, RoutedEventArgs e)
         {
             pseudoJoueur = new MainPage
@@ -47,6 +51,8 @@ namespace CM2Projet
             DataContext = pseudoJoueur;
             J.Nom = textBoxPrenom.Text;
             J.Prenom = textBoxNom.Text;
+            //J = new Joueur(textBoxNom.Text, textBoxPrenom.Text);
+            AddJoueur(J);
           /*  Joueur currentJoueur = (Joueur);
             Application.Current.Resources["monJoueur"] = currentJoueur; 
             Frame rootFrame = Window.Current.Content as Frame;
@@ -80,7 +86,7 @@ namespace CM2Projet
         private void btnScore_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageScores),J);
+            Frame.Navigate(typeof(pageScores));
         }
 
         private void textBoxNom_TextChanged(object sender, TextChangedEventArgs e)

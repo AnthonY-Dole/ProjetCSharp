@@ -28,70 +28,100 @@ namespace CM2Projet
    
     public sealed partial class pageScores : Page
     {
-        Joueur J = null;
-        
         public List<Joueur> LesJoueur { get; set; }
         public pageScores()
         {
-            
+            LesJoueur = ANTHO.lesJoueurs;
             this.InitializeComponent();
-
-            LesJoueur = new List<Joueur>
-             {
+            ANTHO.lesJoueurs.Count();
+            foreach (Joueur j in LesJoueur)
+            {
+                new Joueur("", "")
+                {
+                    Nom = j.Nom,
+                    Prenom = j.Prenom,
+                    ScoreFR = j.ScoreFR,
+                    ScoreMATH = j.ScoreMATH,
+                    ScoreGEO = j.ScoreGEO,
+                    ScoreSC = j.ScoreSC,
+                    ScoreTOT = j.ScoreTOT//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+                };
+            }
+            // ANTHO.lesJoueurs = new List<Joueur>
+            // {
               
-               new Joueur("","")
-               {
-               Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
-               },
-                 new Joueur("erfef","efef")
-               {
-                   Nom="EUD" ,Prenom="AROUF", ScoreFR =322585,ScoreMATH =6827820,ScoreGEO=127220,ScoreSC=7222220,ScoreTOT =454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
-               },
-            };
+            //   new Joueur("","")
+            //   {
+            //   Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+            //   },
+            //     new Joueur("erfef","efef")
+            //   {
+            //       Nom="EUD" ,Prenom="AROUF", ScoreFR =322585,ScoreMATH =6827820,ScoreGEO=127220,ScoreSC=7222220,ScoreTOT =454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+            //   },
+            //};
         
         }
-        public void UpdateJoueur(Joueur parametreJoueur)
+
+
+        public void UpdateJoueur(Joueur pJoueur)
         {
          
-            foreach (Joueur j in LesJoueur) 
-            { 
-                if (J == parametreJoueur) 
+            foreach (Joueur j in ANTHO.lesJoueurs) 
+            {
+                if (j == pJoueur)
                 {
-                    J.ScoreFR = J.ScoreFR+parametreJoueur.ScoreFR;
-                    J.ScoreGEO = parametreJoueur.ScoreGEO;
-                    J.ScoreMATH = parametreJoueur.ScoreMATH;
-                    J.ScoreSC = parametreJoueur.ScoreSC;
-                    J.ScoreTOT = parametreJoueur.getTotal(J.ScoreFR, J.ScoreGEO, J.ScoreMATH, J.ScoreSC);
+                    if(pJoueur.ScoreFR != 0)
+                    {
+                        j.ScoreFR = pJoueur.ScoreFR;
+                    }
+                    else if(pJoueur.ScoreMATH != 0)
+                    {
+                        j.ScoreMATH = pJoueur.ScoreMATH;
+                    }
+                    else if (pJoueur.ScoreSC != 0)
+                    {
+                        j.ScoreSC = pJoueur.ScoreSC;
+                    }
+                    else if (pJoueur.ScoreGEO != 0)
+                    {
+                        j.ScoreGEO = pJoueur.ScoreGEO;
+                    }
 
-                 } 
+                    //J.ScoreFR = J.ScoreFR + parametreJoueur.ScoreFR;
+                    //J.ScoreGEO = parametreJoueur.ScoreGEO;
+                    //J.ScoreMATH = parametreJoueur.ScoreMATH;
+                    //J.ScoreSC = parametreJoueur.ScoreSC;
+                    //J.ScoreTOT = parametreJoueur.getTotal(J.ScoreFR, J.ScoreGEO, J.ScoreMATH, J.ScoreSC);
+
+                }
             }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
         }
-        public int getScoreFr(int Scorefr)
-        {
-            return J.ScoreFR = Scorefr;
+        //public int getScoreFr(int Scorefr)
+        //{
+        //    return J.ScoreFR = Scorefr;
 
-        }
-        public int getScoreGeo(int ScoreGeo)
-        {
-            return J.ScoreGEO = ScoreGeo;
+        //}
+        //public int getScoreGeo(int ScoreGeo)
+        //{
+        //    return J.ScoreGEO = ScoreGeo;
 
-        }
-        public int getScoreMath(int ScoreMath)
-        {
-            return J.ScoreMATH = ScoreMath;
+        //}
+        //public int getScoreMath(int ScoreMath)
+        //{
+        //    return J.ScoreMATH = ScoreMath;
 
-        }
-        public int getScoreSc(int ScoreScience)
-        {
-            return J.ScoreSC = ScoreScience;
+        //}
+        //public int getScoreSc(int ScoreScience)
+        //{
+        //    return J.ScoreSC = ScoreScience;
 
-        }
+        //}
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            J = (Joueur)e.Parameter;
+            //LesJoueur = (List<Joueur>)e.Parameter;
             BackButton.IsEnabled = this.Frame.CanGoBack;
         }
 
