@@ -151,7 +151,7 @@ namespace CM2Projet
             sourceRepTrachee.Visibility = Visibility.Visible;
 
             score = 0;
-            
+            btnValider.IsEnabled = true;
         }
 
         private async void btnValider_ClickAsync(object sender, RoutedEventArgs e)
@@ -227,6 +227,8 @@ namespace CM2Projet
             }
 
             J.ScoreSC = score;
+            score = 0;
+            btnValider.IsEnabled = false;
         }
     }
 }
