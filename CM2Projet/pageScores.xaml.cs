@@ -29,16 +29,19 @@ namespace CM2Projet
     public sealed partial class pageScores : Page
     {
         Joueur J = null;
+        
         public List<Joueur> LesJoueur { get; set; }
         public pageScores()
         {
+            
             this.InitializeComponent();
 
             LesJoueur = new List<Joueur>
              {
-               new Joueur("michel","eud")
+              
+               new Joueur("","")
                {
-                  Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
+               Nom="ervev" ,Prenom="rvrv", ScoreFR = 35,ScoreMATH = 60,ScoreGEO= 120,ScoreSC= 20,ScoreTOT =5454//J.getTotal(J.ScoreGEO,J.ScoreMATH,J.ScoreFR,J.ScoreSC)
                },
                  new Joueur("erfef","efef")
                {
@@ -49,6 +52,22 @@ namespace CM2Projet
             {
                 AfficherDialogErreur();
             }*/
+        }
+        public void UpdateJoueur(Joueur parametreJoueur)
+        {
+         
+            foreach (Joueur j in LesJoueur) 
+            { 
+                if (J == parametreJoueur) 
+                {
+                    J.ScoreFR = J.ScoreFR+parametreJoueur.ScoreFR;
+                    J.ScoreGEO = parametreJoueur.ScoreGEO;
+                    J.ScoreMATH = parametreJoueur.ScoreMATH;
+                    J.ScoreSC = parametreJoueur.ScoreSC;
+                    J.ScoreTOT = parametreJoueur.getTotal(J.ScoreFR, J.ScoreGEO, J.ScoreMATH, J.ScoreSC);
+
+                 } 
+            }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

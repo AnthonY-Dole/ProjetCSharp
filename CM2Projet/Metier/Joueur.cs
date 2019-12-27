@@ -71,5 +71,11 @@ namespace CM2Projet.Metier
 
             return ScoreTOT = scGeo + scMath + scFr + scScien;
         }
+        public string getJoueur(string Pnom, string Pprenom,int scGeo, int scMath, int scFr, int scScien)
+        {
+            
+            return  null;
+        }
+       
     }
 }

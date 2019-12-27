@@ -34,6 +34,7 @@ namespace CM2Projet
 
         Joueur J = null;
         DicoApi apidico = new DicoApi();
+        pageScores scoreboard = new pageScores();
         public pageFrancais()
         {
             this.InitializeComponent();
@@ -49,8 +50,9 @@ namespace CM2Projet
             motAlea2.DataContext = apidico.MotsAleatoire();
 
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
-            apidico.DicoAleatoire(textBoxReponseDefinitions.Text);
-
+           
+            //apidico.DicoAleatoire(textBoxReponseDefinitions.Text);
+            
 
         }
         private async void finishGame()
@@ -67,6 +69,8 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
+
+            scoreboard.UpdateJoueur(J);
            
         }
 
@@ -200,8 +204,6 @@ namespace CM2Projet
             }
             else
             {
-
-               
                 if (apidico.motCompare("antonymes",textBoxReponseAntonyme.Text, motAfficher2) == true)
                 {
 
@@ -269,7 +271,7 @@ namespace CM2Projet
             }
             else
             {
-           
+                ANTHO.MotDico.Clear();
                 if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
                 {
 
@@ -299,12 +301,9 @@ namespace CM2Projet
                     motAlea3.DataContext = s.Substring(0, found) +(".");
                   
                 }
-               
-                 ANTHO.MotDico.Clear();
-                
-
 
             }
+          
         }
     }
 

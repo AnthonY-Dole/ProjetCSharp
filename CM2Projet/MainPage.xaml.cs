@@ -100,7 +100,7 @@ namespace CM2Projet
                 btnFrancais.IsEnabled = false;
                 btnMath.IsEnabled = false;
                 btnGeographie.IsEnabled = false;
-                //btnScore.IsEnabled = false;
+              
                 btnjoueurvalid.IsEnabled = false;
             }
         }
