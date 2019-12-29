@@ -55,35 +55,38 @@ namespace CM2Projet
 
         public void initQuestions()
         {
-            // Square.
             mySquare.Width = 200;
             mySquare.Height = 200;
             mySquare.Name = "carre";
-            Color SquareColor = Color.FromArgb(255, 255, 0, 0);
+            Color SquareColor = Color.FromArgb(255, 92, 119, 214);
             SolidColorBrush SquareBrush = new SolidColorBrush();
             SquareBrush.Color = SquareColor;
             mySquare.Fill = SquareBrush;
+
             myRectangle.Width = 400;
             myRectangle.Height = 200;
             myRectangle.Name = "rectangle";
-            Color RectangleColor = Color.FromArgb(255, 255, 100, 20);
+            Color RectangleColor = Color.FromArgb(255, 144, 158, 209);
             SolidColorBrush RectangleBrush = new SolidColorBrush();
             RectangleBrush.Color = RectangleColor;
             myRectangle.Fill = RectangleBrush;
+
             myCircle.Width = 200;
             myCircle.Height = 200;
             myCircle.Name = "cercle";
-            Color CircleColor = Color.FromArgb(255, 255, 0, 0);
+            Color CircleColor = Color.FromArgb(255, 118, 173, 120);
             SolidColorBrush CircleBrush = new SolidColorBrush();
             CircleBrush.Color = CircleColor;
             myCircle.Fill = CircleBrush;
+
             myEllipse.Width = 400;
             myEllipse.Height = 200;
             myEllipse.Name = "ellipse";
-            Color EllipseColor = Color.FromArgb(255, 255, 0, 0);
+            Color EllipseColor = Color.FromArgb(255, 194, 153, 175);
             SolidColorBrush EllipseBrush = new SolidColorBrush();
             EllipseBrush.Color = EllipseColor;
             myEllipse.Fill = EllipseBrush;
+
             Point pointTriangle1 = new Point(0, 0);
             Point pointTriangle2 = new Point(0, 300);
             Point pointTriangle3 = new Point(300, 0);
@@ -92,8 +95,12 @@ namespace CM2Projet
             trianglePoints.Add(pointTriangle2);
             trianglePoints.Add(pointTriangle3);
             myTriangle.Points = trianglePoints;
-            myTriangle.Fill = EllipseBrush;
+            Color TriangleColor = Color.FromArgb(255, 0, 0, 0);
+            SolidColorBrush TriangleBrush = new SolidColorBrush();
+            TriangleBrush.Color = TriangleColor;
+            myTriangle.Fill = TriangleBrush;
             myTriangle.Name = "triangle";
+
             Point pointPentagon1 = new Point(125, 250);
             Point pointPentagon2 = new Point(250, 150);
             Point pointPentagon3 = new Point(200, 0);
@@ -106,8 +113,12 @@ namespace CM2Projet
             pentagonPoints.Add(pointPentagon4);
             pentagonPoints.Add(pointPentagon5);
             myPentagon.Points = pentagonPoints;
-            myPentagon.Fill = EllipseBrush;
+            Color PentagonColor = Color.FromArgb(255, 255, 255, 255);
+            SolidColorBrush PentagonBrush = new SolidColorBrush();
+            PentagonBrush.Color = PentagonColor;
+            myPentagon.Fill = PentagonBrush;
             myPentagon.Name = "pentagone";
+
             Point pointHexagon1 = new Point(75, 300);
             Point pointHexagon2 = new Point(225, 300);
             Point pointHexagon3 = new Point(300, 150);
@@ -122,8 +133,12 @@ namespace CM2Projet
             HexagonPoints.Add(pointHexagon5);
             HexagonPoints.Add(pointHexagon6);
             myHexagon.Points = HexagonPoints;
-            myHexagon.Fill = EllipseBrush;
+            Color HexagonColor = Color.FromArgb(255, 255, 100, 70);
+            SolidColorBrush HexagonBrush = new SolidColorBrush();
+            HexagonBrush.Color = HexagonColor;
+            myHexagon.Fill = HexagonBrush;
             myHexagon.Name = "hexagone";
+
             Point pointHeptagon1 = new Point(150, 300);
             Point pointHeptagon2 = new Point(250, 250);
             Point pointHeptagon3 = new Point(300, 150);
@@ -140,7 +155,10 @@ namespace CM2Projet
             HeptagonPoints.Add(pointHeptagon6);
             HeptagonPoints.Add(pointHeptagon7);
             myHeptagon.Points = HeptagonPoints;
-            myHeptagon.Fill = EllipseBrush;
+            Color HeptagonColor = Color.FromArgb(255, 255, 255, 13);
+            SolidColorBrush HeptagonBrush = new SolidColorBrush();
+            HeptagonBrush.Color = HeptagonColor;
+            myHeptagon.Fill = HeptagonBrush;
             myHeptagon.Name = "heptagone";
         }
 
