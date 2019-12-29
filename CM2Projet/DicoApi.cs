@@ -86,10 +86,8 @@ namespace CM2Projet
             List<string> MotsFind = new List<String>() { "acheter", "aider", "aimer", "aller", "apporter", "apprendre", "arrêter", "arriver", "attendre", "boire", "changer", "choisir", "commencer", "comprendre", "continuer", "coucher", "couper", "coûter", "croire", "connaître", "courir", "décider", "décrire", "demander", "dépêcher", "descendre", "devenir", "devoir", "dire", "donner", "dormir", "écouter", "écrire", "effacer", "entendre", "entrer", "envoyer", "essayer", "faire", "fermer", "finir", "gagner", "inquiéter", "inviter", "jouer", "laver", "lever", "lire", "manger", "mettre", "monter", "mourir", "nager", "naître", "neiger", "nettoyer", "obéir", "obtenir", "oublier", "ouvrir", "pardonner", "parler", "partir", "passer", "payer", "penser", "perdre", "pleurer", "porter", "pouvoir", "préférer", "prendre", "préparer", "sepromener", "quitter", "raconter", "réfléchir", "regarder", "remplacer", "remplir", "répéter", "répondre", "reposer", "rester", "retourner", "réussir", "réveiller", "savoir", "sortir", "suivre", "terminer", "tomber", "travailler", "trouver", "utiliser", "vendre", "venir", "visiter", "voir", "vouloir" };
             Random randomWord = new Random();
             int valeur = randomWord.Next(0, MotsFind.Count);
-            Debug.WriteLine("-----------------------");
             string MotAleatoire = MotsFind[valeur];
             Debug.WriteLine(MotsFind[valeur]);
-            Debug.WriteLine("-----------------------");
             return MotAleatoire;
         }
 

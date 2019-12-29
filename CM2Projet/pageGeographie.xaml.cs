@@ -97,7 +97,6 @@ namespace CM2Projet
             Random PaysRandom = new Random();
             int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
             string PaysVilleAleatoire = ListeEurope[lavaleur];
-          //  Debug.WriteLine(ListeEurope[lavaleur]);
             return PaysVilleAleatoire;
         }
         public string onlyCity(string random)
@@ -163,17 +162,25 @@ namespace CM2Projet
           
             List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom())};
             Random villeRandom = new Random();
-            int lavaleur = villeRandom.Next(0, ListeVille.Count);
-            int lavaleur1 = villeRandom.Next(0, ListeVille.Count);
-            int lavaleur2 = villeRandom.Next(0, ListeVille.Count);
-            int lavaleur3 = villeRandom.Next(0, ListeVille.Count);
-            choice1.Content = ListeVille[lavaleur];
-            choice2.Content = ListeVille[lavaleur1];
-            choice3.Content = ListeVille[lavaleur2];
-            choice4.Content = ListeVille[lavaleur3];
+            /*  int lavaleur = villeRandom.Next(0, ListeVille.Count);
+              int lavaleur1 = villeRandom.Next(0, ListeVille.Count);
+              int lavaleur2 = villeRandom.Next(0, ListeVille.Count);
+              int lavaleur3 = villeRandom.Next(0, ListeVille.Count);
+              choice1.Content = ListeVille[lavaleur];
+              choice2.Content = ListeVille[lavaleur1];
+              choice3.Content = ListeVille[lavaleur2];
+              choice4.Content = ListeVille[lavaleur3];*/
+            List<string> data = new List<String>() { ListeVille[0], ListeVille[1],ListeVille[2],ListeVille[3] };
+            string lavaleur =  ListeVille[0];
+            string lavaleur1 = ListeVille[1];
+            string lavaleur2 = ListeVille[2];
+            string lavaleur3 = ListeVille[3];
 
+          
 
-        }
+            
+
+            }
         int nbReponse = 0;
         private bool Reponse(string laville)
         {
