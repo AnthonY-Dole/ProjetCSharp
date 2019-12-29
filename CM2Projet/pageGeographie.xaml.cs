@@ -28,6 +28,9 @@ namespace CM2Projet
     {
         Joueur J = null;
         pageScores scoreboard = new pageScores();
+        String toFind;
+        string cityToFind;
+        string countryToFind;
 
         public pageGeographie()
         {
@@ -59,9 +62,9 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             scoreboard.UpdateJoueur(J);
-            // EuropeRandom();
-            onlyCity(EuropeRandom());
-           // Drapeaux();
+            Drapeaux("France");
+            nomPays.DataContext = "ISSOu";
+           questions.DataContext = J.Prenom + " A quelle capital ce pays Correspond t-il?";
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
@@ -85,11 +88,10 @@ namespace CM2Projet
         }
         public string EuropeRandom()
         {
-            List<string> ListeEurope = new List<String>() { "France:Paris", "Allemagne:Berlin", "Italie:Rome", "Espagne:Madrid", "Royaume-Unis:Londres", "Irlande:Dublin", "Portugal:Lisbonne", "Belgique:Bruxelles", "Luxembourg:Luxembourg", "Pays-Bas:Amsterdam", "Suisse:Berne", "Danemark:Copenhague", "Norvège:Oslo", "Suède:Stockholm", "Finlande:Helsinki", "Estonie:Tallinn", "Lettonie:Riga", "Lituanie:Vilnius", "Pologne:Varsovie", "RépubliqueTchèque:Prague", "Liechtenstein/", "Autriche:Vienne", "Slovaquie:Bratislava", "Hongrie:Budapest", "Slovénie:Ljubljana", "Andorre/", "Monaco/", "Saint-Marin/", "Turquie:Ankara", "Vatican/", "Croatie:Zagreb", "Bosnie-Herzégovine:Sarajevo", "Malte/", "Roumanie:Bucarest", "Yougoslavie:Belgrade", "Bulgarie:Sofia", "Albanie:Tijana", "Macédoine:Skopje", "Grèce:Athène", "Moldavie:Chisinau", "Ukraine:Kiev", "Biélorussie:Minsk", "Russie:Moscou", "Géorgie:Tbilissi", "Azerbaïdjan:Bakou", "Arménie:Erevan", "Serbie/", "Islande:Reykjavik", "Monténégro" };
+            List<string> ListeEurope = new List<String>() { "France:Paris", "Allemagne:Berlin", "Italie:Rome", "Espagne:Madrid", "Royaume-Unis:Londres", "Irlande:Dublin", "Portugal:Lisbonne", "Belgique:Bruxelles", "Luxembourg:Luxembourg", "Pays-Bas:Amsterdam", "Suisse:Berne", "Danemark:Copenhague", "Norvège:Oslo", "Suède:Stockholm", "Finlande:Helsinki", "Estonie:Tallinn", "Lettonie:Riga", "Lituanie:Vilnius", "Pologne:Varsovie", "RépubliqueTchèque:Prague", "Liechtenstein/", "Autriche:Vienne", "Slovaquie:Bratislava", "Hongrie:Budapest", "Slovénie:Ljubljana", "Andorre/", "Monaco/", "Saint-Marin/", "Turquie:Ankara", "Vatican/", "Croatie:Zagreb", "Bosnie-Herzégovine:Sarajevo", "Malte/", "Roumanie:Bucarest", "Yougoslavie:Belgrade", "Bulgarie:Sofia", "Albanie:Tijana", "Macédoine:Skopje", "Grèce:Athène", "Moldavie:Chisinau", "Ukraine:Kiev", "Biélorussie:Minsk", "Russie:Moscou", "Géorgie:Tbilissi", "Azerbaïdjan:Bakou", "Arménie:Erevan", "Serbie/", "Islande:Reykjavik", "Monténégro/" };
             Random PaysRandom = new Random();
             int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
             string PaysVilleAleatoire = ListeEurope[lavaleur];
-            Debug.WriteLine("--------------------------------------");
             Debug.WriteLine(ListeEurope[lavaleur]);
             return PaysVilleAleatoire;
         }
@@ -112,7 +114,7 @@ namespace CM2Projet
                 }
             }
 
-            Debug.WriteLine(villePays);
+            Debug.WriteLine("city:"+villePays);
             return villePays;
         }
 
@@ -123,26 +125,40 @@ namespace CM2Projet
             int compteur = 0;
             string Pays = "";
 
-            foreach (string chaine in stringRandom)
+            if (stringRandom.Contains("/"))
             {
-                compteur = chaine.IndexOf(":");
-                Pays = chaine.Substring(0, compteur);
-                //FAIRE AVEC / SINON CRASH 
+                Pays = random.Substring(0, random.Length - 1);
+                compteur = 1;
+            }
+          else
+            {
+                foreach (string chaine in stringRandom)
+                {
+
+                    compteur = chaine.IndexOf(":");
+                    Pays = chaine.Substring(0, compteur);
+                }
             }
 
-            Debug.WriteLine(Pays);
+            Debug.WriteLine("country:"+Pays);
             return Pays;
         }
 
 
         private void Drapeaux(string drapeaux)
         {
-            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/"+drapeaux+".png"));
+            ImageOk.Source = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
+
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-           Drapeaux(EuropeRandom());
+            String toFind = EuropeRandom();
+            string cityToFind = onlyCity(toFind);
+            string countryToFind = onlyCountry(toFind);
+            nomPays.DataContext = countryToFind;
+            Drapeaux(countryToFind);
+            
         }
 
         private bool Reponse()
@@ -150,7 +166,7 @@ namespace CM2Projet
             bool etat = false;
             if (etat == true)
             {
-
+                
             }
             else
             {
