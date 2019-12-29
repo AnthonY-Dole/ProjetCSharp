@@ -28,7 +28,7 @@ namespace CM2Projet
     {
         Joueur J = null;
         pageScores scoreboard = new pageScores();
-        String toFind;
+        string toFind;
         string cityToFind;
         string countryToFind;
 
@@ -62,29 +62,30 @@ namespace CM2Projet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             scoreboard.UpdateJoueur(J);
-            Drapeaux("France");
-            nomPays.DataContext = "ISSOu";
-           questions.DataContext = J.Prenom + " A quelle capital ce pays Correspond t-il?";
+            BtnDrapeaux_Click(sender, e);
+            questions.DataContext = J.Prenom +"Quelle est la capital?";
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
         {
-            winGame();
+           
+            Reponse(choice4.Content.ToString());
+            
         }
 
         private void choice1_Click(object sender, RoutedEventArgs e)
         {
-           
+            Reponse(choice1.Content.ToString());
         }
 
         private void choice2_Click(object sender, RoutedEventArgs e)
         {
-            loseGame();
+            Reponse(choice2.Content.ToString());
         }
 
         private void choice3_Click(object sender, RoutedEventArgs e)
         {
-            loseGame();
+            Reponse(choice3.Content.ToString());
         }
         public string EuropeRandom()
         {
@@ -158,12 +159,12 @@ namespace CM2Projet
              countryToFind = onlyCountry(toFind);
             nomPays.DataContext = countryToFind;
             Drapeaux(countryToFind);
-            Reponse();
+            RandomButton();
             
         }
 
-        private bool Reponse()
-        { bool etat = true;
+        private void RandomButton()
+        { 
             choice1.Content = countryToFind;
           
             List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom()) };
@@ -176,21 +177,41 @@ namespace CM2Projet
             choice2.Content = ListeVille[lavaleur1];
             choice3.Content = ListeVille[lavaleur2];
             choice4.Content = ListeVille[lavaleur3];
-           
 
-           
-            return etat;
         }
 
+        private bool Reponse(string laville)
+        {
+            bool laReponse = false;
+
+            if (laville ==cityToFind)
+            {
+                winGame();
+                laReponse = true;
+                J.ScoreGEO = J.ScoreGEO + 7;
+            }
+            else
+            {
+                loseGame();
+                laReponse = false;
+                J.ScoreGEO = J.ScoreGEO-4;
+                
+            }
+            ScoreJoueurGeo.DataContext = "Score: "+J.ScoreGEO;
+            return laReponse;
+        }
         private async void winGame()
         {
             var msgAlerte = new MessageDialog("Bravo");
+            
             await msgAlerte.ShowAsync();
+            
         }
         private async void loseGame()
         {
-            var msgAlerte = new MessageDialog("Ah dommage Arouf gangsta t pas le plus beau des rebeux ok tu va faire quoi ya QUOIIIIIIIIIIIII ta un problème??????????");
+            var msgAlerte = new MessageDialog("Ah dommage la bonne reponse était: "+cityToFind);
             await msgAlerte.ShowAsync();
+
         }
     }
 }
