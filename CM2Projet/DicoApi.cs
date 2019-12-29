@@ -15,7 +15,7 @@ namespace CM2Projet
         public string definition { get; set; }
         public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
-
+        string def = string.Empty;
 
         public DicoApi()
         {
@@ -24,11 +24,12 @@ namespace CM2Projet
         public DicoApi Get(int limite, string categorie, string unmot)
         {
             int cpt = 0;
+            int cpt2 = 0;
             var restClient = new RestClient("https://api.dicolink.com/v1/mot");
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
             request.AddParameter("limite", limite, ParameterType.QueryString);
             request.AddParameter("api_key", _apiKey);
-
+            
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
 
 
@@ -38,17 +39,22 @@ namespace CM2Projet
                 foreach (DicoApi items in reponse2.Data)
                 {
                     Debug.WriteLine(items.mot, "----2----");
-                    ANTHO.ListeMot.Add(items.mot);
+                    
+                    if (cpt2 == 1)
+                    {
+                        ANTHO.MotDico.Add(items.definition);
+                        break;
+                    }
+                    cpt2 += 1;
 
-                    break;
                 }
 
 
                 foreach (DicoApi items in reponse2.Data)
                 {
-                    if (cpt == 1)
+                    if (cpt == 2)
                     {
-                        ANTHO.MotDico.Add(items.definition);
+                        ANTHO.ListeMot.Add(items.mot);
                         break;
                     }
                     
@@ -83,6 +89,15 @@ namespace CM2Projet
             Debug.WriteLine("-----------------------");
 
             return MotAleatoire;
+        }
+
+        public string dico()
+        {
+            foreach(string s in ANTHO.MotDico)
+            {
+                def = s;
+            }
+            return def;
         }
         public bool DicoAleatoire(string joueurRep)
         {

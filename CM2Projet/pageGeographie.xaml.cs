@@ -61,7 +61,7 @@ namespace CM2Projet
             scoreboard.UpdateJoueur(J);
             // EuropeRandom();
             onlyCity(EuropeRandom());
-           Drapeaux("France");
+           // Drapeaux();
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
@@ -96,9 +96,9 @@ namespace CM2Projet
         public string onlyCity(string random)
         {
 
-            string[] stringRandom = { random};
+            string[] stringRandom = { random };
             int compteur = 0;
-            string villePays ="";
+            string villePays = "";
             if (random.Contains("/"))
             {
                 villePays = random.Substring(0, random.Length - 1);
@@ -111,7 +111,7 @@ namespace CM2Projet
                     villePays = chaine.Substring(compteur + 1);
                 }
             }
-            
+
             Debug.WriteLine(villePays);
             return villePays;
         }
@@ -122,13 +122,13 @@ namespace CM2Projet
             string[] stringRandom = { random };
             int compteur = 0;
             string Pays = "";
-         
-                foreach (string chaine in stringRandom)
-                {
-                    compteur = chaine.IndexOf(":");
-                    Pays = chaine.Substring(0,compteur);
+
+            foreach (string chaine in stringRandom)
+            {
+                compteur = chaine.IndexOf(":");
+                Pays = chaine.Substring(0, compteur);
                 //FAIRE AVEC / SINON CRASH 
-                }
+            }
 
             Debug.WriteLine(Pays);
             return Pays;
@@ -137,23 +137,18 @@ namespace CM2Projet
 
         private void Drapeaux(string drapeaux)
         {
-            ImageOk.Source = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
-
+            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/"+drapeaux+".png"));
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-           
-           String toFind = EuropeRandom();
-            string cityToFind=onlyCity(toFind);
-            string countryToFind = onlyCountry(toFind);
-            Drapeaux(countryToFind);
+           Drapeaux(EuropeRandom());
         }
 
         private bool Reponse()
         {
             bool etat = false;
-            if(etat ==true)
+            if (etat == true)
             {
 
             }
