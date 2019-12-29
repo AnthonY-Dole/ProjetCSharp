@@ -66,12 +66,7 @@ namespace CM2Projet
             DataContext = pseudoJoueur;
             J.Nom = textBoxNom.Text;
             J.Prenom = textBoxPrenom.Text;
-            //J = new Joueur(textBoxNom.Text, textBoxPrenom.Text);
             AddJoueur(J);
-          /*  Joueur currentJoueur = (Joueur);
-            Application.Current.Resources["monJoueur"] = currentJoueur; 
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(pageFrancais));*/
         }
 
         private void btnScience_Click(object sender, RoutedEventArgs e)
