@@ -147,8 +147,10 @@ namespace CM2Projet
 
         private void Drapeaux(string drapeaux)
         {
-            ImageOk.Source = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
-
+            SvgImageSource displayed = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
+            displayed.RasterizePixelHeight = 600;
+            displayed.RasterizePixelWidth = 900;
+            ImageOk.Source = displayed;
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
@@ -166,7 +168,7 @@ namespace CM2Projet
             bool etat = false;
             if (etat == true)
             {
-                etat =true
+                etat = true;
             }
             else
             {
