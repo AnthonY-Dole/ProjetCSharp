@@ -32,9 +32,9 @@
 
         <TextBlock  x:Name ="questions" Text="{Binding}" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Margin="156,134,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="445" Height="68" Grid.Column="1" Grid.RowSpan="2" />
 
-        <Button  x:Name="choice1" Click="choice1_Click"  Grid.Column="1" Margin="0,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="Paris" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" />
-        <Button  x:Name="choice2" Click="choice2_Click"  Grid.Column="1" Margin="195,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="Dublin" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
-        <Button  x:Name="choice3" Click="choice3_Click"  Grid.Column="2" Margin="60,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="Berlin" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
-        <Button  x:Name="choice4" Click="choice4_Click"  Grid.Column="2" Margin="237,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="Moscou" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
+        <Button  x:Name="choice1" Click="choice1_Click"  Grid.Column="1" Margin="0,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" />
+        <Button  x:Name="choice2" Click="choice2_Click"  Grid.Column="1" Margin="195,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
+        <Button  x:Name="choice3" Click="choice3_Click"  Grid.Column="2" Margin="60,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
+        <Button  x:Name="choice4" Click="choice4_Click"  Grid.Column="2" Margin="237,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="128" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
     </Grid>
 </Page>

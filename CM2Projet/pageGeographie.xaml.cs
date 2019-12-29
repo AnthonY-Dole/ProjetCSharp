@@ -153,27 +153,35 @@ namespace CM2Projet
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-            String toFind = EuropeRandom();
-            string cityToFind = onlyCity(toFind);
-            string countryToFind = onlyCountry(toFind);
+             toFind = EuropeRandom();
+             cityToFind = onlyCity(toFind);
+             countryToFind = onlyCountry(toFind);
             nomPays.DataContext = countryToFind;
             Drapeaux(countryToFind);
+            Reponse();
             
         }
 
         private bool Reponse()
-        {
-            bool etat = false;
-            if (etat == true)
-            {
-                etat =true
-            }
-            else
-            {
+        { bool etat = true;
+            choice1.Content = countryToFind;
+          
+            List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom()) };
+            Random villeRandom = new Random();
+            int lavaleur = villeRandom.Next(0, ListeVille.Count);
+            int lavaleur1 = villeRandom.Next(0, ListeVille.Count);
+            int lavaleur2 = villeRandom.Next(0, ListeVille.Count);
+            int lavaleur3 = villeRandom.Next(0, ListeVille.Count);
+            choice1.Content = ListeVille[lavaleur];
+            choice2.Content = ListeVille[lavaleur1];
+            choice3.Content = ListeVille[lavaleur2];
+            choice4.Content = ListeVille[lavaleur3];
+           
 
-            }
+           
             return etat;
         }
+
         private async void winGame()
         {
             var msgAlerte = new MessageDialog("Bravo");
