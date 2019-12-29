@@ -74,7 +74,7 @@ namespace CM2Projet
                     {
                         j.ScoreGEO = pJoueur.ScoreGEO;
                     }
-
+                    j.ScoreTOT = j.ScoreFR + j.ScoreGEO + j.ScoreMATH + j.ScoreSC;
 
                 }
             }
