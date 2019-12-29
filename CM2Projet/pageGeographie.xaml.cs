@@ -97,7 +97,7 @@ namespace CM2Projet
             Random PaysRandom = new Random();
             int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
             string PaysVilleAleatoire = ListeEurope[lavaleur];
-            Debug.WriteLine(ListeEurope[lavaleur]);
+          //  Debug.WriteLine(ListeEurope[lavaleur]);
             return PaysVilleAleatoire;
         }
         public string onlyCity(string random)
@@ -174,13 +174,13 @@ namespace CM2Projet
 
 
         }
-
+        int nbReponse = 0;
         private bool Reponse(string laville)
         {
             bool laReponse = false;
-            int nbReponse = 0;
-           
-            if (nbReponse <= 15)
+            nbReponse++;
+
+            if (nbReponse <= 14)
             {
                 if (laville ==cityToFind)
                   {
@@ -197,7 +197,7 @@ namespace CM2Projet
                 }
                 
                 ScoreJoueurGeo.DataContext = "Score: "+J.ScoreGEO;
-                nbReponse++;
+                
             }
             else
             {
@@ -228,7 +228,7 @@ namespace CM2Projet
             ContentDialog dialog = new ContentDialog
             {
                 Title = "Exercice ",
-                Content = "Fin du jeux",
+                Content = "Fin du jeux Votre Score:"+J.ScoreGEO,
                 PrimaryButtonText = "D'accord",
                 DefaultButton = ContentDialogButton.Primary
             };

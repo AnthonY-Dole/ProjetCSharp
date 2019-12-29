@@ -15,6 +15,7 @@ namespace CM2Projet
         public string definition { get; set; }
         public string listemot { get; set; }
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
+       
         string def = string.Empty;
 
         public DicoApi()
@@ -70,7 +71,6 @@ namespace CM2Projet
                 {
                     Debug.WriteLine(items.mot, "----2----");
                     ANTHO.ListeMot.Add(items.mot);
-
 
                 }
             }
