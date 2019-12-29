@@ -261,8 +261,8 @@ namespace CM2Projet
             if (compteurDef <= 10)
             {
 
-                Debug.WriteLine(ANTHO.MotDico);
-                foreach (string def in ANTHO.MotDico)
+                Debug.WriteLine(Data.MotDico);
+                foreach (string def in Data.MotDico)
                 {
                     int found = 0;
                     found = def.IndexOf(":");
@@ -275,7 +275,7 @@ namespace CM2Projet
                 }
                 else
                 {
-                    ANTHO.MotDico.Clear();
+                    Data.MotDico.Clear();
                     if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
                     {
 
