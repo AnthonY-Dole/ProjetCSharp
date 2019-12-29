@@ -17,6 +17,7 @@ namespace CM2Projet
         string _apiKey = "_AjY_O0PDQfz7TlaeZV5rJrOzjngiqk3";
         string def = string.Empty;
 
+        bool imp = false;
         public DicoApi()
         {
 
@@ -29,39 +30,43 @@ namespace CM2Projet
             var request = new RestRequest(unmot + "/" + categorie, Method.GET);
             request.AddParameter("limite", limite, ParameterType.QueryString);
             request.AddParameter("api_key", _apiKey);
-            
+
             var reponse2 = restClient.Execute<List<DicoApi>>(request);
 
 
             if (categorie == "definitions")
             {
-
-                foreach (DicoApi items in reponse2.Data)
+                if (imp == false)
                 {
-                    Debug.WriteLine(items.mot, "----2----");
-                    
-                    if (cpt2 == 1)
+
+
+                    foreach (DicoApi items in reponse2.Data)
                     {
-                        ANTHO.MotDico.Add(items.definition);
-                        break;
+                        Debug.WriteLine(items.mot, "----2----");
+
+                        if (cpt2 == 1)
+                        {
+                            ANTHO.MotDico.Add(items.definition);
+                            break;
+                        }
+                        cpt2 += 1;
+
                     }
-                    cpt2 += 1;
-
-                }
 
 
-                foreach (DicoApi items in reponse2.Data)
-                {
-                    if (cpt == 2)
+                    foreach (DicoApi items in reponse2.Data)
                     {
-                        ANTHO.ListeMot.Add(items.mot);
-                        break;
+                        if (cpt == 2)
+                        {
+                            ANTHO.ListeMot.Add(items.mot);
+                            break;
+                        }
+
+                        cpt += 1;
                     }
-                    
-                    cpt += 1;
+
+                    imp = true;
                 }
-
-
 
             }
             else
@@ -93,7 +98,9 @@ namespace CM2Projet
 
         public string dico()
         {
-            foreach(string s in ANTHO.MotDico)
+            string motrandom = MotsAleatoire();
+            Get(1000, "definitions", motrandom);
+            foreach (string s in ANTHO.MotDico)
             {
                 def = s;
             }
@@ -101,44 +108,50 @@ namespace CM2Projet
         }
         public bool DicoAleatoire(string joueurRep)
         {
+            bool DicoResultleatoire = false;
+
             string motrandom = MotsAleatoire();
-            bool DicoResultleatoire = motCompare("definitions", joueurRep, motrandom);
+            DicoResultleatoire = motCompare("definitions", joueurRep, motrandom);
+
+
             return DicoResultleatoire;
         }
 
         public bool motCompare(string categorie, string motuser, string motAlea)
         {
-
-            Get(1000, categorie, motAlea);
-
-            List<string> MotFind = new List<string>();
-            foreach (string l in ANTHO.ListeMot)
-            {
-                MotFind.Add(l);
-
-                int i = 0;
-                Debug.WriteLine(MotFind[i]);
-                i++;
-            }
-            ANTHO.ListeMot.Clear();
+            
             bool result = false;
-            foreach (string s in MotFind)
+            if (imp == true)
             {
-
-                if (s == motuser)
+                List<string> MotFind = new List<string>();
+                foreach (string l in ANTHO.ListeMot)
                 {
-                    result = true;
-                    Debug.WriteLine(result);
+                    MotFind.Add(l);
+
+                    int i = 0;
+                    Debug.WriteLine(MotFind[i]);
+                    i++;
                 }
-                else
+                ANTHO.ListeMot.Clear();
+                
+                foreach (string s in MotFind)
                 {
-                    Debug.WriteLine(result);
+
+                    if (s == motuser)
+                    {
+                        result = true;
+                        Debug.WriteLine(result);
+                    }
+                    else
+                    {
+                        Debug.WriteLine(result);
+
+                    }
 
                 }
-
+                MotFind.Clear();
+                imp = false;
             }
-            MotFind.Clear();
-
             return result;
         }
 
