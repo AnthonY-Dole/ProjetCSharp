@@ -166,7 +166,7 @@ namespace CM2Projet
             bool etat = false;
             if (etat == true)
             {
-                
+                etat =true
             }
             else
             {
