@@ -129,7 +129,7 @@ namespace CM2Projet
             if (stringRandom.Contains("/"))
             {
                 Pays = random.Substring(0, random.Length - 1);
-                compteur = 1;
+               
             }
           else
             {
@@ -139,6 +139,7 @@ namespace CM2Projet
                     compteur = chaine.IndexOf(":");
                     Pays = chaine.Substring(0, compteur);
                 }
+              
             }
 
             Debug.WriteLine("country:"+Pays);
