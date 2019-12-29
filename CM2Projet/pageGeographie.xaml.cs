@@ -161,7 +161,7 @@ namespace CM2Projet
         { 
             choice1.Content = countryToFind;
           
-            List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom()) };
+            List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom())};
             Random villeRandom = new Random();
             int lavaleur = villeRandom.Next(0, ListeVille.Count);
             int lavaleur1 = villeRandom.Next(0, ListeVille.Count);
@@ -171,6 +171,7 @@ namespace CM2Projet
             choice2.Content = ListeVille[lavaleur1];
             choice3.Content = ListeVille[lavaleur2];
             choice4.Content = ListeVille[lavaleur3];
+
 
         }
 
