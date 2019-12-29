@@ -102,6 +102,7 @@ namespace CM2Projet
 
                         AfficherDialogBravo();
                         J.ScoreFR = J.ScoreFR + 7;
+                        scoreboard.UpdateJoueur(J);
                         ScoreSynonyme.DataContext = "+ 14 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                         ScoreSynonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
@@ -112,6 +113,7 @@ namespace CM2Projet
                         ScoreSynonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                         AfficherDialogRessayer();
                         J.ScoreFR = J.ScoreFR - 4;
+                        scoreboard.UpdateJoueur(J);
                         ScoreSynonyme.DataContext = "- 4 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                     }
@@ -200,7 +202,8 @@ namespace CM2Projet
 
                     AfficherDialogBravo();
                     J.ScoreFR = J.ScoreFR + 7;
-                    ScoreAntonyme.DataContext = "+ 14 points";
+                        scoreboard.UpdateJoueur(J);
+                        ScoreAntonyme.DataContext = "+ 14 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                         ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
                     }
@@ -209,7 +212,8 @@ namespace CM2Projet
                         ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                         AfficherDialogRessayer();
                     J.ScoreFR = J.ScoreFR - 4;
-                    ScoreAntonyme.DataContext = "- 4 points";
+                        scoreboard.UpdateJoueur(J);
+                        ScoreAntonyme.DataContext = "- 4 points";
                     ScoreJoueur.DataContext = J.ScoreFR + " points";
                 }
                 motAlea2.DataContext = apidico.MotsAleatoire();
@@ -283,6 +287,7 @@ namespace CM2Projet
 
                         AfficherDialogBravo();
                         J.ScoreFR = J.ScoreFR + 7;
+                        scoreboard.UpdateJoueur(J);
                         ScoreDictionnaire.DataContext = "+ 30 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                         ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
@@ -293,6 +298,7 @@ namespace CM2Projet
                         ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                         AfficherDialogRessayer();
                         J.ScoreFR = J.ScoreFR - 4;
+                        scoreboard.UpdateJoueur(J);
                         ScoreDictionnaire.DataContext = "- 7 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
 
