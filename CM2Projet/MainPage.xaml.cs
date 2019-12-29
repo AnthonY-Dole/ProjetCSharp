@@ -22,7 +22,7 @@ namespace CM2Projet
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        
+
         Joueur J = null;
         Frame rootFrame = Window.Current.Content as Frame;
         public string leJoueur { get; set; }
@@ -31,17 +31,26 @@ namespace CM2Projet
         public MainPage()
         {
             this.InitializeComponent();
-           
+            init();
         }
 
         public void init()
         {
-           
+
+            textBoxNom.Text = Data.joueur.Nom;
+            textBoxPrenom.Text = Data.joueur.Prenom;
+            if(textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            {
+                btnScience.IsEnabled = true;
+                btnFrancais.IsEnabled = true;
+                btnMath.IsEnabled = true;
+                btnGeographie.IsEnabled = true;
+            }
         }
         public void AddJoueur(Joueur joueur)
         {
             bool b = false;
-            if(Data.lesJoueurs.Count > 0)
+            if (Data.lesJoueurs.Count > 0)
             {
                 foreach (Joueur j in Data.lesJoueurs)
                 {
@@ -55,7 +64,7 @@ namespace CM2Projet
             {
                 Data.lesJoueurs.Add(joueur);
             }
-            
+
         }
         private void btnjoueurvalid_Click(object sender, RoutedEventArgs e)
         {
@@ -67,30 +76,31 @@ namespace CM2Projet
             J.Nom = textBoxNom.Text;
             J.Prenom = textBoxPrenom.Text;
             AddJoueur(J);
+            Data.joueur = J;
         }
 
         private void btnScience_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageScience),J);
+            Frame.Navigate(typeof(pageScience), J);
         }
 
         private void btnFrancais_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageFrancais),J);
+            Frame.Navigate(typeof(pageFrancais), J);
         }
 
         private void btnMath_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageMath),J);
+            Frame.Navigate(typeof(pageMath), J);
         }
 
         private void btnGeographie_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            Frame.Navigate(typeof(pageGeographie),J);
+            Frame.Navigate(typeof(pageGeographie), J);
         }
 
         private void btnScore_Click(object sender, RoutedEventArgs e)
@@ -116,7 +126,7 @@ namespace CM2Projet
                 btnFrancais.IsEnabled = false;
                 btnMath.IsEnabled = false;
                 btnGeographie.IsEnabled = false;
-              
+
                 btnjoueurvalid.IsEnabled = false;
             }
         }
@@ -149,7 +159,7 @@ namespace CM2Projet
 
         private void textBoxNom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
         {
-            if ( textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            if (textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 J = new Joueur(
                 textBoxNom.Text,
@@ -159,7 +169,7 @@ namespace CM2Projet
 
         private void textBoxPrenom_LosingFocus(UIElement sender, LosingFocusEventArgs args)
         {
-            if ( textBoxNom.Text != "" && textBoxPrenom.Text != "")
+            if (textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
                 J = new Joueur(
                 textBoxNom.Text,
@@ -170,5 +180,5 @@ namespace CM2Projet
 
 
 
-    
+
 }

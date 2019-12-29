@@ -16,6 +16,10 @@ namespace CM2Projet.Metier
         private int scoreMATH;
         private int scoreGEO;
 
+        public Joueur()
+        {
+        }
+
         public Joueur(string Pnom, string Pprenom)
         {
             nom = Pnom;
