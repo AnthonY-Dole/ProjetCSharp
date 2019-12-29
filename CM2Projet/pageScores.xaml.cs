@@ -31,9 +31,9 @@ namespace CM2Projet
         public List<Joueur> LesJoueur { get; set; }
         public pageScores()
         {
-            LesJoueur = ANTHO.lesJoueurs;
+            LesJoueur = Data.lesJoueurs;
             this.InitializeComponent();
-            ANTHO.lesJoueurs.Count();
+            Data.lesJoueurs.Count();
             foreach (Joueur j in LesJoueur)
             {
                 new Joueur("", "")
@@ -54,7 +54,7 @@ namespace CM2Projet
         public void UpdateJoueur(Joueur pJoueur)
         {
          
-            foreach (Joueur j in ANTHO.lesJoueurs) 
+            foreach (Joueur j in Data.lesJoueurs) 
             {
                 if (j == pJoueur)
                 {

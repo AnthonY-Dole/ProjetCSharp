@@ -47,7 +47,7 @@ namespace CM2Projet
 
                         if (cpt2 == 1)
                         {
-                            ANTHO.MotDico.Add(items.definition);
+                            Data.MotDico.Add(items.definition);
                             break;
                         }
                         cpt2 += 1;
@@ -59,7 +59,7 @@ namespace CM2Projet
                     {
                         if (cpt == 2)
                         {
-                            ANTHO.ListeMot.Add(items.mot);
+                            Data.ListeMot.Add(items.mot);
                             break;
                         }
 
@@ -75,7 +75,7 @@ namespace CM2Projet
                 foreach (DicoApi items in reponse2.Data)
                 {
                     Debug.WriteLine(items.mot, "----2----");
-                    ANTHO.ListeMot.Add(items.mot);
+                    Data.ListeMot.Add(items.mot);
 
                 }
             }
@@ -100,7 +100,7 @@ namespace CM2Projet
         {
             string motrandom = MotsAleatoire();
             Get(1000, "definitions", motrandom);
-            foreach (string s in ANTHO.MotDico)
+            foreach (string s in Data.MotDico)
             {
                 def = s;
             }
@@ -124,7 +124,7 @@ namespace CM2Projet
             if (imp == true)
             {
                 List<string> MotFind = new List<string>();
-                foreach (string l in ANTHO.ListeMot)
+                foreach (string l in Data.ListeMot)
                 {
                     MotFind.Add(l);
 
@@ -132,7 +132,7 @@ namespace CM2Projet
                     Debug.WriteLine(MotFind[i]);
                     i++;
                 }
-                ANTHO.ListeMot.Clear();
+                Data.ListeMot.Clear();
                 
                 foreach (string s in MotFind)
                 {

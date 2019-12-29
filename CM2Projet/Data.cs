@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CM2Projet
 {
-    public class ANTHO
+    public class Data
     {
         public static List<string> ListeMot = new List<string>();
         public static List<string> MotAlea = new List<string>();

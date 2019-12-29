@@ -259,7 +259,7 @@ namespace CM2Projet
             Debug.WriteLine("CLICK SUR LE BOUTON VALIDER"); 
             int found = 0;
 
-            foreach (string s in ANTHO.MotDico)
+            foreach (string s in Data.MotDico)
             {
                 found = s.IndexOf(":");
                motAlea3.DataContext = s.Substring(0, found) + (".");
@@ -271,7 +271,7 @@ namespace CM2Projet
             }
             else
             {
-                ANTHO.MotDico.Clear();
+                Data.MotDico.Clear();
                 if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
                 {
 

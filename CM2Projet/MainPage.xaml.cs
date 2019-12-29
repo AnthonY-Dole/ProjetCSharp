@@ -41,9 +41,9 @@ namespace CM2Projet
         public void AddJoueur(Joueur joueur)
         {
             bool b = false;
-            if(ANTHO.lesJoueurs.Count > 0)
+            if(Data.lesJoueurs.Count > 0)
             {
-                foreach (Joueur j in ANTHO.lesJoueurs)
+                foreach (Joueur j in Data.lesJoueurs)
                 {
                     if (j.Nom == joueur.Nom && j.Prenom == j.Prenom)
                     {
@@ -53,7 +53,7 @@ namespace CM2Projet
             }
             if (!b)
             {
-                ANTHO.lesJoueurs.Add(joueur);
+                Data.lesJoueurs.Add(joueur);
             }
             
         }
