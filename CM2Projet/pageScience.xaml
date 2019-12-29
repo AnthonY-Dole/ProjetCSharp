@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
-        <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
+        <TextBlock  Text="Exercice de Sciences" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,125,0,0"/>
 
         <Image Source="img/svgScience.svg" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="402,140,78,176"/>
 

@@ -173,14 +173,11 @@ namespace CM2Projet
                     
 
                 }
-                else
-                {
-                    //btnValider.IsEnabled = false;
-                }
             }
 
             if (bNull)
             {
+                btnValider.IsEnabled = false;
                 foreach (TextBox tb in FindVisualChildren<TextBox>(this))
                 {
                     if (tb.Text == tb.PlaceholderText) 
