@@ -28,8 +28,6 @@
         <Button Name="BtnDrapeaux" Click="BtnDrapeaux_Click" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" BorderThickness="0" Grid.ColumnSpan="2" Margin="156,10,149,145" Grid.Row="1" Grid.RowSpan="2" IsEnabled="False" >
             <Image x:Name="ImageOk" Source="{Binding MonImage}" Stretch="Fill"/>
         </Button>
-        
-       
         <TextBlock  x:Name ="questions" Text="{Binding}" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Margin="156,134,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="445" Height="68" Grid.Column="1" Grid.RowSpan="2" />
 
         <Button  x:Name="choice1" Click="choice1_Click" Margin="188,124,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" />

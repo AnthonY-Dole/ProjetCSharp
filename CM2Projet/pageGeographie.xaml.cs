@@ -142,7 +142,7 @@ namespace CM2Projet
         private void Drapeaux(string drapeaux)
         {
            
-            ImageOk.Source = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
+            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".png"));
 
         }
 
