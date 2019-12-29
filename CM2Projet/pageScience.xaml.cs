@@ -118,43 +118,6 @@ namespace CM2Projet
             }
         }
 
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            txBx = new TextBox();
-            txBxText = string.Empty;
-            txBlck = new TextBlock();
-
-            repAlveole.Text = string.Empty;
-            repBroncheP.Text = string.Empty;
-            repFosses.Text = string.Empty;
-            repTrachee.Text = string.Empty;
-            repPharynx.Text = string.Empty;
-            repLarynx.Text = string.Empty;
-            repPoumon.Text = string.Empty;
-            repBronchiole.Text = string.Empty;
-
-            repAlveole.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repBroncheP.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repFosses.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repTrachee.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repPharynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repLarynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repPoumon.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            repBronchiole.Background = new SolidColorBrush(Windows.UI.Colors.White);
-
-            sourceRepAlevole.Visibility = Visibility.Visible;
-            sourceRepBroncheP.Visibility = Visibility.Visible;
-            sourceRepBronchiole.Visibility = Visibility.Visible;
-            sourceRepFossesN.Visibility = Visibility.Visible;
-            sourceRepLarynx.Visibility = Visibility.Visible;
-            sourceRepPharynx.Visibility = Visibility.Visible;
-            sourceRepPoumon.Visibility = Visibility.Visible;
-            sourceRepTrachee.Visibility = Visibility.Visible;
-
-            score = 0;
-            btnValider.IsEnabled = true;
-        }
-
         private async void btnValider_ClickAsync(object sender, RoutedEventArgs e)
         {
             List<TextBox> LesRepFausses = new List<TextBox>();
@@ -231,6 +194,43 @@ namespace CM2Projet
             J.ScoreSC = score;
             score = 0;
             scoreboard.UpdateJoueur(J);
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txBx = new TextBox();
+            txBxText = string.Empty;
+            txBlck = new TextBlock();
+
+            repAlveole.Text = string.Empty;
+            repBroncheP.Text = string.Empty;
+            repFosses.Text = string.Empty;
+            repTrachee.Text = string.Empty;
+            repPharynx.Text = string.Empty;
+            repLarynx.Text = string.Empty;
+            repPoumon.Text = string.Empty;
+            repBronchiole.Text = string.Empty;
+
+            repAlveole.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repBroncheP.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repFosses.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repTrachee.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repPharynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repLarynx.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repPoumon.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            repBronchiole.Background = new SolidColorBrush(Windows.UI.Colors.White);
+
+            sourceRepAlevole.Visibility = Visibility.Visible;
+            sourceRepBroncheP.Visibility = Visibility.Visible;
+            sourceRepBronchiole.Visibility = Visibility.Visible;
+            sourceRepFossesN.Visibility = Visibility.Visible;
+            sourceRepLarynx.Visibility = Visibility.Visible;
+            sourceRepPharynx.Visibility = Visibility.Visible;
+            sourceRepPoumon.Visibility = Visibility.Visible;
+            sourceRepTrachee.Visibility = Visibility.Visible;
+
+            score = 0;
+            btnValider.IsEnabled = true;
         }
     }
 }

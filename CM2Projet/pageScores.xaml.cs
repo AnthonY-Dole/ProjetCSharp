@@ -56,21 +56,21 @@ namespace CM2Projet
          
             foreach (Joueur j in Data.lesJoueurs) 
             {
-                if (j == pJoueur)
+                if (j.Nom == pJoueur.Nom && j.Prenom == pJoueur.Prenom)
                 {
-                    if(pJoueur.ScoreFR != 0)
+                    if(pJoueur.ScoreFR > j.ScoreFR)
                     {
                         j.ScoreFR = pJoueur.ScoreFR;
                     }
-                    else if(pJoueur.ScoreMATH != 0)
+                    else if(pJoueur.ScoreMATH > j.ScoreMATH)
                     {
                         j.ScoreMATH = pJoueur.ScoreMATH;
                     }
-                    else if (pJoueur.ScoreSC != 0)
+                    else if (pJoueur.ScoreSC > j.ScoreSC)
                     {
                         j.ScoreSC = pJoueur.ScoreSC;
                     }
-                    else if (pJoueur.ScoreGEO != 0)
+                    else if (pJoueur.ScoreGEO > j.ScoreGEO)
                     {
                         j.ScoreGEO = pJoueur.ScoreGEO;
                     }
