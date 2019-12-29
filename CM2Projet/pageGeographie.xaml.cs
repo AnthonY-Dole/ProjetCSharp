@@ -61,7 +61,7 @@ namespace CM2Projet
             scoreboard.UpdateJoueur(J);
             // EuropeRandom();
             onlyCity(EuropeRandom());
-           // Drapeaux();
+           Drapeaux("France");
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
@@ -71,8 +71,7 @@ namespace CM2Projet
 
         private void choice1_Click(object sender, RoutedEventArgs e)
         {
-            onlyCity(EuropeRandom());
-            onlyCountry(EuropeRandom());
+           
         }
 
         private void choice2_Click(object sender, RoutedEventArgs e)
@@ -138,12 +137,17 @@ namespace CM2Projet
 
         private void Drapeaux(string drapeaux)
         {
-            ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/"+drapeaux+".png"));
+            ImageOk.Source = new SvgImageSource(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".svg", UriKind.Absolute));
+
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-           Drapeaux(EuropeRandom());
+           
+           String toFind = EuropeRandom();
+            string cityToFind=onlyCity(toFind);
+            string countryToFind = onlyCountry(toFind);
+            Drapeaux(countryToFind);
         }
 
         private bool Reponse()
