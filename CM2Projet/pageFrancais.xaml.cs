@@ -256,13 +256,12 @@ namespace CM2Projet
 
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("CLICK SUR LE BOUTON VALIDER"); 
             int found = 0;
 
-            foreach (string s in Data.MotDico)
+            foreach (string def in ANTHO.MotDico)
             {
-                found = s.IndexOf(":");
-               motAlea3.DataContext = s.Substring(0, found) + (".");
+                found = def.IndexOf(":");
+               motAlea3.DataContext = def.Substring(0, found) + (".");
 
             }
             if (validerDefinitions.IsEnabled == false)
@@ -271,7 +270,7 @@ namespace CM2Projet
             }
             else
             {
-                Data.MotDico.Clear();
+                ANTHO.MotDico.Clear();
                 if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
                 {
 

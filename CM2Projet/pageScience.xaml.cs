@@ -170,8 +170,12 @@ namespace CM2Projet
                 if (tb.Text == "" || tb.Text == null)
                 {
                     bNull = false;
-                     
                     
+
+                }
+                else
+                {
+                    //btnValider.IsEnabled = false;
                 }
             }
 
@@ -229,7 +233,6 @@ namespace CM2Projet
 
             J.ScoreSC = score;
             score = 0;
-            btnValider.IsEnabled = false;
             scoreboard.UpdateJoueur(J);
         }
     }

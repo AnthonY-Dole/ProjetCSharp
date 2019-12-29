@@ -39,8 +39,6 @@ namespace CM2Projet
             {
                 if (imp == false)
                 {
-
-
                     foreach (DicoApi items in reponse2.Data)
                     {
                         Debug.WriteLine(items.mot, "----2----");
@@ -92,7 +90,6 @@ namespace CM2Projet
             string MotAleatoire = MotsFind[valeur];
             Debug.WriteLine(MotsFind[valeur]);
             Debug.WriteLine("-----------------------");
-
             return MotAleatoire;
         }
 
@@ -112,8 +109,6 @@ namespace CM2Projet
 
             string motrandom = MotsAleatoire();
             DicoResultleatoire = motCompare("definitions", joueurRep, motrandom);
-
-
             return DicoResultleatoire;
         }
 
