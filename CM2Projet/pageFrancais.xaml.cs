@@ -80,6 +80,7 @@ namespace CM2Projet
         }
         int compteur = 0;
         int compteurAnto = 0;
+        int compteurDef = 0;
         private void  valider_Click(object sender, RoutedEventArgs e)
         {
             compteur++;
@@ -256,45 +257,54 @@ namespace CM2Projet
 
         private void validerDefinitions_Click(object sender, RoutedEventArgs e)
         {
-            int found = 0;
+            compteurDef++;
+            if (compteurDef <= 10)
+            {
 
-            foreach (string def in ANTHO.MotDico)
-            {
-                found = def.IndexOf(":");
-               motAlea3.DataContext = def.Substring(0, found) + (".");
-
-            }
-            if (validerDefinitions.IsEnabled == false)
-            {
-                AfficherDialogRessayer();
-            }
-            else
-            {
-                ANTHO.MotDico.Clear();
-                if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
+                Debug.WriteLine(ANTHO.MotDico);
+                foreach (string def in ANTHO.MotDico)
                 {
+                    int found = 0;
+                    found = def.IndexOf(":");
+                    motAlea3.DataContext = def.Substring(0, found) + (".");
 
-                    AfficherDialogBravo();
-                    J.ScoreFR = J.ScoreFR + 7;
-                    ScoreDictionnaire.DataContext = "+ 30 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + " points";
-                    ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
-                  
+                }
+                if (validerDefinitions.IsEnabled == false)
+                {
+                    AfficherDialogRessayer();
                 }
                 else
                 {
-                    ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                    AfficherDialogRessayer();
-                    J.ScoreFR = J.ScoreFR - 4;
-                    ScoreDictionnaire.DataContext = "- 7 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + " points";
+                    ANTHO.MotDico.Clear();
+                    if (apidico.DicoAleatoire(textBoxReponseDefinitions.Text) == true)
+                    {
+
+                        AfficherDialogBravo();
+                        J.ScoreFR = J.ScoreFR + 7;
+                        ScoreDictionnaire.DataContext = "+ 30 points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+                        ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+
+                    }
+                    else
+                    {
+                        ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                        AfficherDialogRessayer();
+                        J.ScoreFR = J.ScoreFR - 4;
+                        ScoreDictionnaire.DataContext = "- 7 points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+
+                    }
+                    Debug.WriteLine("Affichage  apres click du mot");
+                    motAlea3.DataContext = apidico.dico();
 
                 }
-                Debug.WriteLine("Affichage  apres click du mot");
-                motAlea3.DataContext = apidico.dico();
-
             }
-          
+            else
+            {
+                validerAntonyme.IsEnabled = false;
+                finishGame();
+            }
         }
     }
 
