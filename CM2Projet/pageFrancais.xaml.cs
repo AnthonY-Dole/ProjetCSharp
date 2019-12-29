@@ -43,23 +43,19 @@ namespace CM2Projet
         
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            //lancement Synonyme
             prenomContext.DataContext = J.Prenom +" trouve le synonyme du mot :";
             motAlea.DataContext = apidico.MotsAleatoire();
-
-           Context.DataContext = "Trouve maintenant l'Antonyme du mot :";
+            //lancement Antonyme
+            Context.DataContext = "Trouve maintenant l'Antonyme du mot :";
             motAlea2.DataContext = apidico.MotsAleatoire();
-
+            //lancement Definition
             Dico.DataContext = "Trouve le mots de la définitions suivante:";
             motAlea3.DataContext = apidico.dico();
 
             scoreboard.UpdateJoueur(J);
-
         }
-        private async void finishGame()
-        {
-            var msgAlerte = new MessageDialog("Le jeux  et finis vous avez jouer 10 fois");
-            await msgAlerte.ShowAsync();
-        }
+       
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             J = (Joueur)e.Parameter;
@@ -69,8 +65,6 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-
-            
             scoreboard.UpdateJoueur(J);
            
         }
@@ -245,6 +239,11 @@ namespace CM2Projet
             {
                 validerAntonyme.IsEnabled = false;
             }
+        }
+        private async void finishGame()
+        {
+            var msgAlerte = new MessageDialog("Le jeux  et finis vous avez jouer 10 fois");
+            await msgAlerte.ShowAsync();
         }
         //Definitions
         private void textBoxReponseDefinitions_TextChanged(object sender, TextChangedEventArgs e)

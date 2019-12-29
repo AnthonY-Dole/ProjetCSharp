@@ -25,11 +25,10 @@
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Géographie" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
 
-        <Button Name="BtnDrapeaux" Click="BtnDrapeaux_Click" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" BorderThickness="0" Grid.ColumnSpan="2" Margin="156,10,149,145" Grid.Row="1" Grid.RowSpan="2">
+        <Button Name="BtnDrapeaux" Click="BtnDrapeaux_Click" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" BorderThickness="0" Grid.ColumnSpan="2" Margin="156,10,149,145" Grid.Row="1" Grid.RowSpan="2" IsEnabled="False" >
             <Image x:Name="ImageOk" Source="{Binding MonImage}" Stretch="Fill"/>
         </Button>
-        <TextBlock  x:Name ="clique" Text="Clique sur le drapeaux pour le changer" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Margin="138,47,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="467" Height="126" />
-
+        
        
         <TextBlock  x:Name ="questions" Text="{Binding}" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Margin="156,134,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="445" Height="68" Grid.Column="1" Grid.RowSpan="2" />
 
