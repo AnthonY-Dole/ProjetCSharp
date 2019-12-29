@@ -23,9 +23,6 @@ namespace CM2Projet
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
 
-
-
-   
     public sealed partial class pageScores : Page
     {
         public List<Joueur> LesJoueur { get; set; }
@@ -74,8 +71,11 @@ namespace CM2Projet
                     {
                         j.ScoreGEO = pJoueur.ScoreGEO;
                     }
-
-
+                    else if (pJoueur.ScoreTOT > j.ScoreTOT)
+                    {
+                        j.ScoreTOT = pJoueur.ScoreTOT;
+                    }
+                    
                 }
             }
         }

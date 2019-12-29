@@ -65,7 +65,9 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
+            J.ScoreTOT = J.ScoreTOT + J.ScoreFR;
             scoreboard.UpdateJoueur(J);
+           
            
         }
 
@@ -123,7 +125,7 @@ namespace CM2Projet
                 valider.IsEnabled = false;
             }
         }
-       
+      
 
         private void textBoxReponseSynonyme_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -302,7 +304,7 @@ namespace CM2Projet
             }
             else
             {
-                validerAntonyme.IsEnabled = false;
+                validerDefinitions.IsEnabled = false;
                 finishGame();
             }
         }

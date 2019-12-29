@@ -70,12 +70,7 @@ namespace CM2Projet.Metier
             get { return scoreGEO; }
             set { scoreGEO = value; }
         }
-        public int getTotal(int scGeo,int scMath,int scFr,int scScien)
-        {
-
-            return ScoreTOT = scGeo + scMath + scFr + scScien;
-        }
-      
+       
        
     }
 }
