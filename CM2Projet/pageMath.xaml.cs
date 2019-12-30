@@ -55,6 +55,7 @@ namespace CM2Projet
 
         public void initQuestions()
         {
+
             mySquare.Width = 200;
             mySquare.Height = 200;
             mySquare.Name = "carre";
@@ -278,7 +279,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "rectangle":
@@ -290,7 +291,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "cercle":
@@ -302,7 +303,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "ellipse":
@@ -314,7 +315,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "triangle":
@@ -326,7 +327,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "pentagone":
@@ -338,7 +339,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "hexagone":
@@ -350,7 +351,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                         case "heptagone":
@@ -362,7 +363,7 @@ namespace CM2Projet
                             else
                             {
                                 AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH + 4;
+                                J.ScoreMATH = J.ScoreMATH - 4;
                             }
                             break;
                     }
@@ -427,7 +428,11 @@ namespace CM2Projet
 
         private async void finishGame()
         {
-            var msgAlerte = new MessageDialog("Le jeux est terminé, vous avez joué 7 fois.");
+            if(J.ScoreMATH < 0)
+            {
+                J.ScoreMATH = 0;
+            }
+            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois.");
             await msgAlerte.ShowAsync();
         }
     }
