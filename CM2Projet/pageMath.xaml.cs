@@ -193,10 +193,8 @@ namespace CM2Projet
             Duration duration = new Duration(TimeSpan.FromMilliseconds(500));
             DoubleAnimation doubleAnimationX = new DoubleAnimation();
             DoubleAnimation doubleAnimationY = new DoubleAnimation();
-            DoubleAnimation doubleAnimationFade = new DoubleAnimation();
             doubleAnimationX.Duration = duration;
             doubleAnimationY.Duration = duration;
-            doubleAnimationFade.Duration = duration;
             Storyboard storyboard = new Storyboard();
             storyboard.Duration = duration;
             storyboard.Children.Add(doubleAnimationX);
