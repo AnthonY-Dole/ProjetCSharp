@@ -42,7 +42,6 @@ namespace CM2Projet
         Polygon myHexagon = new Polygon();
         Polygon myHeptagon = new Polygon();
         List<Shape> shapes = new List<Shape>();
-        int compteur = 0;
 
         public pageMath()
         {
@@ -180,6 +179,7 @@ namespace CM2Projet
             Random rng = new Random();
             int valeur = rng.Next(0, shapes.Count);
             Shape displayed = shapes[valeur];
+            Debug.WriteLine(shapes[valeur].Name);
             shapes.Remove(shapes[valeur]);
             return displayed;
         }
@@ -261,7 +261,7 @@ namespace CM2Projet
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            if(compteur < 7)
+            if (shapes.Count > 0)
             {
                 if (valider.IsEnabled == false)
                 {
@@ -380,7 +380,6 @@ namespace CM2Projet
                 finishGame();
                 valider.IsEnabled = false;
             }
-            compteur++;
         }
 
         private void MultipleTextBox_TextChanged(object sender, TextChangedEventArgs e)
