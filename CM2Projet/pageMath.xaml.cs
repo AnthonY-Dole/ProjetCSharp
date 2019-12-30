@@ -244,15 +244,15 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-            scoreboard.UpdateJoueur(J);
+            //scoreboard.UpdateJoueur(J);
         }
 
         private bool On_BackRequested()
         {
-            if (J.ScoreMATH < 0)
-            {
-                J.ScoreMATH = 0;
-            }
+            //if (J.ScoreMATH < 0)
+            //{
+            //    J.ScoreMATH = 0;
+            //}
             if (this.Frame.CanGoBack)
             {
                 this.Frame.GoBack();
@@ -433,6 +433,11 @@ namespace CM2Projet
         {
             var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56.");
             await msgAlerte.ShowAsync();
+            if (J.ScoreMATH < 0)
+            {
+                J.ScoreMATH = 0;
+            }
+            scoreboard.UpdateJoueur(J);
         }
     }
 }
