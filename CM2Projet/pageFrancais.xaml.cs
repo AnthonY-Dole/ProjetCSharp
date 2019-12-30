@@ -65,7 +65,7 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-            J.ScoreTOT = J.ScoreTOT + J.ScoreFR;
+           // J.ScoreTOT = J.ScoreTOT + J.ScoreFR;
             scoreboard.UpdateJoueur(J);
            
            
@@ -102,8 +102,8 @@ namespace CM2Projet
 
                         AfficherDialogBravo();
                         J.ScoreFR = J.ScoreFR + 7;
-                        scoreboard.UpdateJoueur(J);
-                        ScoreSynonyme.DataContext = "+ 14 points";
+                       
+                        ScoreSynonyme.DataContext = "+ 7 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                         ScoreSynonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
 
@@ -118,7 +118,7 @@ namespace CM2Projet
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                     }
                     motAlea.DataContext = apidico.MotsAleatoire();
-
+                    scoreboard.UpdateJoueur(J);
                 }
             }
             else
@@ -191,33 +191,35 @@ namespace CM2Projet
             if (compteurAnto <= 10)
             {
                 string motAfficher2 = motAlea2.DataContext.ToString();
-            if (validerAntonyme.IsEnabled == false)
-            {
-                AfficherDialogRessayer();
-            }
-            else
-            {
-                if (apidico.motCompare("antonymes",textBoxReponseAntonyme.Text, motAfficher2) == true)
+                if (validerAntonyme.IsEnabled == false)
                 {
+                    AfficherDialogRessayer();
+                }
 
-                    AfficherDialogBravo();
-                    J.ScoreFR = J.ScoreFR + 7;
-                        scoreboard.UpdateJoueur(J);
-                        ScoreAntonyme.DataContext = "+ 14 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + " points";
-                        ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
-                    }
                 else
                 {
-                        ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                        AfficherDialogRessayer();
-                    J.ScoreFR = J.ScoreFR - 4;
-                        scoreboard.UpdateJoueur(J);
-                        ScoreAntonyme.DataContext = "- 4 points";
-                    ScoreJoueur.DataContext = J.ScoreFR + " points";
-                }
-                motAlea2.DataContext = apidico.MotsAleatoire();
-                }
+                    if (apidico.motCompare("antonymes",textBoxReponseAntonyme.Text, motAfficher2) == true)
+                    {
+
+                        AfficherDialogBravo();
+                        J.ScoreFR = J.ScoreFR + 7;
+                            scoreboard.UpdateJoueur(J);
+                            ScoreAntonyme.DataContext = "+ 7points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+                            ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                        }
+                    else
+                    {
+                            ScoreAntonyme.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                            AfficherDialogRessayer();
+                        J.ScoreFR = J.ScoreFR - 4;
+                            scoreboard.UpdateJoueur(J);
+                            ScoreAntonyme.DataContext = "- 4 points";
+                        ScoreJoueur.DataContext = J.ScoreFR + " points";
+                    }
+                    motAlea2.DataContext = apidico.MotsAleatoire();
+                    }
+                scoreboard.UpdateJoueur(J);
             }
             else
             {
@@ -272,7 +274,7 @@ namespace CM2Projet
                 {
                     int found = 0;
                     found = def.IndexOf(":");
-                    motAlea3.DataContext = def.Substring(0, found) + (".");
+                    motAlea3.DataContext = def.Substring(0, found);
 
                 }
                 if (validerDefinitions.IsEnabled == false)
@@ -286,9 +288,9 @@ namespace CM2Projet
                     {
 
                         AfficherDialogBravo();
-                        J.ScoreFR = J.ScoreFR + 7;
+                        J.ScoreFR = J.ScoreFR + 15;
                         scoreboard.UpdateJoueur(J);
-                        ScoreDictionnaire.DataContext = "+ 30 points";
+                        ScoreDictionnaire.DataContext = "+ 15 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
                         ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
 
@@ -297,7 +299,7 @@ namespace CM2Projet
                     {
                         ScoreDictionnaire.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
                         AfficherDialogRessayer();
-                        J.ScoreFR = J.ScoreFR - 4;
+                        J.ScoreFR = J.ScoreFR - 7;
                         scoreboard.UpdateJoueur(J);
                         ScoreDictionnaire.DataContext = "- 7 points";
                         ScoreJoueur.DataContext = J.ScoreFR + " points";
@@ -307,6 +309,7 @@ namespace CM2Projet
                     motAlea3.DataContext = apidico.dico();
 
                 }
+                scoreboard.UpdateJoueur(J);
             }
             else
             {

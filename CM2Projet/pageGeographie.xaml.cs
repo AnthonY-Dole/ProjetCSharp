@@ -158,29 +158,24 @@ namespace CM2Projet
 
         private void RandomButton()
         { 
-            choice1.Content = countryToFind;
-          
+
             List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom())};
+            List<Button> button = new List<Button>() {choice1,choice2,choice3,choice4 };
             Random villeRandom = new Random();
-            /*  int lavaleur = villeRandom.Next(0, ListeVille.Count);
-              int lavaleur1 = villeRandom.Next(0, ListeVille.Count);
-              int lavaleur2 = villeRandom.Next(0, ListeVille.Count);
-              int lavaleur3 = villeRandom.Next(0, ListeVille.Count);
-              choice1.Content = ListeVille[lavaleur];
-              choice2.Content = ListeVille[lavaleur1];
-              choice3.Content = ListeVille[lavaleur2];
-              choice4.Content = ListeVille[lavaleur3];*/
-            List<string> data = new List<String>() { ListeVille[0], ListeVille[1],ListeVille[2],ListeVille[3] };
-            string lavaleur =  ListeVille[0];
-            string lavaleur1 = ListeVille[1];
-            string lavaleur2 = ListeVille[2];
-            string lavaleur3 = ListeVille[3];
-
-          
-
-            
+            int number = villeRandom.Next(0, 3);
+            for (int i = 0; i < ListeVille.Count; i++)
+            {
+                int number1 = villeRandom.Next(0, 3);
+                button[i].Content = ListeVille[number1];
+               
+            }
+            if (button[0].Content.ToString() != ListeVille[0] || button[1].Content.ToString() != ListeVille[0]|| button[2].Content.ToString() != ListeVille[0] || button[3].Content.ToString() != ListeVille[0])
+            {
+                button[number].Content = ListeVille[0];
 
             }
+
+        }
         int nbReponse = 0;
         private bool Reponse(string laville)
         {
