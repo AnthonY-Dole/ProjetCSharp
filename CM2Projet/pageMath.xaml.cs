@@ -249,6 +249,10 @@ namespace CM2Projet
 
         private bool On_BackRequested()
         {
+            if (J.ScoreMATH < 0)
+            {
+                J.ScoreMATH = 0;
+            }
             if (this.Frame.CanGoBack)
             {
                 this.Frame.GoBack();
@@ -259,8 +263,7 @@ namespace CM2Projet
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            compteur++;
-            if(compteur <=7)
+            if(compteur < 7)
             {
                 if (valider.IsEnabled == false)
                 {
@@ -379,7 +382,7 @@ namespace CM2Projet
                 finishGame();
                 valider.IsEnabled = false;
             }
-            
+            compteur++;
         }
 
         private void MultipleTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -428,11 +431,7 @@ namespace CM2Projet
 
         private async void finishGame()
         {
-            if(J.ScoreMATH < 0)
-            {
-                J.ScoreMATH = 0;
-            }
-            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois.");
+            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56.");
             await msgAlerte.ShowAsync();
         }
     }
