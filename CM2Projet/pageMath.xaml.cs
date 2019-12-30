@@ -431,13 +431,13 @@ namespace CM2Projet
 
         private async void finishGame()
         {
-            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56.");
-            await msgAlerte.ShowAsync();
             if (J.ScoreMATH < 0)
             {
                 J.ScoreMATH = 0;
             }
             scoreboard.UpdateJoueur(J);
+            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56.");
+            await msgAlerte.ShowAsync();
         }
     }
 }
