@@ -99,6 +99,11 @@ namespace CM2Projet
             {
                 def = s;
             }
+
+            int index = def.IndexOf(":");
+            if (index > 0)
+                def = def.Substring(0, index);
+
             return def;
         }
         public bool DicoAleatoire(string joueurRep)

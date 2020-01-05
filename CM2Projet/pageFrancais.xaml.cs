@@ -270,13 +270,6 @@ namespace CM2Projet
             {
 
                 Debug.WriteLine(Data.MotDico);
-                foreach (string def in Data.MotDico)
-                {
-                    int found = 0;
-                    found = def.IndexOf(":");
-                    motAlea3.DataContext = def.Substring(0, found);
-
-                }
                 if (validerDefinitions.IsEnabled == false)
                 {
                     AfficherDialogRessayer();
