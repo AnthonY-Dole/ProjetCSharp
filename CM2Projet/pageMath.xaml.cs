@@ -259,127 +259,133 @@ namespace CM2Projet
             return false;
         }
 
+        int compteur = 0;
+
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            if (shapes.Count > 0)
+            compteur++;
+            Debug.WriteLine("Question " + compteur + " en cours de validation :");
+            if (compteur <= 8)
             {
-                if (valider.IsEnabled == false)
+                Debug.WriteLine("Je verifie la question");
+                switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
                 {
-                    AfficherDialogRessayer();
-                }
-                else
-                {
-                    switch (LayoutRootForFigure.Children.OfType<Shape>().FirstOrDefault().Name)
-                    {
-                        case "carre":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "rectangle":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "cercle":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "ellipse":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "triangle":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "pentagone":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "hexagone":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHexagon.Name && (coteTextBox.Text == "6"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                        case "heptagone":
-                            if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHeptagon.Name && (coteTextBox.Text == "7"))
-                            {
-                                AfficherDialogBravo();
-                                J.ScoreMATH = J.ScoreMATH + 7;
-                            }
-                            else
-                            {
-                                AfficherDialogRessayer();
-                                J.ScoreMATH = J.ScoreMATH - 4;
-                            }
-                            break;
-                    }
-                    LayoutRootForFigure.Children.Clear();
-                    LayoutRootForFigure.Children.Add(randomShape());
-                    animate();
-                    nomTextBox.Text = String.Empty;
-                    coteTextBox.Text = String.Empty;
+                    case "carre":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == mySquare.Name && coteTextBox.Text == "4")
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "rectangle":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myRectangle.Name && coteTextBox.Text == "4")
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "cercle":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myCircle.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "ellipse":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myEllipse.Name && (coteTextBox.Text.ToLower() == "infini" || coteTextBox.Text == "0"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "triangle":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myTriangle.Name && (coteTextBox.Text == "3"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "pentagone":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myPentagon.Name && (coteTextBox.Text == "5"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "hexagone":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHexagon.Name && (coteTextBox.Text == "6"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
+                    case "heptagone":
+                        if (RemoveDiacritics(nomTextBox.Text).ToLower() == myHeptagon.Name && (coteTextBox.Text == "7"))
+                        {
+                            J.ScoreMATH = J.ScoreMATH + 7;
+                            AfficherDialogBravo();
+                        }
+                        else
+                        {
+                            J.ScoreMATH = J.ScoreMATH - 4;
+                            AfficherDialogRessayer();
+                        }
+                        break;
                 }
             }
-            else
+            if (compteur == 8)
             {
                 finishGame();
-                valider.IsEnabled = false;
             }
+            if (shapes.Count != 0)
+            {
+                LayoutRootForFigure.Children.Clear();
+                Debug.WriteLine("J'ajoute une figure");
+                LayoutRootForFigure.Children.Add(randomShape());
+                animate();
+                Debug.WriteLine("Je clear les champs");
+                nomTextBox.Text = String.Empty;
+                coteTextBox.Text = String.Empty;
+            } else
+            {
+                Debug.WriteLine("Je n'ajoute plus de figures");
+            }
+            Debug.WriteLine("----------");
         }
 
         private void MultipleTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -433,7 +439,7 @@ namespace CM2Projet
                 J.ScoreMATH = 0;
             }
             scoreboard.UpdateJoueur(J);
-            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56.");
+            var msgAlerte = new MessageDialog("Le jeu est terminé, vous avez joué 8 fois et obtenu " + J.ScoreMATH.ToString() + "/56 !");
             await msgAlerte.ShowAsync();
         }
     }
