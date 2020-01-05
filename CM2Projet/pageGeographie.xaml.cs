@@ -93,7 +93,7 @@ namespace CM2Projet
         }
         public string EuropeRandom()
         {
-            List<string> ListeEurope = new List<String>() { "France:Paris", "Allemagne:Berlin", "Italie:Rome", "Espagne:Madrid", "Royaume-Unis:Londres", "Irlande:Dublin", "Portugal:Lisbonne", "Belgique:Bruxelles", "Luxembourg:Luxembourg", "Pays-Bas:Amsterdam", "Suisse:Berne", "Danemark:Copenhague", "Norvège:Oslo", "Suède:Stockholm", "Finlande:Helsinki", "Estonie:Tallinn", "Lettonie:Riga", "Lituanie:Vilnius", "Pologne:Varsovie", "RépubliqueTchèque:Prague", "Liechtenstein:Liechtenstein", "Autriche:Vienne", "Slovaquie:Bratislava", "Hongrie:Budapest", "Slovénie:Ljubljana", "Andorre:Andorre", "Monaco:Monaco", "Saint-Marin:Saint-Marin", "Turquie:Ankara", "Vatican:Vatican", "Croatie:Zagreb", "Bosnie-Herzégovine:Sarajevo", "Malte:Malte", "Roumanie:Bucarest", "Yougoslavie:Belgrade", "Bulgarie:Sofia", "Albanie:Tijana", "Macédoine:Skopje", "Grèce:Athène", "Moldavie:Chisinau", "Ukraine:Kiev", "Biélorussie:Minsk", "Russie:Moscou", "Géorgie:Tbilissi", "Azerbaïdjan:Bakou", "Arménie:Erevan", "Serbie:Serbie", "Islande:Reykjavik", "Monténégro:Monténégro" };
+            List<string> ListeEurope = new List<String>() { "France:Paris", "Allemagne:Berlin", "Italie:Rome", "Espagne:Madrid", "Royaume-Unis:Londres", "Irlande:Dublin", "Portugal:Lisbonne", "Belgique:Bruxelles", "Luxembourg:Luxembourg", "Pays-Bas:Amsterdam", "Suisse:Berne", "Danemark:Copenhague", "Norvège:Oslo", "Suède:Stockholm", "Finlande:Helsinki", "Estonie:Tallinn", "Lettonie:Riga", "Lituanie:Vilnius", "Pologne:Varsovie", "RépubliqueTchèque:Prague", "Liechtenstein:Liechtenstein", "Autriche:Vienne", "Slovaquie:Bratislava", "Hongrie:Budapest", "Slovénie:Ljubljana", "Andorre:Andorre", "Monaco:Monaco", "Saint-Marin:Saint-Marin", "Vatican:Vatican", "Croatie:Zagreb", "Bosnie-Herzégovine:Sarajevo", "Malte:Malte", "Roumanie:Bucarest", "Yougoslavie:Belgrade", "Bulgarie:Sofia", "Albanie:Tijana", "Macédoine:Skopje", "Grèce:Athène", "Moldavie:Chisinau", "Ukraine:Kiev", "Biélorussie:Minsk", "Russie:Moscou", "Géorgie:Tbilissi", "Azerbaïdjan:Bakou", "Arménie:Erevan", "Serbie:Serbie", "Islande:Reykjavik", "Monténégro:Monténégro" };
             Random PaysRandom = new Random();
             int lavaleur = PaysRandom.Next(0, ListeEurope.Count);
             string PaysVilleAleatoire = ListeEurope[lavaleur];
@@ -209,7 +209,7 @@ namespace CM2Projet
                 {
                     loseGame();
                     laReponse = false;
-                    J.ScoreGEO = J.ScoreGEO - 4;
+                    J.ScoreGEO = J.ScoreGEO - 1;
 
                 }
 
