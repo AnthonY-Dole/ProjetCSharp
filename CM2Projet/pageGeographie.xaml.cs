@@ -63,12 +63,12 @@ namespace CM2Projet
         {
             scoreboard.UpdateJoueur(J);
             BtnDrapeaux_Click(sender, e);
-            questions.DataContext = J.Prenom +"Quelle est la capital du pays?";
+            questions.DataContext = J.Prenom + "Quelle est la capital du pays?";
         }
 
         private void choice4_Click(object sender, RoutedEventArgs e)
         {
-           
+
             Reponse(choice4.Content.ToString());
             BtnDrapeaux_Click(sender, e);
 
@@ -105,15 +105,15 @@ namespace CM2Projet
             string[] stringRandom = { random };
             int compteur = 0;
             string villePays = "";
-          
-                foreach (string chaine in stringRandom)
-                {
-                    compteur = chaine.IndexOf(":");
-                    villePays = chaine.Substring(compteur + 1);
-                }
+
+            foreach (string chaine in stringRandom)
+            {
+                compteur = chaine.IndexOf(":");
+                villePays = chaine.Substring(compteur + 1);
+            }
 
 
-            Debug.WriteLine("city:"+villePays);
+            Debug.WriteLine("city:" + villePays);
             return villePays;
         }
 
@@ -125,55 +125,70 @@ namespace CM2Projet
             string Pays = "";
 
 
-                foreach (string chaine in stringRandom)
-                {
+            foreach (string chaine in stringRandom)
+            {
 
-                    compteur = chaine.IndexOf(":");
-                    Pays = chaine.Substring(0, compteur);
-                }
+                compteur = chaine.IndexOf(":");
+                Pays = chaine.Substring(0, compteur);
+            }
 
 
-            Debug.WriteLine("country:"+Pays);
+            Debug.WriteLine("country:" + Pays);
             return Pays;
         }
 
 
         private void Drapeaux(string drapeaux)
         {
-           
+
             ImageOk.Source = new BitmapImage(new Uri("ms-appx:///img/Drapeaux/" + drapeaux + ".png"));
 
         }
 
         private void BtnDrapeaux_Click(object sender, RoutedEventArgs e)
         {
-             toFind = EuropeRandom();
-             cityToFind = onlyCity(toFind);
-             countryToFind = onlyCountry(toFind);
-           
+            toFind = EuropeRandom();
+            cityToFind = onlyCity(toFind);
+            countryToFind = onlyCountry(toFind);
+
             Drapeaux(countryToFind);
             RandomButton();
-            
+
         }
 
         private void RandomButton()
-        { 
-
-            List<string> ListeVille = new List<String>() {cityToFind,onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom())};
-            List<Button> button = new List<Button>() {choice1,choice2,choice3,choice4 };
+        {
+            int i = 0;
+            List<string> ListeVille = new List<String>() { cityToFind, onlyCity(EuropeRandom()), onlyCity(EuropeRandom()), onlyCity(EuropeRandom()) };
+            List<Button> button = new List<Button>() { choice1, choice2, choice3, choice4 };
             Random villeRandom = new Random();
-            int number = villeRandom.Next(0, 3);
-            for (int i = 0; i < ListeVille.Count; i++)
+            int n = ListeVille.Count;
+            while (n > 1)
             {
-                int number1 = villeRandom.Next(0, 3);
-                button[i].Content = ListeVille[number1];
-               
+                n--;
+                int k = villeRandom.Next(n + 1);
+                string value = ListeVille[k];
+                ListeVille[k] = ListeVille[n];
+                ListeVille[n] = value;
             }
-            if (button[0].Content.ToString() != ListeVille[0] || button[1].Content.ToString() != ListeVille[0]|| button[2].Content.ToString() != ListeVille[0] || button[3].Content.ToString() != ListeVille[0])
+            foreach (string s in ListeVille)
             {
-                button[number].Content = ListeVille[0];
+                button[i].Content = s;
+                i += 1;
+            }
+            //int number = villeRandom.Next(0, 3);
+            //for (int i = 0; i < ListeVille.Count; i++)
+            //{
 
-            }
+            //    int number1 = villeRandom.Next(0, 3);
+            //    button[i].Content = ListeVille[number1];
+
+            //}
+            //if (button[0].Content.ToString() != ListeVille[0] || button[1].Content.ToString() != ListeVille[0] || button[2].Content.ToString() != ListeVille[0] || button[3].Content.ToString() != ListeVille[0])
+            //{
+            //    button[number].Content = ListeVille[0];
+
+            //}
 
         }
         int nbReponse = 0;
@@ -184,22 +199,22 @@ namespace CM2Projet
 
             if (nbReponse <= 14)
             {
-                if (laville ==cityToFind)
-                  {
+                if (laville == cityToFind)
+                {
                     winGame();
                     laReponse = true;
                     J.ScoreGEO = J.ScoreGEO + 7;
-                    }
+                }
                 else
                 {
                     loseGame();
                     laReponse = false;
-                    J.ScoreGEO = J.ScoreGEO-4;
-                
+                    J.ScoreGEO = J.ScoreGEO - 4;
+
                 }
-                
-                ScoreJoueurGeo.DataContext = "Score: "+J.ScoreGEO;
-                
+
+                ScoreJoueurGeo.DataContext = "Score: " + J.ScoreGEO;
+
             }
             else
             {
@@ -209,19 +224,19 @@ namespace CM2Projet
                 choice3.IsEnabled = false;
                 choice4.IsEnabled = false;
             }
-           
+
             return laReponse;
         }
         private async void winGame()
         {
             var msgAlerte = new MessageDialog("Bravo");
-            
+
             await msgAlerte.ShowAsync();
-            
+
         }
         private async void loseGame()
         {
-            var msgAlerte = new MessageDialog("Ah dommage la bonne reponse était: "+cityToFind);
+            var msgAlerte = new MessageDialog("Ah dommage la bonne reponse était: " + cityToFind);
             await msgAlerte.ShowAsync();
 
         }
@@ -230,7 +245,7 @@ namespace CM2Projet
             ContentDialog dialog = new ContentDialog
             {
                 Title = "Exercice ",
-                Content = "Fin du jeux Votre Score:"+J.ScoreGEO,
+                Content = "Fin du jeux Votre Score:" + J.ScoreGEO,
                 PrimaryButtonText = "D'accord",
                 DefaultButton = ContentDialogButton.Primary
             };
