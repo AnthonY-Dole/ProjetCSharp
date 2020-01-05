@@ -32,7 +32,7 @@
         <TextBlock  Text="{Binding leJoueur}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40" TextWrapping="Wrap"/>
         <TextBlock Text="A quel jeux veux-tu jouer?" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center" FontSize="40" Margin="10,0,365,0"  Grid.ColumnSpan="3" SelectionChanged="TextBlock_SelectionChanged"/>
         <Button x:Name="btnScience" Click="btnScience_Click" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Height="195" FocusVisualPrimaryBrush="White"  IsEnabled="False">
-            <Image Source="img/SC.svg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="True" d:LayoutRounding="Auto" Opacity="0.995" Visibility="Visible" >
+            <Image Source="img/SC.svg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="True" d:LayoutRounding="Auto" Opacity="1" Visibility="Visible" >
                 <Image.FocusVisualPrimaryBrush>
                     <AcrylicBrush BackgroundSource="Backdrop" TintOpacity="1"/>
                 </Image.FocusVisualPrimaryBrush>
