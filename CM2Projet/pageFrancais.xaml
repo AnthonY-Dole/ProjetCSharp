@@ -20,7 +20,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-577,-489,-578,-566"/>
+
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Francais" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,-4,0,0"/>
 
@@ -46,7 +48,7 @@
         <TextBlock  x:Name ="ScoreDictionnaire" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="63,110,0,0" Width="auto" Grid.Column="3" Foreground="#FFE74C3C" Grid.Row="3" FontWeight="Bold"/>
 
 
-        <TextBlock  x:Name ="ScoreJoueur" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="337,138,0,0" Width="165" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#8e44ad" FontWeight="Bold"/>
+        <TextBlock  x:Name ="ScoreJoueur" Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="30" Margin="381,0,0,0" Width="165" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#8e44ad" FontWeight="Bold"/>
     </Grid>
 
 </Page>

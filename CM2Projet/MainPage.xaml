@@ -22,7 +22,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-452,-503,-452,-503"/>
+        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-480,-515,-480,-515"/>
 
         <TextBlock Text="Nom : " Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="258,1,0,0"/>
         <TextBox x:Name="textBoxNom" TextChanged="textBoxNom_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300" Margin="0,1,0,0" Grid.Row="1" LosingFocus="textBoxNom_LosingFocus"/>
