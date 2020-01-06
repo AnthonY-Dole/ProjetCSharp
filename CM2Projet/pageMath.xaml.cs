@@ -223,7 +223,6 @@ namespace CM2Projet
                     stringBuilder.Append(c);
                 }
             }
-
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
 
@@ -242,15 +241,10 @@ namespace CM2Projet
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             On_BackRequested();
-            //scoreboard.UpdateJoueur(J);
         }
 
         private bool On_BackRequested()
         {
-            //if (J.ScoreMATH < 0)
-            //{
-            //    J.ScoreMATH = 0;
-            //}
             if (this.Frame.CanGoBack)
             {
                 this.Frame.GoBack();
@@ -381,7 +375,8 @@ namespace CM2Projet
                 Debug.WriteLine("Je clear les champs");
                 nomTextBox.Text = String.Empty;
                 coteTextBox.Text = String.Empty;
-            } else
+            }
+            else
             {
                 Debug.WriteLine("Je n'ajoute plus de figures");
             }
