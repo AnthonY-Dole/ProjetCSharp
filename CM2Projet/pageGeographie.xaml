@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page Width="1920" Height="1080"
     x:Class="CM2Projet.pageGeographie"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="#FF34495E" Foreground="White">
-    <Grid>
+    <Grid Width="1920" Height="1080">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-271,-423,-271,-422" Loaded="Page_Loaded"/>
+        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-501,-531,-507,-610" Loaded="Page_Loaded"/>
         <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" FontSize="72" FontWeight="Normal" Margin="10,10,0,0" Foreground="White"/>
         <TextBlock  Text="Exercice de Géographie" Grid.Row="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="50" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,100,0,0"/>
 
@@ -30,10 +30,10 @@
         </Button>
         <TextBlock  x:Name ="questions" Text="{Binding}" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Margin="156,134,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2" Width="445" Height="68" Grid.Column="1" Grid.RowSpan="2" />
 
-        <Button  x:Name="choice1" Click="choice1_Click" Margin="246,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" />
-        <Button  x:Name="choice2" Click="choice2_Click"  Grid.Column="1" Margin="135,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
-        <Button  x:Name="choice3" Click="choice3_Click"  Grid.Column="2" Margin="297,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2"  />
-        <Button  x:Name="choice4" Click="choice4_Click"  Grid.Column="2" Margin="10,91,0,0" Grid.Row="3" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" VerticalAlignment="Top"  />
+        <Button  x:Name="choice1" Click="choice1_Click" Margin="297,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" />
+        <Button  x:Name="choice2" Click="choice2_Click"  Grid.Column="1" Margin="156,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25"  />
+        <Button  x:Name="choice3" Click="choice3_Click"  Grid.Column="2" Margin="396,91,0,0" Grid.Row="3" VerticalAlignment="Top" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2"  />
+        <Button  x:Name="choice4" Click="choice4_Click"  Grid.Column="2" Margin="55,91,0,0" Grid.Row="3" Height="66" Width="230" Background="#FF3498DB" Foreground="White" Content="{Binding}" BorderBrush="#FF2980B9" FontWeight="Bold" FontSize="25" VerticalAlignment="Top"  />
         <TextBlock  x:Name ="ScoreJoueurGeo" Text="{Binding}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="30" Margin="337,138,0,0" Width="165" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#8e44ad" FontWeight="Bold"/>
 
     </Grid>

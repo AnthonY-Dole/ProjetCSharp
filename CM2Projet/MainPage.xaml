@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page  Width="1920" Height="1080"
     x:Class="CM2Projet.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +8,7 @@
     mc:Ignorable="d" Background="#FF34495E" Foreground="White" >
 
 
-    <Grid AutomationProperties.HelpText="" >
+    <Grid  Width="1920" Height="1080" AutomationProperties.HelpText="" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -22,7 +22,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-416,-398,-417,-399"/>
+        <Image Source="img/TABLEAUX.svg" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="-452,-503,-452,-503"/>
 
         <TextBlock Text="Nom : " Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Margin="258,1,0,0"/>
         <TextBox x:Name="textBoxNom" TextChanged="textBoxNom_TextChanged" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="40" Height="auto" Width="300" Margin="0,1,0,0" Grid.Row="1" LosingFocus="textBoxNom_LosingFocus"/>
